@@ -2,7 +2,7 @@
 
 * [Markdown](info/markdown/markdown.md)
 * YAML
-* Git
+* [Git](info/git/git.md)
 * Ansible
 * Docker
 * Networking (OSI, TCP/IP, DNS, NAT, SNMP)
