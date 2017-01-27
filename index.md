@@ -12,4 +12,5 @@
 * Zabbix, monitoring
 * Vim
 * DevOps tools
+* [Heroku cloud](info/heroku/heroku.md)
 * [E-Books](info/ebooks/ebooks.md)
