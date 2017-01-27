@@ -37,6 +37,7 @@ git status
 ```
 
 Example output:
+
 ```bash
 [hostmorke@workstation testsuite]$ git status
 On branch master
@@ -50,8 +51,6 @@ nothing to commit (create/copy files and use "git add" to track)
 ### Add and Commit
 
 to do
-
-
 
 ***
 
