@@ -5,7 +5,7 @@
 * [Git](info/git/git.md)
 * [Ansible](info/ansible/ansible.md)
 * [Docker](info/docker/docker.md)
-* Networking (OSI, TCP/IP, DNS, NAT, SNMP)
+* [Networking (OSI, TCP/IP, DNS, NAT, SNMP)](info/python/networking/network.md)
 * [Python 3 advanced](info/python/python.md)
 * Linux Deep learn
 * Bash, sed, awk
