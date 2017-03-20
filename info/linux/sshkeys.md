@@ -1,0 +1,35 @@
+# Passwordless SSH key-based authentication
+
+To generate public/private pair of keys enter:
+
+```bash
+ssh-keygen -b 2048 -t rsa
+```
+
+Next step is to copy key to the remote server:
+
+```bash
+ssh-copy-id -i .ssh/id_rsa.pub user01@server2.example.com
+```
+
+On remote server is adviceable to edit `/etc/ssh/sshd_config`:
+
+```ini
+PasswordAuthentication no
+PubkeyAuthentication yes
+PermitRootLogin no
+```
+
+Restart the sshd service:
+
+```bash
+systemctl restart sshd
+```
+
+And try to login:
+
+```bash
+ssh server2.example.com
+```
+
+Done!
