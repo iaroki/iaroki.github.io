@@ -1,6 +1,6 @@
 # Docker cheatsheet
 
-* [Using Docker](using.md)
+* [Using Docker](usage.md)
 * [Dockerfile](dockerfile.md)
 * [Docker cheatsheet](https://github.com/wsargent/docker-cheat-sheet)
 
