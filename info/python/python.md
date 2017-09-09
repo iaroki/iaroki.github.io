@@ -2,6 +2,7 @@
 
 * [Electron as GUI](https://www.fyears.org/2015/06/electron-as-gui-of-python-apps.html)
 * [Flask](http://flask.pocoo.org/docs/0.12/)
+* [HTTP server](httpserver.md)
 
 ***
 
