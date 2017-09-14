@@ -76,6 +76,8 @@ host hidden
     proxyCommand ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p
 ```
 
+If you encounter problems with `ncat` command you can try `nc -xlocalhost:9150 -X5 %h %p`.
+
 Try to access:
 ```
 user@laptop:~$ ssh hidden
