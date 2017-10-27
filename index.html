@@ -15,8 +15,10 @@
                 <h1><a href="/">iaroki blog </a></h1>
                 <nav><ul>
                     <li><a href="/category/docker.html">Docker</a></li>
+                    <li><a href="/category/git.html">Git</a></li>
                     <li><a href="/category/linux.html">Linux</a></li>
                     <li><a href="/category/markdown.html">Markdown</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -338,6 +340,35 @@ Navigate through panes with <code>Ctrl+b</code> and <code>direction</code>; Wher
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/simple-way-to-quickly-setup-http-server.html" rel="bookmark"
+                           title="Permalink to Simple way to quickly setup HTTP server">Simple way to quickly setup HTTP server</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-08-06T12:06:00+03:00">
+                Published: Sun 06 August 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->                <h2>Python 2</h2>
+<div class="highlight"><pre><span></span>python2 -m SimpleHTTPServer
+</pre></div>
+
+
+<h2>Python 3</h2>
+<div class="highlight"><pre><span></span>python3 -m http.server
+</pre></div>
+                <a class="readmore" href="/simple-way-to-quickly-setup-http-server.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/container-volumes.html" rel="bookmark"
                            title="Permalink to Container Volumes">Container Volumes</a></h1>
                 </header>
@@ -548,6 +579,46 @@ ip route add default via <span class="m">10</span>.69 …</pre></div>
 3. Third item
 </pre></div>
                 <a class="readmore" href="/markdown-lists-cheatsheet.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/git-cheatsheet.html" rel="bookmark"
+                           title="Permalink to Git cheatsheet">Git cheatsheet</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-27T13:33:00+02:00">
+                Published: Fri 27 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/git.html">Git</a>.</p>
+<p>tags: <a href="/tag/git.html">git</a> </p>
+</footer><!-- /.post-info -->                <h3>Installation</h3>
+<p>todo</p>
+<div class="highlight"><pre><span></span>apt install git
+yum install git
+dnf install git
+pacman -S git
+</pre></div>
+
+
+<h3>Init git repository</h3>
+<p>To initialize your git repository just go to project directory and run:</p>
+<div class="highlight"><pre><span></span>git init
+</pre></div>
+
+
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>hostmorke@workstation tmp<span class="o">]</span>$ <span class="nb">cd</span> testsuite/
+<span class="o">[</span>hostmorke@workstation testsuite<span class="o">]</span>$ git init 
+Initialized empty Git repository in /home/hostmorke …</pre></div>
+                <a class="readmore" href="/git-cheatsheet.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
