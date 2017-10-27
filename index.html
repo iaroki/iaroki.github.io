@@ -652,6 +652,53 @@ Initialized empty Git repository in /home/hostmorke …</pre></div>
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/bridge-interface-for-lxc-containers.html" rel="bookmark"
+                           title="Permalink to Bridge interface for lxc-containers">Bridge interface for lxc-containers</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-09-12T00:00:00+03:00">
+                Published: Sat 12 September 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/containers.html">containers</a> <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> </p>
+</footer><!-- /.post-info -->                <p>Script for creating bridge interface and applying  iptable routing rule:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">CMD_BRCTL</span><span class="o">=</span>/sbin/brctl
+<span class="nv">CMD_IFCONFIG</span><span class="o">=</span>/sbin/ifconfig
+<span class="nv">CMD_IPTABLES</span><span class="o">=</span>/sbin/iptables
+<span class="nv">CMD_ROUTE</span><span class="o">=</span>/sbin/route
+<span class="nv">NETWORK_BRIDGE_DEVICE_NAT</span><span class="o">=</span>lxc-br0
+<span class="nv">HOST_NETDEVICE</span><span class="o">=</span>eth0
+<span class="nv">PRIVATE_GW_NAT</span><span class="o">=</span><span class="m">192</span>.168.0.1
+<span class="nv">PRIVATE_NETMASK …</span></pre></div></td></tr></table>
+                <a class="readmore" href="/bridge-interface-for-lxc-containers.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/fancy-way-to-detect-your-external-ip-address.html" rel="bookmark"
                            title="Permalink to Fancy way to detect your external IP address">Fancy way to detect your external IP address</a></h1>
                 </header>
