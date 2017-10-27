@@ -1,4 +1,7 @@
-# Simple way to quickly setup HTTP server
+Title: Simple way to quickly setup HTTP server
+Date: 08-06-2017 12:06
+Category: Python
+Tags: python
 
 ## Python 2
 
