@@ -12,6 +12,8 @@ TIMEZONE = 'Europe/Kiev'
 
 DEFAULT_LANG = 'en'
 
+OUTPUT_PATH = '.'
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
@@ -25,9 +27,9 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),)
 
 # Social widget
-SOCIAL = (('Github', '#'),
-          ('Facebook', '#'),
-          ('Instagram', '#'),)
+SOCIAL = (('Github', 'https://github.com'),
+          ('Facebook', 'https://facebook.com'),
+          ('Instagram', 'https://instagram.com'),)
 
 DEFAULT_PAGINATION = False
 
