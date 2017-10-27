@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>iaroki blog</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">iaroki blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/linux.html">Linux</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/creating-systemd-unit-file.html">Creating systemd Unit file</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-09-19T12:23:00+03:00">
+                Published: Tue 19 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/systemd.html">systemd</a> </p>
+</footer><!-- /.post-info --><p>Create a unit file in the <code>/etc/systemd/system/</code> directory and make sure it has correct file permissions. Execute as <code>root</code>:</p>
+<div class="highlight"><pre><span></span># touch /etc/systemd/system/name.service
+# chmod 664 /etc/systemd/system/name.service
+</pre></div>
+
+
+<p>Replace <code>name</code> with a name of the service to be created. Note that file does not need to be executable. </p>
+<p>Open the <code>name.service</code> file created in the previous step, and add the service configuration options. The following is an example unit configuration for a network-related service:</p>
+<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">service_description</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">path_to_executable</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
+</pre></div>
+
+
+<p>Notify systemd that a new <code>name.service</code> file exists by executing the following command as root:</p>
+<div class="highlight"><pre><span></span># systemctl daemon-reload
+# systemctl enable name.service
+# systemctl start name.service
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tor-hidden-service.html" rel="bookmark"
+                           title="Permalink to Tor hidden service">Tor hidden service</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-09-16T14:43:00+03:00">
+                Published: Sat 16 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/ssh.html">ssh</a> <a href="/tag/tor.html">tor</a> <a href="/tag/nginx.html">nginx</a> </p>
+</footer><!-- /.post-info -->                <p>As for Fedora install <code>tor</code> package, <code>nginx</code> web service and SSH server for remote control:</p>
+<div class="highlight"><pre><span></span>[root@hiddensrv ~]# dnf install tor nginx openssh-server
+</pre></div>
+
+
+<p>Now change defaultSSH port and disable root login:</p>
+<div class="highlight"><pre><span></span>[root@hiddensrv ~]# vim /etc/ssh/sshd_config
+
+# If you want to change the port on a SELinux system, you have to …</pre></div>
+                <a class="readmore" href="/tor-hidden-service.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/running-gui-applications-in-lxd-on-fedora-26.html" rel="bookmark"
+                           title="Permalink to Running GUI applications in LXD on Fedora 26">Running GUI applications in LXD on Fedora 26</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-09-14T18:13:00+03:00">
+                Published: Thu 14 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info -->                <p>Create container:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome
+</pre></div>
+
+
+<p>Install needed tools:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc exec chrome bash
+root@chrome:~# adduser iaroki
+root@chrome:~# apt update
+root@chrome:~# apt install x11-apps mesa-utils alsa-utils
+</pre></div>
+
+
+<p>Map UID and GID ramges:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid …</pre></div>
+                <a class="readmore" href="/running-gui-applications-in-lxd-on-fedora-26.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lxd-installation-on-fedora-26.html" rel="bookmark"
+                           title="Permalink to LXD installation on Fedora 26">LXD installation on Fedora 26</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-09-14T12:23:00+03:00">
+                Published: Thu 14 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info -->                <p>LXD is not working with enabled SELinux so we need to disable it with comand:</p>
+<div class="highlight"><pre><span></span>[root@fedora ~]# setenforce permissive
+</pre></div>
+
+
+<p>Enable <code>ganto</code> repository to download neded packages:</p>
+<div class="highlight"><pre><span></span>[root@fedora ~]# dnf copr enable ganto/lxd
+</pre></div>
+
+
+<p>Now time to install LXD:</p>
+<div class="highlight"><pre><span></span>[root@fedora ~]# dnf install lxd lxd-client lxd-tools
+</pre></div>
+
+
+<p>In order to run lxc …</p>
+                <a class="readmore" href="/lxd-installation-on-fedora-26.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tmux-cheatsheet.html" rel="bookmark"
+                           title="Permalink to Tmux cheatsheet">Tmux cheatsheet</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-08-06T15:54:00+03:00">
+                Published: Sun 06 August 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> </p>
+</footer><!-- /.post-info -->                <p>Meta key for tmux is <code>Ctl+b</code>!</p>
+<h3>Panes</h3>
+<p>To split pane horisontal press <code>Ctrl+b</code> and <code>"</code>.
+To split pane vertical press <code>Ctrl+b</code> and <code>%</code>.
+Navigate through panes with <code>Ctrl+b</code> and <code>direction</code>; Where <code>direction</code> is one of the arrow keys.</p>
+<h3>Windows</h3>
+<p>To create new window press <code>Ctrl+b</code> and <code>c …</code></p>
+                <a class="readmore" href="/tmux-cheatsheet.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/linux-io-redirection.html" rel="bookmark"
+                           title="Permalink to Linux I/O redirection">Linux I/O redirection</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-03-22T11:23:00+02:00">
+                Published: Wed 22 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/io.html">io</a> <a href="/tag/redirection.html">redirection</a> <a href="/tag/bash.html">bash</a> </p>
+</footer><!-- /.post-info -->                <table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Number</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stdin</td>
+<td>0</td>
+<td>Connected to the keyboard, most programs read input from this file</td>
+</tr>
+<tr>
+<td>stdout</td>
+<td>1</td>
+<td>Attached to the screen, and all programs send their results to this file</td>
+</tr>
+<tr>
+<td>stderr</td>
+<td>2</td>
+<td>Programs send status/error messages to this file which is also attached to the screen</td>
+</tr>
+</tbody>
+</table>
+<p>Redirect standard …</p>
+                <a class="readmore" href="/linux-io-redirection.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/passwordless-ssh-key-based-authentication.html" rel="bookmark"
+                           title="Permalink to Passwordless SSH key-based authentication">Passwordless SSH key-based authentication</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-03-20T13:43:00+02:00">
+                Published: Mon 20 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/ssh.html">ssh</a> </p>
+</footer><!-- /.post-info -->                <p>To generate public/private pair of keys enter:</p>
+<div class="highlight"><pre><span></span>ssh-keygen -b <span class="m">2048</span> -t rsa
+</pre></div>
+
+
+<p>Next step is to copy key to the remote server:</p>
+<div class="highlight"><pre><span></span>ssh-copy-id -i .ssh/id_rsa.pub user01@server2.example.com
+</pre></div>
+
+
+<p>On remote server is adviceable to edit <code>/etc/ssh/sshd_config</code>:</p>
+<div class="highlight"><pre><span></span><span class="na">PasswordAuthentication no</span>
+<span class="na">PubkeyAuthentication yes</span>
+<span class="na">PermitRootLogin no</span>
+</pre></div>
+
+
+<p>Restart the …</p>
+                <a class="readmore" href="/passwordless-ssh-key-based-authentication.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/arch-linux-crypto-installation.html" rel="bookmark"
+                           title="Permalink to Arch Linux crypto installation">Arch Linux crypto installation</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-03-16T12:23:00+02:00">
+                Published: Thu 16 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/archlinux.html">archlinux</a> <a href="/tag/lvm.html">lvm</a> <a href="/tag/luks.html">luks</a> </p>
+</footer><!-- /.post-info -->                <p>After live cd is loaded you need to setup network connection.
+For ethernet follow the next steps:</p>
+<div class="highlight"><pre><span></span>ip link <span class="nb">set</span> eth0 up <span class="c1">#set interface up</span>
+ip addr add <span class="m">10</span>.69.0.100/24 broadcast <span class="m">10</span>.69.0.255 dev eth0 <span class="c1">#set ip address</span>
+ip route add default via <span class="m">10</span>.69 …</pre></div>
+                <a class="readmore" href="/arch-linux-crypto-installation.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">Github</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
