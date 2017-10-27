@@ -6,7 +6,6 @@ Tags: linux, debian
 Create your script:
 
 ```
-#!/bin/sh
 mkdir /tmp/spaghetti && touch /tmp/spaghetti/meatballs.txt
 ```
 

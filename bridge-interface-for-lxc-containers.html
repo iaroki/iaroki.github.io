@@ -42,39 +42,22 @@
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/containers.html">containers</a> <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> </p>
 </footer><!-- /.post-info -->      <p>Script for creating bridge interface and applying  iptable routing rule:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span>CMD_BRCTL=/sbin/brctl
+CMD_IFCONFIG=/sbin/ifconfig
+CMD_IPTABLES=/sbin/iptables
+CMD_ROUTE=/sbin/route
+NETWORK_BRIDGE_DEVICE_NAT=lxc-br0
+HOST_NETDEVICE=eth0
+PRIVATE_GW_NAT=192.168.0.1
+PRIVATE_NETMASK=255.255.255.0
 
-<span class="nv">CMD_BRCTL</span><span class="o">=</span>/sbin/brctl
-<span class="nv">CMD_IFCONFIG</span><span class="o">=</span>/sbin/ifconfig
-<span class="nv">CMD_IPTABLES</span><span class="o">=</span>/sbin/iptables
-<span class="nv">CMD_ROUTE</span><span class="o">=</span>/sbin/route
-<span class="nv">NETWORK_BRIDGE_DEVICE_NAT</span><span class="o">=</span>lxc-br0
-<span class="nv">HOST_NETDEVICE</span><span class="o">=</span>eth0
-<span class="nv">PRIVATE_GW_NAT</span><span class="o">=</span><span class="m">192</span>.168.0.1
-<span class="nv">PRIVATE_NETMASK</span><span class="o">=</span><span class="m">255</span>.255.255.0
-
-<span class="si">${</span><span class="nv">CMD_BRCTL</span><span class="si">}</span> addbr <span class="si">${</span><span class="nv">NETWORK_BRIDGE_DEVICE_NAT</span><span class="si">}</span>
-<span class="si">${</span><span class="nv">CMD_BRCTL</span><span class="si">}</span> setfd <span class="si">${</span><span class="nv">NETWORK_BRIDGE_DEVICE_NAT</span><span class="si">}</span> <span class="m">0</span>
-<span class="si">${</span><span class="nv">CMD_IFCONFIG</span><span class="si">}</span> <span class="si">${</span><span class="nv">NETWORK_BRIDGE_DEVICE_NAT</span><span class="si">}</span> <span class="si">${</span><span class="nv">PRIVATE_GW_NAT</span><span class="si">}</span> netmask <span class="si">${</span><span class="nv">PRIVATE_NETMASK</span><span class="si">}</span> promisc up
-<span class="si">${</span><span class="nv">CMD_IPTABLES</span><span class="si">}</span> -t nat -A POSTROUTING -o <span class="si">${</span><span class="nv">HOST_NETDEVICE</span><span class="si">}</span> -j MASQUERADE
-<span class="nb">echo</span> <span class="m">1</span> &gt; /proc/sys/net/ipv4/ip_forward
+<span class="cp">${</span><span class="n">CMD_BRCTL</span><span class="cp">}</span> addbr <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span>
+<span class="cp">${</span><span class="n">CMD_BRCTL</span><span class="cp">}</span> setfd <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span> 0
+<span class="cp">${</span><span class="n">CMD_IFCONFIG</span><span class="cp">}</span> <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span> <span class="cp">${</span><span class="n">PRIVATE_GW_NAT</span><span class="cp">}</span> netmask <span class="cp">${</span><span class="n">PRIVATE_NETMASK</span><span class="cp">}</span> promisc up
+<span class="cp">${</span><span class="n">CMD_IPTABLES</span><span class="cp">}</span> -t nat -A POSTROUTING -o <span class="cp">${</span><span class="n">HOST_NETDEVICE</span><span class="cp">}</span> -j MASQUERADE
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward
 </pre></div>
-</td></tr></table>
+
 
 <p>Edit the container config:</p>
 <div class="highlight"><pre><span></span># Network configuration

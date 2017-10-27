@@ -6,8 +6,6 @@ Tags: containers, linux, lxc
 Script for creating bridge interface and applying  iptable routing rule:
 
 ```
-#!/bin/bash
-
 CMD_BRCTL=/sbin/brctl
 CMD_IFCONFIG=/sbin/ifconfig
 CMD_IPTABLES=/sbin/iptables

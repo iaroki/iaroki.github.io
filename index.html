@@ -652,6 +652,43 @@ Initialized empty Git repository in /home/hostmorke …</pre></div>
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/backup-lxc-containers.html" rel="bookmark"
+                           title="Permalink to Backup LXC containers">Backup LXC containers</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-10-20T13:44:00+03:00">
+                Published: Thu 20 October 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/containers.html">containers</a> <a href="/tag/backup.html">backup</a> </p>
+</footer><!-- /.post-info -->                <h2>Moving LXC containers between host systems</h2>
+<p>This is how migrate LXC containers between systems:
+* Shutdown the container</p>
+<div class="highlight"><pre><span></span># lxc-stop -n $NAME
+</pre></div>
+
+
+<ul>
+<li>Archive container rootfs &amp; config</li>
+</ul>
+<div class="highlight"><pre><span></span># cd /var/lib/lxc/$NAME/
+# tar --numeric-owner -czvf container_fs.tar.gz ./*
+</pre></div>
+
+
+<p>The <code>--numeric-owner</code> flag is very important! Without it, the container may not boot because the …</p>
+                <a class="readmore" href="/backup-lxc-containers.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/lxc-share-folder.html" rel="bookmark"
                            title="Permalink to LXC share folder">LXC share folder</a></h1>
                 </header>
@@ -696,31 +733,18 @@ Initialized empty Git repository in /home/hostmorke …</pre></div>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/containers.html">containers</a> <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> </p>
 </footer><!-- /.post-info -->                <p>Script for creating bridge interface and applying  iptable routing rule:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span>CMD_BRCTL=/sbin/brctl
+CMD_IFCONFIG=/sbin/ifconfig
+CMD_IPTABLES=/sbin/iptables
+CMD_ROUTE=/sbin/route
+NETWORK_BRIDGE_DEVICE_NAT=lxc-br0
+HOST_NETDEVICE=eth0
+PRIVATE_GW_NAT=192.168.0.1
+PRIVATE_NETMASK=255.255.255.0
 
-<span class="nv">CMD_BRCTL</span><span class="o">=</span>/sbin/brctl
-<span class="nv">CMD_IFCONFIG</span><span class="o">=</span>/sbin/ifconfig
-<span class="nv">CMD_IPTABLES</span><span class="o">=</span>/sbin/iptables
-<span class="nv">CMD_ROUTE</span><span class="o">=</span>/sbin/route
-<span class="nv">NETWORK_BRIDGE_DEVICE_NAT</span><span class="o">=</span>lxc-br0
-<span class="nv">HOST_NETDEVICE</span><span class="o">=</span>eth0
-<span class="nv">PRIVATE_GW_NAT</span><span class="o">=</span><span class="m">192</span>.168.0.1
-<span class="nv">PRIVATE_NETMASK …</span></pre></div></td></tr></table>
+<span class="cp">${</span><span class="n">CMD_BRCTL</span><span class="cp">}</span> addbr <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span>
+<span class="cp">${</span><span class="n">CMD_BRCTL</span><span class="cp">}</span> setfd <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span> 0
+<span class="cp">${</span><span class="n">CMD_IFCONFIG</span><span class="cp">}</span> <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span> <span class="cp">${</span><span class="n">PRIVATE_GW_NAT</span><span class="cp">}</span> netmask <span class="cp">${</span><span class="n">PRIVATE_NETMASK</span><span class="cp">}</span> promisc up …</pre></div>
                 <a class="readmore" href="/bridge-interface-for-lxc-containers.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -767,11 +791,9 @@ Initialized empty Git repository in /home/hostmorke …</pre></div>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/debian.html">debian</a> </p>
 </footer><!-- /.post-info -->                <p>Create your script:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-mkdir /tmp/spaghetti <span class="o">&amp;&amp;</span> touch /tmp/spaghetti/meatballs.txt
+<div class="highlight"><pre><span></span>mkdir /tmp/spaghetti &amp;&amp; touch /tmp/spaghetti/meatballs.txt
 </pre></div>
-</td></tr></table>
+
 
 <p>Make the script executable:</p>
 <div class="highlight"><pre><span></span>root@wheezy ~ # chmod +x spaghetti.sh
@@ -784,7 +806,7 @@ mkdir /tmp/spaghetti <span class="o">&amp;&amp;</span> touch /tmp/spaghetti/meat
 
 
 <p>Run <code>update-rc.d</code> on the new script:</p>
-<div class="highlight"><pre><span></span>root@wheezy ~ # update-rc …</pre></div>
+<div class="highlight"><pre><span></span>root@wheezy ~ # update-rc.d spaghetti.sh defaults …</pre></div>
                 <a class="readmore" href="/adding-autostart-script-to-debian-wheezy.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
