@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>LXD installation on Fedora 26</title>
+        <title>Docker usage</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -14,76 +14,77 @@
         <header id="banner" class="body">
                 <h1><a href="/">iaroki blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/docker.html">Docker</a></li>
-                    <li class="active"><a href="/category/linux.html">Linux</a></li>
+                    <li class="active"><a href="/category/docker.html">Docker</a></li>
+                    <li><a href="/category/linux.html">Linux</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/lxd-installation-on-fedora-26.html" rel="bookmark"
-           title="Permalink to LXD installation on Fedora 26">LXD installation on Fedora 26</a></h1>
+        <a href="/docker-usage.html" rel="bookmark"
+           title="Permalink to Docker usage">Docker usage</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-09-14T12:23:00+03:00">
-                Published: Thu 14 September 2017
+        <abbr class="published" title="2017-04-15T12:37:00+03:00">
+                Published: Sat 15 April 2017
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
         </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->      <p>LXD is not working with enabled SELinux so we need to disable it with comand:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# setenforce permissive
+<p>In <a href="/category/docker.html">Docker</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info -->      <p>Running container from image:
+<code>docker run &lt;image-name&gt;</code></p>
+<p>Enable interactive shell by adding next keys:
+<code>-i</code> - intercative
+<code>-t</code> - use tty</p>
+<p><code>docker run -it python</code></p>
+<p>To remove container after it dies add:
+<code>--rm</code> - remove after exit</p>
+<p><code>docker run -it --rm python</code></p>
+<p>To name container for later use add:
+<code>--name &lt;name&gt;</code> - name container</p>
+<p><code>docker run -it --name hello busybox echo "hello"</code></p>
+<p>To mount host directory:
+<code>-v host:guest</code> - mount host dir to container</p>
+<p><code>docker run -it -v /src:/src python</code></p>
+<p>To set env variable:
+<code>-e var=value</code> - set environmental variable</p>
+<p><code>docker run -e DISPLAY=:0 chrome</code></p>
+<p>To set working directory:
+<code>-w dir</code> - set working directory to dir</p>
+<p><code>docker run -it -w /src node</code></p>
+<h3>Running GUI apps:</h3>
+<p><code>docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=:0 chrome</code></p>
+<h3>Images and containers</h3>
+<p>List images:</p>
+<div class="highlight"><pre><span></span>docker images
 </pre></div>
 
 
-<p>Enable <code>ganto</code> repository to download neded packages:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf copr enable ganto/lxd
+<p>Remove image:</p>
+<div class="highlight"><pre><span></span>docker rmi &lt;image-name&gt;
 </pre></div>
 
 
-<p>Now time to install LXD:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf install lxd lxd-client lxd-tools
+<p>List containers:</p>
+<div class="highlight"><pre><span></span>docker ps
 </pre></div>
 
 
-<p>In order to run lxc tools our user need to be in a <code>lxd</code> group, so add it:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# usermod -aG lxd iaroki
+<p><code>docker ps -a</code> shows all (including terminated) containers</p>
+<p>Remove container:</p>
+<div class="highlight"><pre><span></span>docker rm &lt;container-name&gt;
 </pre></div>
 
 
-<p>Set sub{u,g}id's range for containeraized <code>root</code> user:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# echo &quot;root:1000000:65536&quot; &gt;&gt; /etc/subuid
-[root@fedora ~]# echo &quot;root:1000000:65536&quot; &gt;&gt; /etc/subgid
+<h3>Start named container</h3>
+<div class="highlight"><pre><span></span>docker start firefox
 </pre></div>
-
-
-<p>Enable and start LXD daemon:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# systemctl enable lxd.service
-[root@fedora ~]# systemctl start lxd.service
-</pre></div>
-
-
-<p>Finally run LXD initialization:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# lxd init
-</pre></div>
-
-
-<p>And now as a normal user (<code>iaroki</code> in my case) start container:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc launch images:debian/stretch mydebian
-[iaroki@fedora ~]$ lxc exec mydebian bash
-root@mydebian:~#
-</pre></div>
-
-
-<p>Enjoy LXD!</p>
-<hr>
-<p><a href="fedoralxdgui.md">Running GUI apps in LXD</a></p>
     </div><!-- /.entry-content -->
 
   </article>

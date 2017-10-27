@@ -1,4 +1,7 @@
-# Dockerfile description
+Title: Dockerfile description
+Date: 11-04-2017 13:17
+Category: Docker
+Tags: linux, docker, containers, dockerfile
 
 ### Creating image from file
 

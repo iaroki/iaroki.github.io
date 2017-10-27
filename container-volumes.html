@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>LXD installation on Fedora 26</title>
+        <title>Container Volumes</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -14,76 +14,53 @@
         <header id="banner" class="body">
                 <h1><a href="/">iaroki blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/docker.html">Docker</a></li>
-                    <li class="active"><a href="/category/linux.html">Linux</a></li>
+                    <li class="active"><a href="/category/docker.html">Docker</a></li>
+                    <li><a href="/category/linux.html">Linux</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="/lxd-installation-on-fedora-26.html" rel="bookmark"
-           title="Permalink to LXD installation on Fedora 26">LXD installation on Fedora 26</a></h1>
+        <a href="/container-volumes.html" rel="bookmark"
+           title="Permalink to Container Volumes">Container Volumes</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-09-14T12:23:00+03:00">
-                Published: Thu 14 September 2017
+        <abbr class="published" title="2017-06-18T20:04:00+03:00">
+                Published: Sun 18 June 2017
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
         </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->      <p>LXD is not working with enabled SELinux so we need to disable it with comand:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# setenforce permissive
+<p>In <a href="/category/docker.html">Docker</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info -->      <p>To create Storage Container we can use:</p>
+<div class="highlight"><pre><span></span>docker create -v /data --name dataContainer busybox
 </pre></div>
 
 
-<p>Enable <code>ganto</code> repository to download neded packages:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf copr enable ganto/lxd
+<p>Let's add some files to it:</p>
+<div class="highlight"><pre><span></span>docker cp someFile.big dataContainer:/data/
 </pre></div>
 
 
-<p>Now time to install LXD:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf install lxd lxd-client lxd-tools
+<p>Now mount storage container to other running container using option <code>--volumes-from &lt;container&gt;</code>:</p>
+<div class="highlight"><pre><span></span>docker run --volumes-from dataContainer alpine ls /data
 </pre></div>
 
 
-<p>In order to run lxc tools our user need to be in a <code>lxd</code> group, so add it:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# usermod -aG lxd iaroki
+<p>The output will be <code>someFile.big</code>.</p>
+<p>To move storage container to another machine we can export it into a <code>.tar</code> file:</p>
+<div class="highlight"><pre><span></span>docker <span class="nb">export</span> dataContainer &gt; dataContainer.tar
 </pre></div>
 
 
-<p>Set sub{u,g}id's range for containeraized <code>root</code> user:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# echo &quot;root:1000000:65536&quot; &gt;&gt; /etc/subuid
-[root@fedora ~]# echo &quot;root:1000000:65536&quot; &gt;&gt; /etc/subgid
+<p>And restore using <code>docker import &lt;tarfile&gt;</code>:</p>
+<div class="highlight"><pre><span></span>docker import dataContainer.tar
 </pre></div>
-
-
-<p>Enable and start LXD daemon:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# systemctl enable lxd.service
-[root@fedora ~]# systemctl start lxd.service
-</pre></div>
-
-
-<p>Finally run LXD initialization:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# lxd init
-</pre></div>
-
-
-<p>And now as a normal user (<code>iaroki</code> in my case) start container:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc launch images:debian/stretch mydebian
-[iaroki@fedora ~]$ lxc exec mydebian bash
-root@mydebian:~#
-</pre></div>
-
-
-<p>Enjoy LXD!</p>
-<hr>
-<p><a href="fedoralxdgui.md">Running GUI apps in LXD</a></p>
     </div><!-- /.entry-content -->
 
   </article>

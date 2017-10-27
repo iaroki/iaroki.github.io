@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog - containers</title>
+        <title>Dockerfile description</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -14,14 +14,19 @@
         <header id="banner" class="body">
                 <h1><a href="/">iaroki blog </a></h1>
                 <nav><ul>
-                    <li><a href="/category/docker.html">Docker</a></li>
+                    <li class="active"><a href="/category/docker.html">Docker</a></li>
                     <li><a href="/category/linux.html">Linux</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/dockerfile-description.html" rel="bookmark"
+           title="Permalink to Dockerfile description">Dockerfile description</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/dockerfile-description.html">Dockerfile description</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-11-04T13:17:00+02:00">
                 Published: Sat 04 November 2017
@@ -32,7 +37,7 @@
         </address>
 <p>In <a href="/category/docker.html">Docker</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> <a href="/tag/dockerfile.html">dockerfile</a> </p>
-</footer><!-- /.post-info --><h3>Creating image from file</h3>
+</footer><!-- /.post-info -->      <h3>Creating image from file</h3>
 <p>Go to the directory with Dockerfile and run:</p>
 <div class="highlight"><pre><span></span>docker build -t imagename .
 </pre></div>
@@ -137,156 +142,11 @@ ENTRYPOINT echo
 <p><code>ONBUILD</code> - This instruction adds a trigger instruction to be executed when the image is used as the base for some other image. It behaves as if a <code>RUN</code> instruction is inserted immediately after the <code>FROM</code> instruction of the downstream Dockerfile. This is typically helpful in cases where you need a static base image with a dynamic config value that changes whenever a new image has to be built (on top of the base image).</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span>ONBUILD RUN rm -rf /usr/temp
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/running-gui-applications-in-lxd-on-fedora-26.html" rel="bookmark"
-                           title="Permalink to Running GUI applications in LXD on Fedora 26">Running GUI applications in LXD on Fedora 26</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-09-14T18:13:00+03:00">
-                Published: Thu 14 September 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>Create container:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome
 </pre></div>
+    </div><!-- /.entry-content -->
 
-
-<p>Install needed tools:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc exec chrome bash
-root@chrome:~# adduser iaroki
-root@chrome:~# apt update
-root@chrome:~# apt install x11-apps mesa-utils alsa-utils
-</pre></div>
-
-
-<p>Map UID and GID ramges:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid …</pre></div>
-                <a class="readmore" href="/running-gui-applications-in-lxd-on-fedora-26.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lxd-installation-on-fedora-26.html" rel="bookmark"
-                           title="Permalink to LXD installation on Fedora 26">LXD installation on Fedora 26</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-09-14T12:23:00+03:00">
-                Published: Thu 14 September 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>LXD is not working with enabled SELinux so we need to disable it with comand:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# setenforce permissive
-</pre></div>
-
-
-<p>Enable <code>ganto</code> repository to download neded packages:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf copr enable ganto/lxd
-</pre></div>
-
-
-<p>Now time to install LXD:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf install lxd lxd-client lxd-tools
-</pre></div>
-
-
-<p>In order to run lxc …</p>
-                <a class="readmore" href="/lxd-installation-on-fedora-26.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/container-volumes.html" rel="bookmark"
-                           title="Permalink to Container Volumes">Container Volumes</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-06-18T20:04:00+03:00">
-                Published: Sun 18 June 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/docker.html">Docker</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>To create Storage Container we can use:</p>
-<div class="highlight"><pre><span></span>docker create -v /data --name dataContainer busybox
-</pre></div>
-
-
-<p>Let's add some files to it:</p>
-<div class="highlight"><pre><span></span>docker cp someFile.big dataContainer:/data/
-</pre></div>
-
-
-<p>Now mount storage container to other running container using option <code>--volumes-from &lt;container&gt;</code>:</p>
-<div class="highlight"><pre><span></span>docker run --volumes-from dataContainer alpine ls /data
-</pre></div>
-
-
-<p>The output will be <code>someFile …</code></p>
-                <a class="readmore" href="/container-volumes.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/docker-usage.html" rel="bookmark"
-                           title="Permalink to Docker usage">Docker usage</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-04-15T12:37:00+03:00">
-                Published: Sat 15 April 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/docker.html">Docker</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>Running container from image:
-<code>docker run &lt;image-name&gt;</code></p>
-<p>Enable interactive shell by adding next keys:
-<code>-i</code> - intercative
-<code>-t</code> - use tty</p>
-<p><code>docker run -it python</code></p>
-<p>To remove container after it dies add:
-<code>--rm</code> - remove after exit</p>
-<p><code>docker run -it --rm python</code></p>
-<p>To name container for later use add:
-<code>--name &lt;name&gt;</code> - name container …</p>
-                <a class="readmore" href="/docker-usage.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
