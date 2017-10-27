@@ -386,6 +386,40 @@ ip route add default via <span class="m">10</span>.69 …</pre></div>
                 <a class="readmore" href="/arch-linux-crypto-installation.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/linux-backup-on-the-fly.html" rel="bookmark"
+                           title="Permalink to Linux backup on the fly">Linux backup on the fly</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-05-25T13:38:00+03:00">
+                Published: Fri 25 May 2012
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/backup.html">backup</a> </p>
+</footer><!-- /.post-info -->                <p>Backing-up:</p>
+<div class="highlight"><pre><span></span>cd /
+tar cvpjf backup.tar.bz2 --exclude=/proc 
+                         --exclude=/lost+found 
+                         --exclude=/backup.tar.bz2 
+                         --exclude=/mnt 
+                         --exclude=/sys /
+</pre></div>
+
+
+<p>Restoring:</p>
+<div class="highlight"><pre><span></span>tar xvpfj backup.tar.bz2 -C /
+</pre></div>
+                <a class="readmore" href="/linux-backup-on-the-fly.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
         <section id="extras" class="body">

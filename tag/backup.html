@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog</title>
+        <title>iaroki blog - backup</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -21,46 +21,34 @@
                     <li><a href="/category/python.html">Python</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-<h1>Archives for iaroki blog</h1>
 
-<dl>
-    <dt>Sat 04 November 2017</dt>
-    <dd><a href="/dockerfile-description.html">Dockerfile description</a></dd>
-    <dt>Wed 25 October 2017</dt>
-    <dd><a href="/installation-asterisk-13-on-ubuntu-1604.html">Installation Asterisk 13 on Ubuntu 16.04</a></dd>
-    <dt>Tue 19 September 2017</dt>
-    <dd><a href="/creating-systemd-unit-file.html">Creating systemd Unit file</a></dd>
-    <dt>Sat 16 September 2017</dt>
-    <dd><a href="/tor-hidden-service.html">Tor hidden service</a></dd>
-    <dt>Thu 14 September 2017</dt>
-    <dd><a href="/running-gui-applications-in-lxd-on-fedora-26.html">Running GUI applications in LXD on Fedora 26</a></dd>
-    <dt>Thu 14 September 2017</dt>
-    <dd><a href="/lxd-installation-on-fedora-26.html">LXD installation on Fedora 26</a></dd>
-    <dt>Sun 06 August 2017</dt>
-    <dd><a href="/tmux-cheatsheet.html">Tmux cheatsheet</a></dd>
-    <dt>Sun 06 August 2017</dt>
-    <dd><a href="/simple-way-to-quickly-setup-http-server.html">Simple way to quickly setup HTTP server</a></dd>
-    <dt>Sun 18 June 2017</dt>
-    <dd><a href="/container-volumes.html">Container Volumes</a></dd>
-    <dt>Sat 15 April 2017</dt>
-    <dd><a href="/docker-usage.html">Docker usage</a></dd>
-    <dt>Wed 22 March 2017</dt>
-    <dd><a href="/linux-io-redirection.html">Linux I/O redirection</a></dd>
-    <dt>Mon 20 March 2017</dt>
-    <dd><a href="/passwordless-ssh-key-based-authentication.html">Passwordless SSH key-based authentication</a></dd>
-    <dt>Thu 16 March 2017</dt>
-    <dd><a href="/arch-linux-crypto-installation.html">Arch Linux crypto installation</a></dd>
-    <dt>Sun 29 January 2017</dt>
-    <dd><a href="/markdown-lists-cheatsheet.html">Markdown lists cheatsheet</a></dd>
-    <dt>Fri 27 January 2017</dt>
-    <dd><a href="/git-cheatsheet.html">Git cheatsheet</a></dd>
-    <dt>Fri 27 January 2017</dt>
-    <dd><a href="/markdown-links-cheatsheet.html">Markdown links cheatsheet</a></dd>
-    <dt>Fri 25 May 2012</dt>
-    <dd><a href="/linux-backup-on-the-fly.html">Linux backup on the fly</a></dd>
-</dl>
-</section>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/linux-backup-on-the-fly.html">Linux backup on the fly</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-05-25T13:38:00+03:00">
+                Published: Fri 25 May 2012
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/backup.html">backup</a> </p>
+</footer><!-- /.post-info --><p>Backing-up:</p>
+<div class="highlight"><pre><span></span>cd /
+tar cvpjf backup.tar.bz2 --exclude=/proc 
+                         --exclude=/lost+found 
+                         --exclude=/backup.tar.bz2 
+                         --exclude=/mnt 
+                         --exclude=/sys /
+</pre></div>
+
+
+<p>Restoring:</p>
+<div class="highlight"><pre><span></span>tar xvpfj backup.tar.bz2 -C /
+</pre></div>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
