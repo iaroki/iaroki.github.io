@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog - systemd</title>
+        <title>iaroki blog - markdown</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -22,44 +22,63 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/creating-systemd-unit-file.html">Creating systemd Unit file</a></h1>
+                    <h1 class="entry-title"><a href="/markdown-lists-cheatsheet.html">Markdown lists cheatsheet</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-09-19T12:23:00+03:00">
-                Published: Tue 19 September 2017
+        <abbr class="published" title="2017-01-29T12:09:00+02:00">
+                Published: Sun 29 January 2017
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
         </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/systemd.html">systemd</a> </p>
-</footer><!-- /.post-info --><p>Create a unit file in the <code>/etc/systemd/system/</code> directory and make sure it has correct file permissions. Execute as <code>root</code>:</p>
-<div class="highlight"><pre><span></span># touch /etc/systemd/system/name.service
-# chmod 664 /etc/systemd/system/name.service
+<p>In <a href="/category/markdown.html">Markdown</a>.</p>
+<p>tags: <a href="/tag/markdown.html">markdown</a> </p>
+</footer><!-- /.post-info --><p>To create unordered lists add asterisk:</p>
+<div class="highlight"><pre><span></span>* First item
+* Second item
+* Third item
 </pre></div>
 
 
-<p>Replace <code>name</code> with a name of the service to be created. Note that file does not need to be executable. </p>
-<p>Open the <code>name.service</code> file created in the previous step, and add the service configuration options. The following is an example unit configuration for a network-related service:</p>
-<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">service_description</span>
-<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-
-<span class="k">[Service]</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">path_to_executable</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
-</pre></div>
-
-
-<p>Notify systemd that a new <code>name.service</code> file exists by executing the following command as root:</p>
-<div class="highlight"><pre><span></span># systemctl daemon-reload
-# systemctl enable name.service
-# systemctl start name.service
+<p>Ordered lists can be created by addint number before item:</p>
+<div class="highlight"><pre><span></span>1. First item
+2. Second item
+3. Third item
 </pre></div>                </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/markdown-links-cheatsheet.html" rel="bookmark"
+                           title="Permalink to Markdown links cheatsheet">Markdown links cheatsheet</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-27T13:22:00+02:00">
+                Published: Fri 27 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/markdown.html">Markdown</a>.</p>
+<p>tags: <a href="/tag/markdown.html">markdown</a> </p>
+</footer><!-- /.post-info -->                <p>To create link put text in square brackets and address in parentheses:</p>
+<div class="highlight"><pre><span></span>[Some google link here](https://google.com)
+</pre></div>
+
+
+<p><a href="https://google.com">Some google link here</a></p>
+                <a class="readmore" href="/markdown-links-cheatsheet.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
