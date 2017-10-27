@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog - Authors</title>
+        <title>iaroki blog - diablo</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,13 +23,38 @@
                 </ul></nav>
         </header><!-- /#banner -->
 
-<section id="content" class="body">
-    <h1>Authors on iaroki blog</h1>
-    <ul>
-        <li><a href="/author/iaroki.html">iaroki</a> (18)</li>
-    </ul>
-</section>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/diablo-2-multiple-copies.html">Diablo 2 multiple copies</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-07-29T13:56:00+03:00">
+                Published: Sun 29 July 2012
+        </abbr>
 
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/other.html">Other</a>.</p>
+<p>tags: <a href="/tag/diablo.html">diablo</a> <a href="/tag/games.html">games</a> </p>
+</footer><!-- /.post-info --><p>This is a way to run 2 copies of D2 without any crashes on the same computer.
+You will need:
+<em> 2 CD keys for BNet
+</em> 1 Hex editor</p>
+<p>Instructions:
+1. Install D2 with key, patch it fully to 1.11 and enter battle.net.
+2. Exit Battle.net again
+3. Copy your whole D2 install to another directory, eg <code>c:gamesdiablo2a</code>
+3. Uninstall d2
+4. Install d2 with the 2nd key</p>
+<p>Now you have 2 installs of D2 on your computer but you can’t start a 2nd copy since D2 complains that only one copy can be run at the same time.</p>
+<ol>
+<li>Open <code>d2gfx.dll</code> from <code>c:gamesdiablo2a</code> in the hexeditor. I used UltraEdit32 for this.</li>
+<li>Search for the bytes <code>C0 74 45</code>. in Ultraedit: press <code>Ctrl-F</code> and make sure the <code>find ASCII</code> is <strong>UNCHECKED</strong>. Enter <code>C0 74 45</code>.</li>
+<li>The cursor will jump to offset <code>84ceh</code>. Change the byte <code>74</code> to <code>EB</code>.</li>
+<li>Save <code>d2gfx.dll</code> again.</li>
+</ol>
+<p>Now the install with the modified <code>d2gfx.dll</code> can be started while the other one is already running. It will work fine including the usual <code>diablo ii.exe -w -ns</code>.</p>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
