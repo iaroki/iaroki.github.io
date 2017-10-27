@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog - Authors</title>
+        <title>iaroki blog - debian</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,13 +23,40 @@
                 </ul></nav>
         </header><!-- /#banner -->
 
-<section id="content" class="body">
-    <h1>Authors on iaroki blog</h1>
-    <ul>
-        <li><a href="/author/iaroki.html">iaroki</a> (19)</li>
-    </ul>
-</section>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/adding-autostart-script-to-debian-wheezy.html">Adding autostart script to Debian Wheezy</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-01-22T15:33:00+02:00">
+                Published: Wed 22 January 2014
+        </abbr>
 
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/debian.html">debian</a> </p>
+</footer><!-- /.post-info --><p>Create your script:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+mkdir /tmp/spaghetti <span class="o">&amp;&amp;</span> touch /tmp/spaghetti/meatballs.txt
+</pre></div>
+</td></tr></table>
+
+<p>Make the script executable:</p>
+<div class="highlight"><pre><span></span>root@wheezy ~ # chmod +x spaghetti.sh
+</pre></div>
+
+
+<p>Add your script to <code>/etc/init.d</code>:</p>
+<div class="highlight"><pre><span></span>root@wheezy ~ # mv spaghetti.sh /etc/init.d
+</pre></div>
+
+
+<p>Run <code>update-rc.d</code> on the new script:</p>
+<div class="highlight"><pre><span></span>root@wheezy ~ # update-rc.d spaghetti.sh defaults
+</pre></div>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

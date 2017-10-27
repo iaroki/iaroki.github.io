@@ -523,6 +523,46 @@ ip route add default via <span class="m">10</span>.69 …</pre></div>
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/adding-autostart-script-to-debian-wheezy.html" rel="bookmark"
+                           title="Permalink to Adding autostart script to Debian Wheezy">Adding autostart script to Debian Wheezy</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-01-22T15:33:00+02:00">
+                Published: Wed 22 January 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/debian.html">debian</a> </p>
+</footer><!-- /.post-info -->                <p>Create your script:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+mkdir /tmp/spaghetti <span class="o">&amp;&amp;</span> touch /tmp/spaghetti/meatballs.txt
+</pre></div>
+</td></tr></table>
+
+<p>Make the script executable:</p>
+<div class="highlight"><pre><span></span>root@wheezy ~ # chmod +x spaghetti.sh
+</pre></div>
+
+
+<p>Add your script to <code>/etc/init.d</code>:</p>
+<div class="highlight"><pre><span></span>root@wheezy ~ # mv spaghetti.sh /etc/init.d
+</pre></div>
+
+
+<p>Run <code>update-rc.d</code> on the new script:</p>
+<div class="highlight"><pre><span></span>root@wheezy ~ # update-rc …</pre></div>
+                <a class="readmore" href="/adding-autostart-script-to-debian-wheezy.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/linux-backup-on-the-fly.html" rel="bookmark"
                            title="Permalink to Linux backup on the fly">Linux backup on the fly</a></h1>
                 </header>
