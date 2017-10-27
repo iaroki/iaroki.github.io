@@ -747,6 +747,42 @@ Initialized empty Git repository in /home/hostmorke …</pre></div>
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/network-manager-restart-after-suspendhibernate.html" rel="bookmark"
+                           title="Permalink to Network Manager restart after suspend/hibernate">Network Manager restart after suspend/hibernate</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-10T12:22:00+03:00">
+                Published: Sat 10 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/systemd.html">systemd</a> </p>
+</footer><!-- /.post-info -->                <p>Open a terminal and type the following:</p>
+<div class="highlight"><pre><span></span>sudo nano /etc/systemd/system/wifi-resume.service 
+</pre></div>
+
+
+<p>Now paste the script in there. Exit with CTRL + X and press Y to save. </p>
+<p>Now to activate it: </p>
+<div class="highlight"><pre><span></span>sudo systemctl enable wifi-resume.service
+</pre></div>
+
+
+<p>Script:</p>
+<div class="highlight"><pre><span></span>#/etc/systemd/system/wifi-resume.service
+#sudo systemctl enable wifi-resume.service
+[Unit …</pre></div>
+                <a class="readmore" href="/network-manager-restart-after-suspendhibernate.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/bridge-interface-for-lxc-containers.html" rel="bookmark"
                            title="Permalink to Bridge interface for lxc-containers">Bridge interface for lxc-containers</a></h1>
                 </header>
