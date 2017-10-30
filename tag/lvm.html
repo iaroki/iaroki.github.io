@@ -1,220 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <title>iaroki blog - lvm</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	<meta charset="utf-8">
+	<title>lvm — iaroki blog</title>
+	<meta name="description" content="All posts which refer to tag lvm">
+	<meta name="author" content="iaroki">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+		<![endif]-->
+	<link href="/theme/css/ipython.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/css/local.css" rel="stylesheet">
+	<link href="/theme/css/pygments.css" rel="stylesheet">
 </head>
-
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">iaroki blog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/docker.html">Docker</a></li>
-                    <li><a href="/category/git.html">Git</a></li>
-                    <li><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/markdown.html">Markdown</a></li>
-                    <li><a href="/category/other.html">Other</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/arch-linux-crypto-installation.html">Arch Linux crypto installation</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2017-03-16T12:23:00+02:00">
-                Published: Thu 16 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/archlinux.html">archlinux</a> <a href="/tag/lvm.html">lvm</a> <a href="/tag/luks.html">luks</a> </p>
-</footer><!-- /.post-info --><p>After live cd is loaded you need to setup network connection.
-For ethernet follow the next steps:</p>
-<div class="highlight"><pre><span></span>ip link <span class="nb">set</span> eth0 up <span class="c1">#set interface up</span>
-ip addr add <span class="m">10</span>.69.0.100/24 broadcast <span class="m">10</span>.69.0.255 dev eth0 <span class="c1">#set ip address</span>
-ip route add default via <span class="m">10</span>.69.0.1 <span class="c1">#set gateway</span>
-</pre></div>
-
-
-<p>Setting gateway in the example above may fail. If so, you can try next commands:</p>
-<div class="highlight"><pre><span></span>ip route add <span class="m">10</span>.69.0.1 dev eth0
-ip route add default via <span class="m">10</span>.69.0.1 dev eth0
-</pre></div>
-
-
-<p>It is good to set right time now:</p>
-<div class="highlight"><pre><span></span>timedatectl set-ntp <span class="nb">true</span>
-</pre></div>
-
-
-<p>Next step is to prepare our filesystems. We will be using LVM on LUKS.
-For <code>/boot</code> i am using partition on my USB flash drive <code>/dev/sdb1</code> formatted to <code>ext2</code>.
-Encrypted partition with LUKS is <code>/dev/sda1</code>, you may choose whatever you want.</p>
-<p>So lets create LUKS encrypted partition:</p>
-<div class="highlight"><pre><span></span>cryptsetup -v --cipher aes-xts-plain64 --key-size <span class="m">512</span> --hash sha512 luksFormat /dev/sda1
-</pre></div>
-
-
-<p>You need to enter secure password in prompt, so choose wisely. Now open our partition:</p>
-<div class="highlight"><pre><span></span>cryptsetup luksOpen /dev/sda1 lvm
-</pre></div>
-
-
-<p>We opened encrypted partition <code>/dev/sda1</code> as <code>lvm</code> name and it is now available at <code>/dev/mapper/lvm</code>.
-To create LVM follow the next steps:</p>
-<div class="highlight"><pre><span></span>pvcreate /dev/mapper/lvm <span class="c1">#create physical volume</span>
-vgcreate ArchVol /dev/mapper/lvm <span class="c1">#create volume group named ArchVol</span>
-lvcreate -L 4G ArchVol -n swap <span class="c1">#in ArchVol create 4GB partition named swap</span>
-lvcreate -l <span class="m">100</span>%FREE ArchVol -n root <span class="c1">#in ArchVol create partition named root filled all remaining space</span>
-</pre></div>
-
-
-<p>After this time to format our new logical partitions:
-<em> <em>root</em> available at <code>/dev/mapper/ArchVol-root</code>
-</em> <em>swap</em> available at <code>/dev/mapper/ArchVol-swap</code>
-* <em>boot</em> is my USB flash drive at <code>/dev/sdb1</code></p>
-<div class="highlight"><pre><span></span>mkfs.ext4 /dev/mapper/ArchVol-root
-mkswap /dev/mapper/ArchVol-swap
-mkfs.ext2 /dev/sdb1
-</pre></div>
-
-
-<p>Mount aour filesystems and activate swap:</p>
-<div class="highlight"><pre><span></span>mount /dev/mapper/ArchVol-root /mnt
-mkdir /mnt/boot
-mount /dev/sdb1 /mnt/boot
-swapon /dev/mapper/ArchVol-swap
-</pre></div>
-
-
-<p>Okay,  now <strong>exact</strong> Arch installation:</p>
-<div class="highlight"><pre><span></span>pacstrap /mnt base
-</pre></div>
-
-
-<p>This bootstraps base system. To generate our <code>/etc/fstab</code> accordingly to mountpoints:</p>
-<div class="highlight"><pre><span></span>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
-</pre></div>
-
-
-<p>Now lets chroot to our system:</p>
-<div class="highlight"><pre><span></span>arch-chroot /mnt
-</pre></div>
-
-
-<p>Inside we need to set proper timezone and time:</p>
-<div class="highlight"><pre><span></span>ln -s /usr/share/zoneinfo/Europe/London /etc/localtime
-hwclock --systohc
-</pre></div>
-
-
-<p>To setup locales just select and generate them:</p>
-<div class="highlight"><pre><span></span>nano /etc/locale.gen
-locale-gen
-/etc/locale.conf <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-</pre></div>
-
-
-<p>Fill the hostname:</p>
-<div class="highlight"><pre><span></span>nano /etc/hostname
-nano /etc/hosts
-</pre></div>
-
-
-<p>Arch Linux has many available ways to configure network. So i am using <code>systemd-networkd</code>.
-For wired ethernet connection create the next config <code>/etc/systemd/network/wired.network</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">[Match]</span>
-<span class="na">Name</span> <span class="o">=</span> <span class="s">eth0</span>
-
-<span class="k">[Network]</span>
-<span class="na">Address</span> <span class="o">=</span> <span class="s">10.69.0.100/24</span>
-<span class="na">Gateway</span> <span class="o">=</span> <span class="s">10.69.0.1</span>
-<span class="na">DNS</span> <span class="o">=</span> <span class="s">8.8.8.8</span>
-</pre></div>
-
-
-<p>We are almost done. The few things which are left is generating <code>initramfs image</code> and installing bootloader.
-Our <code>initramfs image</code> must be configured with extra features such as <code>lvm</code> and <code>encrypt</code>.
-Edit configuration file <code>/etc/mkinitcpio.conf</code>:</p>
-<div class="highlight"><pre><span></span><span class="na">HOOKS</span><span class="o">=</span><span class="s">&quot;...  encrypt  lvm2  ...  filesystems  ...&quot;</span>
-<span class="na">MODULES</span><span class="o">=</span><span class="s">&quot;i915&quot;  #if you use intel graphics</span>
-</pre></div>
-
-
-<p>Generate <code>initramfs</code>:
-<code>mkinitcpio -p linux</code></p>
-<p>Set <code>root</code> password:
-<code>passwd root</code></p>
-<p>Install and configure bootloader:</p>
-<div class="highlight"><pre><span></span>pacman -S grub
-</pre></div>
-
-
-<p>Next you need to add your encrypted partition UUID to <code>grub</code> config. You can get it by running next command:</p>
-<div class="highlight"><pre><span></span>blkid /dev/sda1
-
-<span class="c1"># example output</span>
-/dev/sda1: <span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;cddd0a60-8281-4a09-8cce-1c5cb8849f62&quot;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;crypto_LUKS&quot;</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;61979b00-998a-409d-aeb1-08e50f45023c&quot;</span>
-</pre></div>
-
-
-<p>Note the <strong>UUID</strong> part. Add it to <code>/etc/default/grub</code>:</p>
-<div class="highlight"><pre><span></span>GRUB_CMDLINE_LINUX_DEFAULT=&quot;cryptdevice=UUID=cddd0a60-8281-4a09-8cce-1c5cb8849f62:lvm&quot;
-</pre></div>
-
-
-<p>Install bootloader to MBR of our USB flash drive and generate config:</p>
-<div class="highlight"><pre><span></span>grub-install --target<span class="o">=</span>i386-pc /dev/sdb1
-grub-mkconfig -o /boot/grub/grub.cfg
-</pre></div>
-
-
-<p>At this point we have everything done. Time to unmount our partitions and reboot.</p>
-<div class="highlight"><pre><span></span><span class="nb">exit</span>
-umount /mnt/boot
-umount /mnt
-swapoff /dev/mapper/ArchVol-swap
-reboot
-</pre></div>
-
-
-<p>Congratulations! Enjoy your fresh Arch Linux system on encrypted partition and boot USB flash drive as a key!</p>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="https://github.com">Github</a></li>
-                            <li><a href="https://facebook.com">Facebook</a></li>
-                            <li><a href="https://instagram.com">Instagram</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1><a href="/">iaroki blog</a>
+			<br>	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+<h1>Tag <small>lvm</small></h1>
+<table class="table">
+    <tbody>
+        <tr>
+        <td>16 Mar 2017</td>
+        <td><a href='/arch-linux-crypto-installation.html'>Arch Linux crypto installation</a></td>
+        </tr>
+    </tbody>
+</table>
+		</div>
+	</div> 	<!-- <hr> -->
+</div> <!-- /container -->
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Navigation</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="">iaroki blog</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Author</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="https://github.com">Github</a></li>
+							<li><a href="https://facebook.com">Facebook</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Categories</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="/category/docker.html">Docker (3)</a></li>
+							<li><a href="/category/git.html">Git (1)</a></li>
+							<li><a href="/category/linux.html">Linux (17)</a></li>
+							<li><a href="/category/markdown.html">Markdown (2)</a></li>
+							<li><a href="/category/other.html">Other (1)</a></li>
+							<li><a href="/category/python.html">Python (1)</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Links</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://getpelican.com/">Pelican</a></li>
+							<li><a href="http://python.org/">Python.org</a></li>
+							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>&copy; iaroki 2016</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
 </body>
 </html>

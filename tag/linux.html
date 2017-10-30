@@ -1,815 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <title>iaroki blog - linux</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	<meta charset="utf-8">
+	<title>linux — iaroki blog</title>
+	<meta name="description" content="All posts which refer to tag linux">
+	<meta name="author" content="iaroki">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="/theme/html5.js"></script>
+		<![endif]-->
+	<link href="/theme/css/ipython.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="/theme/css/local.css" rel="stylesheet">
+	<link href="/theme/css/pygments.css" rel="stylesheet">
 </head>
-
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">iaroki blog </a></h1>
-                <nav><ul>
-                    <li><a href="/category/docker.html">Docker</a></li>
-                    <li><a href="/category/git.html">Git</a></li>
-                    <li><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/markdown.html">Markdown</a></li>
-                    <li><a href="/category/other.html">Other</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/dockerfile-description.html">Dockerfile description</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2017-11-04T13:17:00+02:00">
-                Published: Sat 04 November 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/docker.html">Docker</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> <a href="/tag/dockerfile.html">dockerfile</a> </p>
-</footer><!-- /.post-info --><h3>Creating image from file</h3>
-<p>Go to the directory with Dockerfile and run:</p>
-<div class="highlight"><pre><span></span>docker build -t imagename .
-</pre></div>
-
-
-<h3>Dockerfile instructions</h3>
-<p><strong>FROM</strong></p>
-<p><code>FROM</code> - This instruction is used to set the base image for subsequent instructions. It is mandatory to set this in the first line of a Dockerfile. You can use it any number of times though.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>FROM debian:jessie
-</pre></div>
-
-
-<p><strong>MAINTAINER</strong></p>
-<p><code>MAINTAINER</code> - This is a non-executable instruction used to indicate the author of the Dockerfile.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>MAINTAINER iaroki
-</pre></div>
-
-
-<p><strong>RUN</strong></p>
-<p><code>RUN</code> - This instruction lets you execute a command on top of an existing layer and create a new layer with the results of command execution.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>FROM debian:jessie
-RUN apt-get update &amp;&amp; apt-get install python3 -y
-</pre></div>
-
-
-<p><strong>CMD</strong></p>
-<p><code>CMD</code> - The major difference between <code>CMD</code> and <code>RUN</code> is that <code>CMD</code> doesn’t execute anything during the build time. It just specifies the intended command for the image. Whereas <code>RUN</code> actually executes the command during build time.</p>
-<p>Note: there can be only one <code>CMD</code> instruction in a Dockerfile, if you add more, only the last one takes effect.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>CMD [&quot;echo&quot;, &quot;say hello&quot;]
-</pre></div>
-
-
-<p><strong>EXPOSE</strong></p>
-<p><code>EXPOSE</code> - While running your service in the container you may want your container to listen on specified ports. The <code>EXPOSE</code> instruction helps you do this.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>EXPOSE 9000
-</pre></div>
-
-
-<p><strong>ENV</strong></p>
-<p><code>ENV</code> - This instruction can be used to set the environment variables in the container.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>ENV HOME=/home/user
-</pre></div>
-
-
-<p><strong>USER</strong></p>
-<p><code>USER</code> - This is used to set the UID (or username) to use when running the image.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>USER iaroki
-</pre></div>
-
-
-<p><strong>WORKDIR</strong></p>
-<p><code>WORKDIR</code> - This is used to set the currently active directory for other instructions such as <code>RUN</code>, <code>CMD</code>, <code>ENTRYPOINT</code>, <code>COPY</code> and <code>ADD</code>.</p>
-<p>Note that if relative path is provided, the next <code>WORKDIR</code> instruction will take it as relative to the path of previous <code>WORKDIR</code> instruction.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>WORKDIR /user
-WORKDIR home
-RUN pwd
-</pre></div>
-
-
-<p>This will output the path as <code>/user/home</code>.</p>
-<p><strong>COPY</strong></p>
-<p><code>COPY</code> - This instruction is used to copy files and directories from a specified source to a destination (in the file system of the container).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>COPY preconditions.txt /usr/temp
-</pre></div>
-
-
-<p><strong>ADD</strong></p>
-<p><code>ADD</code> - This instruction is similar to the <code>COPY</code> instruction with few added features like remote URL support in the source field and local-only tar extraction. But if you don’t need a extra features, it is suggested to use <code>COPY</code> as it is more readable.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>ADD http://www.site.com/downloads/sample.tar.xz /usr/src
-</pre></div>
-
-
-<p><strong>ENTRYPOINT</strong></p>
-<p><code>ENTRYPOINT</code> - You can use this instruction to set the primary command for the image.</p>
-<p>For example, if you have installed only one application in your image and want it to run whenever the image is executed, <code>ENTRYPOINT</code> is the instruction for you.</p>
-<p>Note: arguments are optional, and you can pass them during the runtime with something like <code>docker run &lt;image-name&gt;</code>.</p>
-<p>Also, all the elements specified using <code>CMD</code> will be overridden, except the arguments. They will be passed to the command specified in <code>ENTRYPOINT</code>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>CMD &quot;Hello World!&quot;
-ENTRYPOINT echo
-</pre></div>
-
-
-<p><strong>VOLUME</strong></p>
-<p><code>VOLUME</code> - You can use the <code>VOLUME</code> instruction to enable access to a location on the host system from a container. Just pass the path of the location to be accessed.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>VOLUME /data
-</pre></div>
-
-
-<p><strong>ONBUILD</strong></p>
-<p><code>ONBUILD</code> - This instruction adds a trigger instruction to be executed when the image is used as the base for some other image. It behaves as if a <code>RUN</code> instruction is inserted immediately after the <code>FROM</code> instruction of the downstream Dockerfile. This is typically helpful in cases where you need a static base image with a dynamic config value that changes whenever a new image has to be built (on top of the base image).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>ONBUILD RUN rm -rf /usr/temp
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/installation-asterisk-13-on-ubuntu-1604.html" rel="bookmark"
-                           title="Permalink to Installation Asterisk 13 on Ubuntu 16.04">Installation Asterisk 13 on Ubuntu 16.04</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-10-25T17:38:00+03:00">
-                Published: Wed 25 October 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/asterisk.html">asterisk</a> </p>
-</footer><!-- /.post-info -->                <p>1) First thing to do is update our system:</p>
-<div class="highlight"><pre><span></span>root@asterisk:~# apt update
-root@asterisk:~# apt upgrade
-root@asterisk:~# reboot
-</pre></div>
-
-
-<p>2) Download sources:</p>
-<div class="highlight"><pre><span></span>root@asterisk:~# cd /usr/src
-root@asterisk:/usr/src# wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz
-root@asterisk:/usr/src# wget https://downloads …</pre></div>
-                <a class="readmore" href="/installation-asterisk-13-on-ubuntu-1604.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/creating-systemd-unit-file.html" rel="bookmark"
-                           title="Permalink to Creating systemd Unit file">Creating systemd Unit file</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-09-19T12:23:00+03:00">
-                Published: Tue 19 September 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/systemd.html">systemd</a> </p>
-</footer><!-- /.post-info -->                <p>Create a unit file in the <code>/etc/systemd/system/</code> directory and make sure it has correct file permissions. Execute as <code>root</code>:</p>
-<div class="highlight"><pre><span></span># touch /etc/systemd/system/name.service
-# chmod 664 /etc/systemd/system/name.service
-</pre></div>
-
-
-<p>Replace <code>name</code> with a name of the service to be created. Note that file does not …</p>
-                <a class="readmore" href="/creating-systemd-unit-file.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tor-hidden-service.html" rel="bookmark"
-                           title="Permalink to Tor hidden service">Tor hidden service</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-09-16T14:43:00+03:00">
-                Published: Sat 16 September 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/ssh.html">ssh</a> <a href="/tag/tor.html">tor</a> <a href="/tag/nginx.html">nginx</a> </p>
-</footer><!-- /.post-info -->                <p>As for Fedora install <code>tor</code> package, <code>nginx</code> web service and SSH server for remote control:</p>
-<div class="highlight"><pre><span></span>[root@hiddensrv ~]# dnf install tor nginx openssh-server
-</pre></div>
-
-
-<p>Now change defaultSSH port and disable root login:</p>
-<div class="highlight"><pre><span></span>[root@hiddensrv ~]# vim /etc/ssh/sshd_config
-
-# If you want to change the port on a SELinux system, you have to …</pre></div>
-                <a class="readmore" href="/tor-hidden-service.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/running-gui-applications-in-lxd-on-fedora-26.html" rel="bookmark"
-                           title="Permalink to Running GUI applications in LXD on Fedora 26">Running GUI applications in LXD on Fedora 26</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-09-14T18:13:00+03:00">
-                Published: Thu 14 September 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>Create container:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome
-</pre></div>
-
-
-<p>Install needed tools:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc exec chrome bash
-root@chrome:~# adduser iaroki
-root@chrome:~# apt update
-root@chrome:~# apt install x11-apps mesa-utils alsa-utils
-</pre></div>
-
-
-<p>Map UID and GID ramges:</p>
-<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid …</pre></div>
-                <a class="readmore" href="/running-gui-applications-in-lxd-on-fedora-26.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lxd-installation-on-fedora-26.html" rel="bookmark"
-                           title="Permalink to LXD installation on Fedora 26">LXD installation on Fedora 26</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-09-14T12:23:00+03:00">
-                Published: Thu 14 September 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>LXD is not working with enabled SELinux so we need to disable it with comand:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# setenforce permissive
-</pre></div>
-
-
-<p>Enable <code>ganto</code> repository to download neded packages:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf copr enable ganto/lxd
-</pre></div>
-
-
-<p>Now time to install LXD:</p>
-<div class="highlight"><pre><span></span>[root@fedora ~]# dnf install lxd lxd-client lxd-tools
-</pre></div>
-
-
-<p>In order to run lxc …</p>
-                <a class="readmore" href="/lxd-installation-on-fedora-26.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tmux-cheatsheet.html" rel="bookmark"
-                           title="Permalink to Tmux cheatsheet">Tmux cheatsheet</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-08-06T15:54:00+03:00">
-                Published: Sun 06 August 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> </p>
-</footer><!-- /.post-info -->                <p>Meta key for tmux is <code>Ctl+b</code>!</p>
-<h3>Panes</h3>
-<p>To split pane horisontal press <code>Ctrl+b</code> and <code>"</code>.
-To split pane vertical press <code>Ctrl+b</code> and <code>%</code>.
-Navigate through panes with <code>Ctrl+b</code> and <code>direction</code>; Where <code>direction</code> is one of the arrow keys.</p>
-<h3>Windows</h3>
-<p>To create new window press <code>Ctrl+b</code> and <code>c …</code></p>
-                <a class="readmore" href="/tmux-cheatsheet.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/container-volumes.html" rel="bookmark"
-                           title="Permalink to Container Volumes">Container Volumes</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-06-18T20:04:00+03:00">
-                Published: Sun 18 June 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/docker.html">Docker</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>To create Storage Container we can use:</p>
-<div class="highlight"><pre><span></span>docker create -v /data --name dataContainer busybox
-</pre></div>
-
-
-<p>Let's add some files to it:</p>
-<div class="highlight"><pre><span></span>docker cp someFile.big dataContainer:/data/
-</pre></div>
-
-
-<p>Now mount storage container to other running container using option <code>--volumes-from &lt;container&gt;</code>:</p>
-<div class="highlight"><pre><span></span>docker run --volumes-from dataContainer alpine ls /data
-</pre></div>
-
-
-<p>The output will be <code>someFile …</code></p>
-                <a class="readmore" href="/container-volumes.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/docker-usage.html" rel="bookmark"
-                           title="Permalink to Docker usage">Docker usage</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-04-15T12:37:00+03:00">
-                Published: Sat 15 April 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/docker.html">Docker</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
-</footer><!-- /.post-info -->                <p>Running container from image:
-<code>docker run &lt;image-name&gt;</code></p>
-<p>Enable interactive shell by adding next keys:
-<code>-i</code> - intercative
-<code>-t</code> - use tty</p>
-<p><code>docker run -it python</code></p>
-<p>To remove container after it dies add:
-<code>--rm</code> - remove after exit</p>
-<p><code>docker run -it --rm python</code></p>
-<p>To name container for later use add:
-<code>--name &lt;name&gt;</code> - name container …</p>
-                <a class="readmore" href="/docker-usage.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/linux-io-redirection.html" rel="bookmark"
-                           title="Permalink to Linux I/O redirection">Linux I/O redirection</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-22T11:23:00+02:00">
-                Published: Wed 22 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/io.html">io</a> <a href="/tag/redirection.html">redirection</a> <a href="/tag/bash.html">bash</a> </p>
-</footer><!-- /.post-info -->                <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Number</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stdin</td>
-<td>0</td>
-<td>Connected to the keyboard, most programs read input from this file</td>
-</tr>
-<tr>
-<td>stdout</td>
-<td>1</td>
-<td>Attached to the screen, and all programs send their results to this file</td>
-</tr>
-<tr>
-<td>stderr</td>
-<td>2</td>
-<td>Programs send status/error messages to this file which is also attached to the screen</td>
-</tr>
-</tbody>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1><a href="/">iaroki blog</a>
+			<br>	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+<h1>Tag <small>linux</small></h1>
+<table class="table">
+    <tbody>
+        <tr>
+        <td>04 Nov 2017</td>
+        <td><a href='/dockerfile-description.html'>Dockerfile description</a></td>
+        </tr>
+        <tr>
+        <td>25 Oct 2017</td>
+        <td><a href='/installation-asterisk-13-on-ubuntu-1604.html'>Installation Asterisk 13 on Ubuntu 16.04</a></td>
+        </tr>
+        <tr>
+        <td>19 Sep 2017</td>
+        <td><a href='/creating-systemd-unit-file.html'>Creating systemd Unit file</a></td>
+        </tr>
+        <tr>
+        <td>16 Sep 2017</td>
+        <td><a href='/tor-hidden-service.html'>Tor hidden service</a></td>
+        </tr>
+        <tr>
+        <td>14 Sep 2017</td>
+        <td><a href='/running-gui-applications-in-lxd-on-fedora-26.html'>Running GUI applications in LXD on Fedora 26</a></td>
+        </tr>
+        <tr>
+        <td>14 Sep 2017</td>
+        <td><a href='/lxd-installation-on-fedora-26.html'>LXD installation on Fedora 26</a></td>
+        </tr>
+        <tr>
+        <td>06 Aug 2017</td>
+        <td><a href='/tmux-cheatsheet.html'>Tmux cheatsheet</a></td>
+        </tr>
+        <tr>
+        <td>18 Jun 2017</td>
+        <td><a href='/container-volumes.html'>Container Volumes</a></td>
+        </tr>
+        <tr>
+        <td>15 Apr 2017</td>
+        <td><a href='/docker-usage.html'>Docker usage</a></td>
+        </tr>
+        <tr>
+        <td>22 Mar 2017</td>
+        <td><a href='/linux-io-redirection.html'>Linux I/O redirection</a></td>
+        </tr>
+        <tr>
+        <td>20 Mar 2017</td>
+        <td><a href='/passwordless-ssh-key-based-authentication.html'>Passwordless SSH key-based authentication</a></td>
+        </tr>
+        <tr>
+        <td>16 Mar 2017</td>
+        <td><a href='/arch-linux-crypto-installation.html'>Arch Linux crypto installation</a></td>
+        </tr>
+        <tr>
+        <td>25 Oct 2016</td>
+        <td><a href='/gpg-quick-start.html'>GPG Quick Start</a></td>
+        </tr>
+        <tr>
+        <td>20 Oct 2016</td>
+        <td><a href='/backup-lxc-containers.html'>Backup LXC containers</a></td>
+        </tr>
+        <tr>
+        <td>19 Oct 2016</td>
+        <td><a href='/lxc-share-folder.html'>LXC share folder</a></td>
+        </tr>
+        <tr>
+        <td>10 Sep 2016</td>
+        <td><a href='/network-manager-restart-after-suspendhibernate.html'>Network Manager restart after suspend/hibernate</a></td>
+        </tr>
+        <tr>
+        <td>12 Sep 2015</td>
+        <td><a href='/bridge-interface-for-lxc-containers.html'>Bridge interface for lxc-containers</a></td>
+        </tr>
+        <tr>
+        <td>02 Jan 2015</td>
+        <td><a href='/fancy-way-to-detect-your-external-ip-address.html'>Fancy way to detect your external IP address</a></td>
+        </tr>
+        <tr>
+        <td>22 Jan 2014</td>
+        <td><a href='/adding-autostart-script-to-debian-wheezy.html'>Adding autostart script to Debian Wheezy</a></td>
+        </tr>
+        <tr>
+        <td>25 May 2012</td>
+        <td><a href='/linux-backup-on-the-fly.html'>Linux backup on the fly</a></td>
+        </tr>
+    </tbody>
 </table>
-<p>Redirect standard …</p>
-                <a class="readmore" href="/linux-io-redirection.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/passwordless-ssh-key-based-authentication.html" rel="bookmark"
-                           title="Permalink to Passwordless SSH key-based authentication">Passwordless SSH key-based authentication</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T13:43:00+02:00">
-                Published: Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/ssh.html">ssh</a> </p>
-</footer><!-- /.post-info -->                <p>To generate public/private pair of keys enter:</p>
-<div class="highlight"><pre><span></span>ssh-keygen -b <span class="m">2048</span> -t rsa
-</pre></div>
-
-
-<p>Next step is to copy key to the remote server:</p>
-<div class="highlight"><pre><span></span>ssh-copy-id -i .ssh/id_rsa.pub user01@server2.example.com
-</pre></div>
-
-
-<p>On remote server is adviceable to edit <code>/etc/ssh/sshd_config</code>:</p>
-<div class="highlight"><pre><span></span><span class="na">PasswordAuthentication no</span>
-<span class="na">PubkeyAuthentication yes</span>
-<span class="na">PermitRootLogin no</span>
-</pre></div>
-
-
-<p>Restart the …</p>
-                <a class="readmore" href="/passwordless-ssh-key-based-authentication.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/arch-linux-crypto-installation.html" rel="bookmark"
-                           title="Permalink to Arch Linux crypto installation">Arch Linux crypto installation</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-16T12:23:00+02:00">
-                Published: Thu 16 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/archlinux.html">archlinux</a> <a href="/tag/lvm.html">lvm</a> <a href="/tag/luks.html">luks</a> </p>
-</footer><!-- /.post-info -->                <p>After live cd is loaded you need to setup network connection.
-For ethernet follow the next steps:</p>
-<div class="highlight"><pre><span></span>ip link <span class="nb">set</span> eth0 up <span class="c1">#set interface up</span>
-ip addr add <span class="m">10</span>.69.0.100/24 broadcast <span class="m">10</span>.69.0.255 dev eth0 <span class="c1">#set ip address</span>
-ip route add default via <span class="m">10</span>.69 …</pre></div>
-                <a class="readmore" href="/arch-linux-crypto-installation.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/gpg-quick-start.html" rel="bookmark"
-                           title="Permalink to GPG Quick Start">GPG Quick Start</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-25T00:00:00+03:00">
-                Published: Tue 25 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/encryption.html">encryption</a> <a href="/tag/gpg.html">gpg</a> <a href="/tag/linux.html">linux</a> <a href="/tag/security.html">security</a> </p>
-</footer><!-- /.post-info -->                <p>A quick HOWTO for getting started with GnuPG.</p>
-<h2>Your Key</h2>
-<p>Private and public keys are at the heart of gpg’s encryption and decryption processes. The best first step is to create a key pair for yourself.</p>
-<p>Generate a private key.</p>
-<div class="highlight"><pre><span></span>gpg --gen-key
-</pre></div>
-
-
-<p>You’ll have to answer a bunch …</p>
-                <a class="readmore" href="/gpg-quick-start.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/backup-lxc-containers.html" rel="bookmark"
-                           title="Permalink to Backup LXC containers">Backup LXC containers</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-20T13:44:00+03:00">
-                Published: Thu 20 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/containers.html">containers</a> <a href="/tag/backup.html">backup</a> </p>
-</footer><!-- /.post-info -->                <h2>Moving LXC containers between host systems</h2>
-<p>This is how migrate LXC containers between systems:
-* Shutdown the container</p>
-<div class="highlight"><pre><span></span># lxc-stop -n $NAME
-</pre></div>
-
-
-<ul>
-<li>Archive container rootfs &amp; config</li>
-</ul>
-<div class="highlight"><pre><span></span># cd /var/lib/lxc/$NAME/
-# tar --numeric-owner -czvf container_fs.tar.gz ./*
-</pre></div>
-
-
-<p>The <code>--numeric-owner</code> flag is very important! Without it, the container may not boot because the …</p>
-                <a class="readmore" href="/backup-lxc-containers.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lxc-share-folder.html" rel="bookmark"
-                           title="Permalink to LXC share folder">LXC share folder</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-19T00:00:00+03:00">
-                Published: Wed 19 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/containers.html">containers</a> <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> </p>
-</footer><!-- /.post-info -->                <h2>Exposing a directory on the host machine to an LXC container:</h2>
-<ol>
-<li>Log into the container and create an empty directory, this will be the mount point</li>
-<li>Log out and stop the container.</li>
-<li>Open to your container’s config file<ul>
-<li>For regular LXC containers: <code>/var/lib/lxc/mycontainer/config</code></li>
-<li>For <em>unprivileged …</em></li></ul></li></ol>
-                <a class="readmore" href="/lxc-share-folder.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/network-manager-restart-after-suspendhibernate.html" rel="bookmark"
-                           title="Permalink to Network Manager restart after suspend/hibernate">Network Manager restart after suspend/hibernate</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-09-10T12:22:00+03:00">
-                Published: Sat 10 September 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/systemd.html">systemd</a> </p>
-</footer><!-- /.post-info -->                <p>Open a terminal and type the following:</p>
-<div class="highlight"><pre><span></span>sudo nano /etc/systemd/system/wifi-resume.service 
-</pre></div>
-
-
-<p>Now paste the script in there. Exit with CTRL + X and press Y to save. </p>
-<p>Now to activate it: </p>
-<div class="highlight"><pre><span></span>sudo systemctl enable wifi-resume.service
-</pre></div>
-
-
-<p>Script:</p>
-<div class="highlight"><pre><span></span>#/etc/systemd/system/wifi-resume.service
-#sudo systemctl enable wifi-resume.service
-[Unit …</pre></div>
-                <a class="readmore" href="/network-manager-restart-after-suspendhibernate.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/bridge-interface-for-lxc-containers.html" rel="bookmark"
-                           title="Permalink to Bridge interface for lxc-containers">Bridge interface for lxc-containers</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-09-12T00:00:00+03:00">
-                Published: Sat 12 September 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/containers.html">containers</a> <a href="/tag/linux.html">linux</a> <a href="/tag/lxc.html">lxc</a> </p>
-</footer><!-- /.post-info -->                <p>Script for creating bridge interface and applying  iptable routing rule:</p>
-<div class="highlight"><pre><span></span>CMD_BRCTL=/sbin/brctl
-CMD_IFCONFIG=/sbin/ifconfig
-CMD_IPTABLES=/sbin/iptables
-CMD_ROUTE=/sbin/route
-NETWORK_BRIDGE_DEVICE_NAT=lxc-br0
-HOST_NETDEVICE=eth0
-PRIVATE_GW_NAT=192.168.0.1
-PRIVATE_NETMASK=255.255.255.0
-
-<span class="cp">${</span><span class="n">CMD_BRCTL</span><span class="cp">}</span> addbr <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span>
-<span class="cp">${</span><span class="n">CMD_BRCTL</span><span class="cp">}</span> setfd <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span> 0
-<span class="cp">${</span><span class="n">CMD_IFCONFIG</span><span class="cp">}</span> <span class="cp">${</span><span class="n">NETWORK_BRIDGE_DEVICE_NAT</span><span class="cp">}</span> <span class="cp">${</span><span class="n">PRIVATE_GW_NAT</span><span class="cp">}</span> netmask <span class="cp">${</span><span class="n">PRIVATE_NETMASK</span><span class="cp">}</span> promisc up …</pre></div>
-                <a class="readmore" href="/bridge-interface-for-lxc-containers.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/fancy-way-to-detect-your-external-ip-address.html" rel="bookmark"
-                           title="Permalink to Fancy way to detect your external IP address">Fancy way to detect your external IP address</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-01-02T00:00:00+02:00">
-                Published: Fri 02 January 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/curl.html">curl</a> <a href="/tag/linux.html">linux</a> </p>
-</footer><!-- /.post-info -->                <p>If you need to get your IP address for some script, there is solution:</p>
-<div class="highlight"><pre><span></span>curl &quot;ifconfig.me&quot;
-</pre></div>
-                <a class="readmore" href="/fancy-way-to-detect-your-external-ip-address.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/adding-autostart-script-to-debian-wheezy.html" rel="bookmark"
-                           title="Permalink to Adding autostart script to Debian Wheezy">Adding autostart script to Debian Wheezy</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-01-22T15:33:00+02:00">
-                Published: Wed 22 January 2014
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/debian.html">debian</a> </p>
-</footer><!-- /.post-info -->                <p>Create your script:</p>
-<div class="highlight"><pre><span></span>mkdir /tmp/spaghetti &amp;&amp; touch /tmp/spaghetti/meatballs.txt
-</pre></div>
-
-
-<p>Make the script executable:</p>
-<div class="highlight"><pre><span></span>root@wheezy ~ # chmod +x spaghetti.sh
-</pre></div>
-
-
-<p>Add your script to <code>/etc/init.d</code>:</p>
-<div class="highlight"><pre><span></span>root@wheezy ~ # mv spaghetti.sh /etc/init.d
-</pre></div>
-
-
-<p>Run <code>update-rc.d</code> on the new script:</p>
-<div class="highlight"><pre><span></span>root@wheezy ~ # update-rc.d spaghetti.sh defaults …</pre></div>
-                <a class="readmore" href="/adding-autostart-script-to-debian-wheezy.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/linux-backup-on-the-fly.html" rel="bookmark"
-                           title="Permalink to Linux backup on the fly">Linux backup on the fly</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-05-25T13:38:00+03:00">
-                Published: Fri 25 May 2012
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/backup.html">backup</a> </p>
-</footer><!-- /.post-info -->                <p>Backing-up:</p>
-<div class="highlight"><pre><span></span>cd /
-tar cvpjf backup.tar.bz2 --exclude=/proc 
-                         --exclude=/lost+found 
-                         --exclude=/backup.tar.bz2 
-                         --exclude=/mnt 
-                         --exclude=/sys /
-</pre></div>
-
-
-<p>Restoring:</p>
-<div class="highlight"><pre><span></span>tar xvpfj backup.tar.bz2 -C /
-</pre></div>
-                <a class="readmore" href="/linux-backup-on-the-fly.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="https://github.com">Github</a></li>
-                            <li><a href="https://facebook.com">Facebook</a></li>
-                            <li><a href="https://instagram.com">Instagram</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+		</div>
+	</div> 	<!-- <hr> -->
+</div> <!-- /container -->
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-3">
+						<h4>Navigation</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="">iaroki blog</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Author</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="https://github.com">Github</a></li>
+							<li><a href="https://facebook.com">Facebook</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Categories</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="/category/docker.html">Docker (3)</a></li>
+							<li><a href="/category/git.html">Git (1)</a></li>
+							<li><a href="/category/linux.html">Linux (17)</a></li>
+							<li><a href="/category/markdown.html">Markdown (2)</a></li>
+							<li><a href="/category/other.html">Other (1)</a></li>
+							<li><a href="/category/python.html">Python (1)</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h4>Links</h4>
+						<ul class="list-unstyled my-list-style">
+							<li><a href="http://getpelican.com/">Pelican</a></li>
+							<li><a href="http://python.org/">Python.org</a></li>
+							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>&copy; iaroki 2016</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
 </body>
 </html>

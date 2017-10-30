@@ -14,6 +14,8 @@ DEFAULT_LANG = 'en'
 
 OUTPUT_PATH = '.'
 
+THEME = 'aboutwilson'
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
@@ -28,8 +30,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 
 # Social widget
 SOCIAL = (('Github', 'https://github.com'),
-          ('Facebook', 'https://facebook.com'),
-          ('Instagram', 'https://instagram.com'),)
+          ('Facebook', 'https://facebook.com'),)
 
 DEFAULT_PAGINATION = False
 
