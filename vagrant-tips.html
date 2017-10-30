@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>python — iaroki blog</title>
-	<meta name="description" content="All posts which refer to tag python">
+	<title>Vagrant tips — iaroki blog</title>
+	<meta name="description" content="Title: Vagrant tips; Date: 2017-10-30; Author: iaroki">
 	<meta name="author" content="iaroki">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -24,15 +24,81 @@
 			<br>	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-<h1>Tag <small>python</small></h1>
-<table class="table">
-    <tbody>
-        <tr>
-        <td>06 Aug 2017</td>
-        <td><a href='/simple-way-to-quickly-setup-http-server.html'>Simple way to quickly setup HTTP server</a></td>
-        </tr>
-    </tbody>
-</table>
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="text-center article-header">
+		<h1 itemprop="name headline" class="article-title">Vagrant tips</h1>
+		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">iaroki</h4>
+		</span>
+		<time datetime="2017-10-30T14:02:00+02:00" itemprop="datePublished">Mon 30 October 2017</time>
+	</div>
+	<div>
+		Category:
+		<span itemprop="articleSection">
+			<a href="/category/linux.html" rel="category">Linux</a>
+		</span>
+	</div>
+ 
+	<div>
+		Tags:
+		<span itemprop="keywords">
+			<a href="/tag/linux.html" rel="tag">linux</a>
+		</span>
+		<span itemprop="keywords">
+			<a href="/tag/vagrant.html" rel="tag">vagrant</a>
+		</span>
+	</div>
+	<div itemprop="articleBody" class="article-body"><p>Some useful tips to work with <a href="https://vagrantup.com">Vagrant</a>:</p>
+<ul>
+<li>Memory and CPU control:</li>
+</ul>
+<p>Add <code>vb.memory</code> option to <code>Vagrantfile</code> to set desired memory capacity:</p>
+<div class="highlight"><pre><span></span><span class="k">[...]</span>
+ <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
+   <span class="na">vb.memory</span> <span class="o">=</span> <span class="s">&quot;1024&quot; </span>
+<span class="s"> end</span>
+<span class="k">[...]</span>
+</pre></div>
+
+
+<p>Add <code>vb.cpus</code> option to set CPU's:</p>
+<div class="highlight"><pre><span></span><span class="k">[...]</span>
+ <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
+  <span class="na">vb.memory</span> <span class="o">=</span> <span class="s">&quot;1024</span>
+<span class="s">  vb.cpus = &quot;2&quot;</span>
+<span class="s"> end</span>
+<span class="k">[...]</span>
+</pre></div>
+
+
+<ul>
+<li>Show GUI:</li>
+</ul>
+<p>To show GUI for machine:</p>
+<div class="highlight"><pre><span></span><span class="k">[...]</span>
+ <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
+  <span class="c1"># Display the VirtualBox GUI when booting the machine </span>
+  <span class="na">vb.gui</span> <span class="o">=</span> <span class="s">true  </span>
+<span class="s">  # Customize the amount of memory on the VM: </span>
+<span class="s">  vb.memory = &quot;1024&quot; </span>
+<span class="s"> end</span>
+<span class="k">[...]</span>
+</pre></div>
+
+
+<ul>
+<li>Synced folders:</li>
+</ul>
+<p>If you want to add synced folders add:</p>
+<div class="highlight"><pre><span></span><span class="k">[...]</span>
+<span class="na">config.vm.synced_folder &quot;/storage&quot;, &quot;/storage&quot;, </span>
+  <span class="na">owner: &quot;user&quot;, </span>
+  <span class="na">group: &quot;user&quot;</span>
+<span class="k">[...]</span>
+</pre></div></div>
+	<hr>
+	<h2>Comments</h2>
+</div>
 		</div>
 	</div> 	<!-- <hr> -->
 </div> <!-- /container -->

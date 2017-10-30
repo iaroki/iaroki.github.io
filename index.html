@@ -66,6 +66,48 @@
 <hr>
         
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<a href="/vagrant-tips.html">
+		<h2 itemprop="name headline">Vagrant tips</h2>
+	</a>
+	<time datetime="2017-10-30T14:02:00+02:00" itemprop="datePublished">Mon 30 October 2017</time>
+	&nbsp;—&nbsp;
+	<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		<span itemprop="name">iaroki</span>
+	</span>
+	<div class="summary"><p>Some useful tips to work with <a href="https://vagrantup.com">Vagrant</a>:</p>
+<ul>
+<li>Memory and CPU control:</li>
+</ul>
+<p>Add <code>vb.memory</code> option to <code>Vagrantfile</code> to set desired memory capacity:</p>
+<div class="highlight"><pre><span></span><span class="k">[...]</span>
+ <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
+   <span class="na">vb.memory</span> <span class="o">=</span> <span class="s">&quot;1024&quot; </span>
+<span class="s"> end</span>
+<span class="k">[...]</span>
+</pre></div>
+
+
+<p>Add <code>vb.cpus</code> option to set CPU's:</p>
+<div class="highlight"><pre><span></span><span class="k">[...]</span>
+ <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
+  <span class="na">vb.memory</span> <span class="o">=</span> <span class="s">&quot;1024</span>
+<span class="s">  vb.cpus …</span></pre></div></div>
+	Category:
+	<span itemprop="articleSection">
+		<a href="/category/linux.html" rel="category">Linux</a>
+	</span>
+	Tags:
+ 
+	<span itemprop="keywords">
+		<a href="/tag/linux.html" rel="tag">linux</a>
+	</span>
+	<span itemprop="keywords">
+		<a href="/tag/vagrant.html" rel="tag">vagrant</a>
+	</span>
+</div>
+<hr>
+        
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
 	<a href="/installation-asterisk-13-on-ubuntu-1604.html">
 		<h2 itemprop="name headline">Installation Asterisk 13 on Ubuntu 16.04</h2>
 	</a>
@@ -1014,7 +1056,7 @@ tar cvpjf backup.tar.bz2 --exclude=/proc
 						<ul class="list-unstyled my-list-style">
 							<li><a href="/category/docker.html">Docker (3)</a></li>
 							<li><a href="/category/git.html">Git (1)</a></li>
-							<li><a href="/category/linux.html">Linux (17)</a></li>
+							<li><a href="/category/linux.html">Linux (18)</a></li>
 							<li><a href="/category/markdown.html">Markdown (2)</a></li>
 							<li><a href="/category/other.html">Other (1)</a></li>
 							<li><a href="/category/python.html">Python (1)</a></li>
