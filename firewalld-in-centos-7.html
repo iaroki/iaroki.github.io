@@ -136,22 +136,21 @@ dmz
 
 
 <p>Finally, you can list the rules with:</p>
-<p>```</p>
-<h1>firewall-cmd --list-all</h1>
-<p>dmz
- target: default
- icmp-block-inversion: no
- interfaces:
- sources:
- services: http https imap imaps pop3 pop3s smtp smtps
- ports: 7022/tcp
- protocols:
- masquerade: no
- forward-ports:
- sourceports:
- icmp-blocks:
- rich rules:
- ```</p></div>
+<div class="highlight"><pre><span></span># firewall-cmd --list-all
+dmz
+target: default
+icmp-block-inversion: no
+interfaces:
+sources:
+services: http https imap imaps pop3 pop3s smtp smtps
+ports: 7022/tcp
+protocols:
+masquerade: no
+forward-ports:
+sourceports:
+icmp-blocks:
+rich rules:
+</pre></div></div>
 	<hr>
 	<h2>Comments</h2>
 </div>

@@ -56,26 +56,28 @@
 <h2>How does DNS work?</h2>
 <p>There’s lots of stuff going on “behind the scenes” when you visit a website. There’s a communicating relationship between a few servers and your computer. These are the usual steps they take:</p>
 <ol>
-<li><strong>The user enters the website’s domain in the address bar</strong></li>
-</ol>
-<p>The DNS translation process stars when a user types in a domain name/address in the URL bar of his web browser. With that, the user essentially requests the IP address of the domain and waits for a response.</p>
-<ol>
-<li><strong>The browser and OS check their local cache</strong></li>
-</ol>
-<p>After a user requests information on a domain, the user’s OS and browser check their local cache for any information on that domain. If the domain is already in the cache, the browser returns a positive response, if not, the Resolver needs to be contacted.</p>
-<ol>
-<li><strong>The Resolver checks the local cache</strong></li>
-</ol>
-<p>In most cases, the resolver is actually your ISP. First, the resolver checks to see if there’s any local data available. If not, he contacts the domain’s root server. What is a root server you ask?
+<li>
+<p><strong>The user enters the website’s domain in the address bar</strong>
+The DNS translation process stars when a user types in a domain name/address in the URL bar of his web browser. With that, the user essentially requests the IP address of the domain and waits for a response.</p>
+</li>
+<li>
+<p><strong>The browser and OS check their local cache</strong>
+After a user requests information on a domain, the user’s OS and browser check their local cache for any information on that domain. If the domain is already in the cache, the browser returns a positive response, if not, the Resolver needs to be contacted.</p>
+</li>
+<li>
+<p><strong>The Resolver checks the local cache</strong>
+In most cases, the resolver is actually your ISP. First, the resolver checks to see if there’s any local data available. If not, he contacts the domain’s root server. What is a root server you ask?
 Well, a root server is a name server that covers the root zone of the Internet’s Domain Name System (DNS). It answers requests for records in the root DNS zone among other requests. For example if a request is received and asks what are the authoritative name servers for rosehosting.com it will return the authoritative name servers for the respective top-level domain (TLD). The root name servers are the first step in resolving human readable host names into IP addresses thus making them a critical part of the Internet infrastructure. There are thirteen root nameservers specified in the world. But don’t let this information scare you. It does not mean that there are only thirteen existing physical servers. They each have redundant equipment in place that provides reliable service even if failure of hardware or software occurs. Additionally, the root name servers operate in multiple geographical locations that use a routing technique called anycast addressing. Wikipedia’s definition for anycast addressing is: a network addressing and routing methodology in which datagrams from a single sender are routed to the topologically nearest node in a group of potential receivers, though it may be sent to several nodes, all identified by the same destination address.</p>
-<ol>
-<li><strong>The root server checks the local cache</strong></li>
+</li>
+<li>
+<p><strong>The root server checks the local cache</strong>
+After a request is received for a domain, the domain’s root server checks the local cache for any information about the respective domain. If there is such, it responds with the IP, if not it points the resolver to the TLD server. The modus operandi of the root nameserver involves looking at the first part of the request, reading from right to left. So let’s use our website as an example again. In this case the root nameserver checks the request for rosehosting.com, sees that the TLD is com and forwards the query to the respective TLD nameservers.</p>
+</li>
+<li>
+<p><strong>The root server forwards the resolver to the TLD server</strong>
+The TLD nameservers review the next part of the request (rosehosting) and directs the inquiry to the nameservers responsible for rosehosting.com which are called authoritative DNS servers. These authoritative DNS servers contain all the information about RoseHosting.com stored in DNS records. There are many types of records with each carrying a different kind of information. For example, if we want to know the IP address for google.com we need to know the A record for the domain.</p>
+</li>
 </ol>
-<p>After a request is received for a domain, the domain’s root server checks the local cache for any information about the respective domain. If there is such, it responds with the IP, if not it points the resolver to the TLD server. The modus operandi of the root nameserver involves looking at the first part of the request, reading from right to left. So let’s use our website as an example again. In this case the root nameserver checks the request for rosehosting.com, sees that the TLD is com and forwards the query to the respective TLD nameservers.</p>
-<ol>
-<li><strong>The root server forwards the resolver to the TLD server</strong></li>
-</ol>
-<p>The TLD nameservers review the next part of the request (rosehosting) and directs the inquiry to the nameservers responsible for rosehosting.com which are called authoritative DNS servers. These authoritative DNS servers contain all the information about RoseHosting.com stored in DNS records. There are many types of records with each carrying a different kind of information. For example, if we want to know the IP address for google.com we need to know the A record for the domain.</p>
 <p>Below is a list of some of the available DNS records which in general are mostly used:</p>
 <ul>
 <li><strong>A</strong> record – the address record which links a domain to the physical IP address of the server that will host the domain</li>
@@ -88,9 +90,9 @@ Well, a root server is a name server that covers the root zone of the Internet�
 <p>With this short info on the DNS records out of our way, we can now continue with the article. Where were we? Ahh, yes.</p>
 <p>The resolver now retrieves the A record for rosehosting.com from the authoritative DNS servers. The record is now stored in it’s local cache so if anyone else requests to visit the RoseHosting website, the resolver or (as others call it) recursive server will already have the answer so it won’t have to go through the above explained lookup process again. Of course depending on the TTL record set for the domain, the recursive server will have to ask for a new copy of the record to make sure that the information is up to date.</p>
 <ol>
-<li><strong>Receiving the answer</strong></li>
+<li><strong>Receiving the answer</strong>
+The resolver now has the A record for rosehosting.com and returns the info back to your computer. Your machine stores the record in the respective cache, reads the IP address from the record and then passes the information to your web browser. The browser opens a connection with the web server of rosehosting.com, receives and then displays our website on your screen.</li>
 </ol>
-<p>The resolver now has the A record for rosehosting.com and returns the info back to your computer. Your machine stores the record in the respective cache, reads the IP address from the record and then passes the information to your web browser. The browser opens a connection with the web server of rosehosting.com, receives and then displays our website on your screen.</p>
 <p>Even though this process seems like it’s time consuming, it only takes milliseconds to complete.</p>
 <p>Obviously, with this article we just covered the DNS basics, so you might want to check various articles on the Internet such as the <a href="https://en.wikipedia.org/wiki/Domain_Name_System">Wikipedia DNS page</a> or anything else you find.</p></div>
 	<hr>
