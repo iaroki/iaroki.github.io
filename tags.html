@@ -1,132 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Tags — iaroki blog</title>
-	<meta name="description" content="The Tags page lists all tags used to classify the posts. Each post has at least one tag helping readers find out easily what they are looking for.">
-	<meta name="author" content="iaroki">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-	<!--[if lt IE 9]>
-		<script src="/theme/html5.js"></script>
-		<![endif]-->
-	<link href="/theme/css/ipython.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
-	<link href="/theme/css/local.css" rel="stylesheet">
-	<link href="/theme/css/pygments.css" rel="stylesheet">
-<style type="text/css" media="screen">
-ul.tagcloud {
-	list-style: none;
-	padding: 0;
-	padding-top: 7em;
-	padding-bottom: 7em;
-	width: 50%;
-	margin-left: 25%;
-}
+        <meta charset="utf-8" />
+        <title>iaroki blog - Tags</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
 
-ul.tagcloud li {
-	display: inline-block;
-}
-
-li.tag-1 {
-	font-size: 150%;
-}
-
-li.tag-2 {
-	font-size: 120%;
-}
-
-li.tag-3 {
-	font-size: 100%;
-}
-
-li.tag-4 {
-	font-size: 80%;
-}
-</style>
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 </head>
-<body>
-<div class="container">
-	<div class="page-header">
-		<h1><a href="/">iaroki blog</a>
-			<br>	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-<h1>Tags</h1>
-<div class="text-center">
-<ul class="tagcloud">
-</ul>
-</div>
-		</div>
-	</div> 	<!-- <hr> -->
-</div> <!-- /container -->
-<footer class="aw-footer bg-danger">
-	<div class="container"> <!-- footer -->
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="row">
-					<div class="col-md-3">
-						<h4>Navigation</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="">iaroki blog</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Author</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="https://github.com">Github</a></li>
-							<li><a href="https://facebook.com">Facebook</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Categories</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="/category/docker.html">Docker (3)</a></li>
-							<li><a href="/category/git.html">Git (2)</a></li>
-							<li><a href="/category/linux.html">Linux (23)</a></li>
-							<li><a href="/category/markdown.html">Markdown (2)</a></li>
-							<li><a href="/category/other.html">Other (1)</a></li>
-							<li><a href="/category/python.html">Python (1)</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Links</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="http://getpelican.com/">Pelican</a></li>
-							<li><a href="http://python.org/">Python.org</a></li>
-							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 text-center center-block aw-bottom">
-			<p>&copy; iaroki 2016</p>
-			<p>Powered by Pelican</p>
-		</div>
-	</div>
-</div>
-<!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$("div.collapseheader").click(function () {
-		$header = $(this).children("span").first();
-		$codearea = $(this).children(".input_area");
-		$codearea.slideToggle(500, function () {
-			$header.text(function () {
-				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
-			});
-		});
-	});
-});
-</script>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">iaroki blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/docker.html">Docker</a></li>
+                    <li><a href="/category/git.html">Git</a></li>
+                    <li><a href="/category/linux.html">Linux</a></li>
+                    <li><a href="/category/markdown.html">Markdown</a></li>
+                    <li><a href="/category/other.html">Other</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+<section id="content" class="body">
+    <h1>Tags for iaroki blog</h1>
+    <ul>
+        <li><a href="/tag/archlinux.html">archlinux</a> (1)</li>
+        <li><a href="/tag/asterisk.html">asterisk</a> (1)</li>
+        <li><a href="/tag/backup.html">backup</a> (2)</li>
+        <li><a href="/tag/bash.html">bash</a> (1)</li>
+        <li><a href="/tag/centos.html">centos</a> (2)</li>
+        <li><a href="/tag/containers.html">containers</a> (8)</li>
+        <li><a href="/tag/curl.html">curl</a> (1)</li>
+        <li><a href="/tag/debian.html">debian</a> (1)</li>
+        <li><a href="/tag/diablo.html">diablo</a> (1)</li>
+        <li><a href="/tag/dns.html">dns</a> (1)</li>
+        <li><a href="/tag/docker.html">docker</a> (3)</li>
+        <li><a href="/tag/dockerfile.html">dockerfile</a> (1)</li>
+        <li><a href="/tag/encryption.html">encryption</a> (1)</li>
+        <li><a href="/tag/fedora.html">fedora</a> (3)</li>
+        <li><a href="/tag/firewalld.html">firewalld</a> (1)</li>
+        <li><a href="/tag/games.html">games</a> (1)</li>
+        <li><a href="/tag/git.html">git</a> (2)</li>
+        <li><a href="/tag/gpg.html">gpg</a> (1)</li>
+        <li><a href="/tag/io.html">io</a> (1)</li>
+        <li><a href="/tag/iptables.html">iptables</a> (1)</li>
+        <li><a href="/tag/jenkins.html">jenkins</a> (1)</li>
+        <li><a href="/tag/linux.html">linux</a> (26)</li>
+        <li><a href="/tag/luks.html">luks</a> (1)</li>
+        <li><a href="/tag/lvm.html">lvm</a> (1)</li>
+        <li><a href="/tag/lxc.html">lxc</a> (5)</li>
+        <li><a href="/tag/lxd.html">lxd</a> (2)</li>
+        <li><a href="/tag/markdown.html">markdown</a> (2)</li>
+        <li><a href="/tag/network.html">network</a> (3)</li>
+        <li><a href="/tag/nginx.html">nginx</a> (3)</li>
+        <li><a href="/tag/python.html">python</a> (1)</li>
+        <li><a href="/tag/redirection.html">redirection</a> (1)</li>
+        <li><a href="/tag/security.html">security</a> (1)</li>
+        <li><a href="/tag/ssh.html">ssh</a> (2)</li>
+        <li><a href="/tag/systemd.html">systemd</a> (2)</li>
+        <li><a href="/tag/tmux.html">tmux</a> (1)</li>
+        <li><a href="/tag/tor.html">tor</a> (1)</li>
+        <li><a href="/tag/vagrant.html">vagrant</a> (1)</li>
+    </ul>
+</section>
+
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://github.com">Github</a></li>
+                            <li><a href="https://facebook.com">Facebook</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
 </body>
 </html>

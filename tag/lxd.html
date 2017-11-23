@@ -1,110 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>lxd — iaroki blog</title>
-	<meta name="description" content="All posts which refer to tag lxd">
-	<meta name="author" content="iaroki">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-	<!--[if lt IE 9]>
-		<script src="/theme/html5.js"></script>
-		<![endif]-->
-	<link href="/theme/css/ipython.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
-	<link href="/theme/css/local.css" rel="stylesheet">
-	<link href="/theme/css/pygments.css" rel="stylesheet">
+        <meta charset="utf-8" />
+        <title>iaroki blog - lxd</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 </head>
-<body>
-<div class="container">
-	<div class="page-header">
-		<h1><a href="/">iaroki blog</a>
-			<br>	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-<h1>Tag <small>lxd</small></h1>
-<table class="table">
-    <tbody>
-        <tr>
-        <td>14 Sep 2017</td>
-        <td><a href='/running-gui-applications-in-lxd-on-fedora-26.html'>Running GUI applications in LXD on Fedora 26</a></td>
-        </tr>
-        <tr>
-        <td>14 Sep 2017</td>
-        <td><a href='/lxd-installation-on-fedora-26.html'>LXD installation on Fedora 26</a></td>
-        </tr>
-    </tbody>
-</table>
-		</div>
-	</div> 	<!-- <hr> -->
-</div> <!-- /container -->
-<footer class="aw-footer bg-danger">
-	<div class="container"> <!-- footer -->
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="row">
-					<div class="col-md-3">
-						<h4>Navigation</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="">iaroki blog</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Author</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="https://github.com">Github</a></li>
-							<li><a href="https://facebook.com">Facebook</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Categories</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="/category/docker.html">Docker (3)</a></li>
-							<li><a href="/category/git.html">Git (2)</a></li>
-							<li><a href="/category/linux.html">Linux (23)</a></li>
-							<li><a href="/category/markdown.html">Markdown (2)</a></li>
-							<li><a href="/category/other.html">Other (1)</a></li>
-							<li><a href="/category/python.html">Python (1)</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Links</h4>
-						<ul class="list-unstyled my-list-style">
-							<li><a href="http://getpelican.com/">Pelican</a></li>
-							<li><a href="http://python.org/">Python.org</a></li>
-							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 text-center center-block aw-bottom">
-			<p>&copy; iaroki 2016</p>
-			<p>Powered by Pelican</p>
-		</div>
-	</div>
-</div>
-<!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$("div.collapseheader").click(function () {
-		$header = $(this).children("span").first();
-		$codearea = $(this).children(".input_area");
-		$codearea.slideToggle(500, function () {
-			$header.text(function () {
-				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
-			});
-		});
-	});
-});
-</script>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">iaroki blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/docker.html">Docker</a></li>
+                    <li><a href="/category/git.html">Git</a></li>
+                    <li><a href="/category/linux.html">Linux</a></li>
+                    <li><a href="/category/markdown.html">Markdown</a></li>
+                    <li><a href="/category/other.html">Other</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/running-gui-applications-in-lxd-on-fedora-26.html">Running GUI applications in LXD on Fedora 26</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-09-14T18:13:00+03:00">
+                Published: Thu 14 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info --><p>Create container:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome
+</pre></div>
+
+
+<p>Install needed tools:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc exec chrome bash
+root@chrome:~# adduser iaroki
+root@chrome:~# apt update
+root@chrome:~# apt install x11-apps mesa-utils alsa-utils
+</pre></div>
+
+
+<p>Map UID and GID ramges:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid /etc/subgid
+</pre></div>
+
+
+<p>Set UID/GUID ranges for container:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc config set chrome raw.idmap &quot;both $UID 1000&quot;
+[iaroki@fedora ~]$ lxc restart chrome
+</pre></div>
+
+
+<p>Mount X11 socket and .Xauthority file:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc config device add chrome X0 disk path=/tmp/.X11-unix/X0 source=/tmp/.X11-unix/X0
+[iaroki@fedora ~]$ lxc config device add chrome Xauthority disk path=/home/iaroki/.Xauthority source=<span class="cp">${</span><span class="n">XAUTHORITY</span><span class="cp">}</span>
+</pre></div>
+
+
+<p>Passthrough GPU device:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc config device add chrome GPU gpu
+[iaroki@fedora ~]$ lxc config device set chrome uid 1000
+[iaroki@fedora ~]$ lxc config device set chrome gid 1000
+</pre></div>
+
+
+<p>Check results with:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc exec chrome -- sudo --login --user iaroki
+iaroki@chrome:~$ export DISPLAY=:0
+iaroki@chrome:~$ echo &quot;export DISPLAY=:0&quot; &gt;&gt; ~/.profile
+iaroki@chrome:~$ glxgears
+</pre></div>
+
+
+<p>Now we can install and run chromium browser inside:</p>
+<div class="highlight"><pre><span></span>[iaroki@fedora ~]$ lxc exec chrome -- sudo --login --user iaroki
+iaroki@chrome:~$ sudo apt install chromium
+iaroki@chrome:~$ chromium
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lxd-installation-on-fedora-26.html" rel="bookmark"
+                           title="Permalink to LXD installation on Fedora 26">LXD installation on Fedora 26</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-09-14T12:23:00+03:00">
+                Published: Thu 14 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/fedora.html">fedora</a> <a href="/tag/lxc.html">lxc</a> <a href="/tag/lxd.html">lxd</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info -->                <p>LXD is not working with enabled SELinux so we need to disable it with comand:</p>
+<div class="highlight"><pre><span></span>[root@fedora ~]# setenforce permissive
+</pre></div>
+
+
+<p>Enable <code>ganto</code> repository to download neded packages:</p>
+<div class="highlight"><pre><span></span>[root@fedora ~]# dnf copr enable ganto/lxd
+</pre></div>
+
+
+<p>Now time to install LXD:</p>
+<div class="highlight"><pre><span></span>[root@fedora ~]# dnf install lxd lxd-client lxd-tools
+</pre></div>
+
+
+<p>In order to run lxc …</p>
+                <a class="readmore" href="/lxd-installation-on-fedora-26.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://github.com">Github</a></li>
+                            <li><a href="https://facebook.com">Facebook</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
 </body>
 </html>

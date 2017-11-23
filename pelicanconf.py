@@ -14,7 +14,7 @@ DEFAULT_LANG = 'en'
 
 OUTPUT_PATH = '.'
 
-THEME = 'aboutwilson'
+#THEME = 'aboutwilson'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
