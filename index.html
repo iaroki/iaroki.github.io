@@ -479,6 +479,36 @@ Hitting …</p>
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/convert-m4a-to-ogg-with-ffmpeg.html" rel="bookmark"
+                           title="Permalink to Convert m4a to ogg with ffmpeg">Convert m4a to ogg with ffmpeg</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-12T12:23:00+03:00">
+                Published: Fri 12 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/ffmpeg.html">ffmpeg</a> <a href="/tag/m4a.html">m4a</a> <a href="/tag/ogg.html">ogg</a> <a href="/tag/vorbis.html">vorbis</a> </p>
+</footer><!-- /.post-info -->                <p>Recently i downloaded some lectures from youtube in <code>m4a</code> format.
+My hardware portable player doesn't support it so I converted files like this:</p>
+<div class="highlight"><pre><span></span>ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg
+</pre></div>
+
+
+<p>Complete script is:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Author: Simon Legner &lt;Simon.Legner@gmail.com …</span></pre></div>
+                <a class="readmore" href="/convert-m4a-to-ogg-with-ffmpeg.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/docker-usage.html" rel="bookmark"
                            title="Permalink to Docker usage">Docker usage</a></h1>
                 </header>
