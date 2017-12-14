@@ -35,8 +35,8 @@ Mount X11 socket and .Xauthority file:
 Passthrough GPU device:
 ```
 [iaroki@fedora ~]$ lxc config device add chrome GPU gpu
-[iaroki@fedora ~]$ lxc config device set chrome uid 1000
-[iaroki@fedora ~]$ lxc config device set chrome gid 1000
+[iaroki@fedora ~]$ lxc config device set GPU uid 1000
+[iaroki@fedora ~]$ lxc config device set GPU gid 1000
 ```
 
 Check results with:
