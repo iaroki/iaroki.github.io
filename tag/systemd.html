@@ -25,7 +25,77 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/creating-systemd-unit-file.html">Creating systemd Unit file</a></h1>
+                    <h1 class="entry-title"><a href="/tmux-detach-with-systemd.html">Tmux detach with systemd</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-01-19T12:16:00+02:00">
+                Published: Fri 19 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> <a href="/tag/systemd.html">systemd</a> </p>
+</footer><!-- /.post-info --><p>With <code>systemd</code> version 230+ detachind and logout from remote machine will kill tmux session.</p>
+<h3>Systemd config</h3>
+<p>First solution is to disable killing user processes systemwide.
+Edit <code>/etc/systemd/logind.conf</code> and set</p>
+<div class="highlight"><pre><span></span><span class="na">KillUserProcesses</span><span class="o">=</span><span class="s">no</span>
+</pre></div>
+
+
+<p>Then restart <code>systemd-logind.service</code>:</p>
+<div class="highlight"><pre><span></span># systemctl restart systemd-logind
+</pre></div>
+
+
+<h3>Tmux as a service</h3>
+<p>Second solution is running tmux as a service.
+Just add <code>RemainAfterExit=yes</code> option to <code>/etc/systemd/system/tmux@.service</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">tmux default session (detached)</span>
+<span class="na">Documentation</span><span class="o">=</span><span class="s">man:tmux(1)</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+<span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">yes</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/tmux new-session -d -s %I</span>
+<span class="na">ExecStop</span><span class="o">=</span><span class="s">/usr/bin/tmux kill-server</span>
+<span class="na">KillMode</span><span class="o">=</span><span class="s">none</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multiplexer.target</span>
+</pre></div>
+
+
+<p>And then use it like this:</p>
+<div class="highlight"><pre><span></span># systemctl start tmux@instanceone.service
+# systemctl start tmux@instancetwo.service
+# tmux list-sessions
+
+instanceone: 1 windows (created Sun Jul 24 00:52:15 2016) [193x49]
+instancetwo: 1 windows (created Sun Jul 24 00:52:19 2016) [193x49]
+
+# tmux attach-session -t instanceone
+
+(instanceone)#
+</pre></div>
+
+
+<p>End</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/creating-systemd-unit-file.html" rel="bookmark"
+                           title="Permalink to Creating systemd Unit file">Creating systemd Unit file</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-09-19T12:23:00+03:00">
                 Published: Tue 19 September 2017
@@ -36,37 +106,16 @@
         </address>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/systemd.html">systemd</a> </p>
-</footer><!-- /.post-info --><p>Create a unit file in the <code>/etc/systemd/system/</code> directory and make sure it has correct file permissions. Execute as <code>root</code>:</p>
+</footer><!-- /.post-info -->                <p>Create a unit file in the <code>/etc/systemd/system/</code> directory and make sure it has correct file permissions. Execute as <code>root</code>:</p>
 <div class="highlight"><pre><span></span># touch /etc/systemd/system/name.service
 # chmod 664 /etc/systemd/system/name.service
 </pre></div>
 
 
-<p>Replace <code>name</code> with a name of the service to be created. Note that file does not need to be executable. </p>
-<p>Open the <code>name.service</code> file created in the previous step, and add the service configuration options. The following is an example unit configuration for a network-related service:</p>
-<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">service_description</span>
-<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-
-<span class="k">[Service]</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">path_to_executable</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
-</pre></div>
-
-
-<p>Notify systemd that a new <code>name.service</code> file exists by executing the following command as root:</p>
-<div class="highlight"><pre><span></span># systemctl daemon-reload
-# systemctl enable name.service
-# systemctl start name.service
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Replace <code>name</code> with a name of the service to be created. Note that file does not …</p>
+                <a class="readmore" href="/creating-systemd-unit-file.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

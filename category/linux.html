@@ -25,7 +25,77 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/vagrant-tips.html">Vagrant tips</a></h1>
+                    <h1 class="entry-title"><a href="/tmux-detach-with-systemd.html">Tmux detach with systemd</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-01-19T12:16:00+02:00">
+                Published: Fri 19 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> <a href="/tag/systemd.html">systemd</a> </p>
+</footer><!-- /.post-info --><p>With <code>systemd</code> version 230+ detachind and logout from remote machine will kill tmux session.</p>
+<h3>Systemd config</h3>
+<p>First solution is to disable killing user processes systemwide.
+Edit <code>/etc/systemd/logind.conf</code> and set</p>
+<div class="highlight"><pre><span></span><span class="na">KillUserProcesses</span><span class="o">=</span><span class="s">no</span>
+</pre></div>
+
+
+<p>Then restart <code>systemd-logind.service</code>:</p>
+<div class="highlight"><pre><span></span># systemctl restart systemd-logind
+</pre></div>
+
+
+<h3>Tmux as a service</h3>
+<p>Second solution is running tmux as a service.
+Just add <code>RemainAfterExit=yes</code> option to <code>/etc/systemd/system/tmux@.service</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">tmux default session (detached)</span>
+<span class="na">Documentation</span><span class="o">=</span><span class="s">man:tmux(1)</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+<span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">yes</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/tmux new-session -d -s %I</span>
+<span class="na">ExecStop</span><span class="o">=</span><span class="s">/usr/bin/tmux kill-server</span>
+<span class="na">KillMode</span><span class="o">=</span><span class="s">none</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multiplexer.target</span>
+</pre></div>
+
+
+<p>And then use it like this:</p>
+<div class="highlight"><pre><span></span># systemctl start tmux@instanceone.service
+# systemctl start tmux@instancetwo.service
+# tmux list-sessions
+
+instanceone: 1 windows (created Sun Jul 24 00:52:15 2016) [193x49]
+instancetwo: 1 windows (created Sun Jul 24 00:52:19 2016) [193x49]
+
+# tmux attach-session -t instanceone
+
+(instanceone)#
+</pre></div>
+
+
+<p>End</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/vagrant-tips.html" rel="bookmark"
+                           title="Permalink to Vagrant tips">Vagrant tips</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-30T14:02:00+02:00">
                 Published: Mon 30 October 2017
@@ -36,7 +106,7 @@
         </address>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/vagrant.html">vagrant</a> </p>
-</footer><!-- /.post-info --><p>Some useful tips to work with <a href="https://vagrantup.com">Vagrant</a>:</p>
+</footer><!-- /.post-info -->                <p>Some useful tips to work with <a href="https://vagrantup.com">Vagrant</a>:</p>
 <ul>
 <li>Memory and CPU control:</li>
 </ul>
@@ -53,42 +123,10 @@
 <div class="highlight"><pre><span></span><span class="k">[...]</span>
  <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
   <span class="na">vb.memory</span> <span class="o">=</span> <span class="s">&quot;1024</span>
-<span class="s">  vb.cpus = &quot;2&quot;</span>
-<span class="s"> end</span>
-<span class="k">[...]</span>
-</pre></div>
-
-
-<ul>
-<li>Show GUI:</li>
-</ul>
-<p>To show GUI for machine:</p>
-<div class="highlight"><pre><span></span><span class="k">[...]</span>
- <span class="na">config.vm.provider &quot;virtualbox&quot; do |vb| </span>
-  <span class="c1"># Display the VirtualBox GUI when booting the machine </span>
-  <span class="na">vb.gui</span> <span class="o">=</span> <span class="s">true  </span>
-<span class="s">  # Customize the amount of memory on the VM: </span>
-<span class="s">  vb.memory = &quot;1024&quot; </span>
-<span class="s"> end</span>
-<span class="k">[...]</span>
-</pre></div>
-
-
-<ul>
-<li>Synced folders:</li>
-</ul>
-<p>If you want to add synced folders add:</p>
-<div class="highlight"><pre><span></span><span class="k">[...]</span>
-<span class="na">config.vm.synced_folder &quot;/storage&quot;, &quot;/storage&quot;, </span>
-  <span class="na">owner: &quot;user&quot;, </span>
-  <span class="na">group: &quot;user&quot;</span>
-<span class="k">[...]</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<span class="s">  vb.cpus …</span></pre></div>
+                <a class="readmore" href="/vagrant-tips.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

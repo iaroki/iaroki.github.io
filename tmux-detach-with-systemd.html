@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog - tmux</title>
+        <title>Tmux detach with systemd</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -16,16 +16,21 @@
                 <nav><ul>
                     <li><a href="/category/docker.html">Docker</a></li>
                     <li><a href="/category/git.html">Git</a></li>
-                    <li><a href="/category/linux.html">Linux</a></li>
+                    <li class="active"><a href="/category/linux.html">Linux</a></li>
                     <li><a href="/category/markdown.html">Markdown</a></li>
                     <li><a href="/category/other.html">Other</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/tmux-detach-with-systemd.html" rel="bookmark"
+           title="Permalink to Tmux detach with systemd">Tmux detach with systemd</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/tmux-detach-with-systemd.html">Tmux detach with systemd</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-19T12:16:00+02:00">
                 Published: Fri 19 January 2018
@@ -36,7 +41,7 @@
         </address>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> <a href="/tag/systemd.html">systemd</a> </p>
-</footer><!-- /.post-info --><p>With <code>systemd</code> version 230+ detachind and logout from remote machine will kill tmux session.</p>
+</footer><!-- /.post-info -->      <p>With <code>systemd</code> version 230+ detachind and logout from remote machine will kill tmux session.</p>
 <h3>Systemd config</h3>
 <p>First solution is to disable killing user processes systemwide.
 Edit <code>/etc/systemd/logind.conf</code> and set</p>
@@ -82,42 +87,11 @@ instancetwo: 1 windows (created Sun Jul 24 00:52:19 2016) [193x49]
 </pre></div>
 
 
-<p>End</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>End</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tmux-cheatsheet.html" rel="bookmark"
-                           title="Permalink to Tmux cheatsheet">Tmux cheatsheet</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-08-06T15:54:00+03:00">
-                Published: Sun 06 August 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> </p>
-</footer><!-- /.post-info -->                <p>Meta key for tmux is <code>Ctl+b</code>!</p>
-<h3>Panes</h3>
-<p>To split pane horisontal press <code>Ctrl+b</code> and <code>"</code>.
-To split pane vertical press <code>Ctrl+b</code> and <code>%</code>.
-Navigate through panes with <code>Ctrl+b</code> and <code>direction</code>; Where <code>direction</code> is one of the arrow keys.
-Cycle through the panes with <code>Ctrl+b</code> and <code>o</code>.
-Hitting …</p>
-                <a class="readmore" href="/tmux-cheatsheet.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
