@@ -25,7 +25,44 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/tmux-detach-with-systemd.html">Tmux detach with systemd</a></h1>
+                    <h1 class="entry-title"><a href="/enable-graphical-login-in-centos-7.html">Enable graphical login in Centos 7</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-01-22T12:16:00+02:00">
+                Published: Mon 22 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/centos-systemd.html">centos systemd</a> </p>
+</footer><!-- /.post-info --><p>To start graphic login you need to enable two <code>systemd</code> services:</p>
+<div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> gdm.service
+$ sudo systemctl set-default graphical.target
+</pre></div>
+
+
+<p>Then reboot and you will see GDM login manager.
+If you want disable it, then run:</p>
+<div class="highlight"><pre><span></span>$ sudo systemctl disable gdm.service
+$ sudo systemctl set-default multi-user.target
+</pre></div>
+
+
+<p>Now reboot.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tmux-detach-with-systemd.html" rel="bookmark"
+                           title="Permalink to Tmux detach with systemd">Tmux detach with systemd</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-19T12:16:00+02:00">
                 Published: Fri 19 January 2018
@@ -36,7 +73,7 @@
         </address>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/tmux.html">tmux</a> <a href="/tag/systemd.html">systemd</a> </p>
-</footer><!-- /.post-info --><p>With <code>systemd</code> version 230+ detachind and logout from remote machine will kill tmux session.</p>
+</footer><!-- /.post-info -->                <p>With <code>systemd</code> version 230+ detachind and logout from remote machine will kill tmux session.</p>
 <h3>Systemd config</h3>
 <p>First solution is to disable killing user processes systemwide.
 Edit <code>/etc/systemd/logind.conf</code> and set</p>
@@ -50,44 +87,10 @@ Edit <code>/etc/systemd/logind.conf</code> and set</p>
 
 
 <h3>Tmux as a service</h3>
-<p>Second solution is running tmux as a service.
-Just add <code>RemainAfterExit=yes</code> option to <code>/etc/systemd/system/tmux@.service</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">tmux default session (detached)</span>
-<span class="na">Documentation</span><span class="o">=</span><span class="s">man:tmux(1)</span>
-
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
-<span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">yes</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/tmux new-session -d -s %I</span>
-<span class="na">ExecStop</span><span class="o">=</span><span class="s">/usr/bin/tmux kill-server</span>
-<span class="na">KillMode</span><span class="o">=</span><span class="s">none</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multiplexer.target</span>
-</pre></div>
-
-
-<p>And then use it like this:</p>
-<div class="highlight"><pre><span></span># systemctl start tmux@instanceone.service
-# systemctl start tmux@instancetwo.service
-# tmux list-sessions
-
-instanceone: 1 windows (created Sun Jul 24 00:52:15 2016) [193x49]
-instancetwo: 1 windows (created Sun Jul 24 00:52:19 2016) [193x49]
-
-# tmux attach-session -t instanceone
-
-(instanceone)#
-</pre></div>
-
-
-<p>End</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Second solution is running tmux …</p>
+                <a class="readmore" href="/tmux-detach-with-systemd.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
