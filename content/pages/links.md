@@ -17,4 +17,7 @@ Title: Links to read
 * [Nginx + php7 on CentOS 7](https://serveradmin.ru/ustanovka-i-nastroyka-nginx-php-fpm-php7-1-na-centos-7/)
 * [Nginx proxy_pass](https://serveradmin.ru/nginx-proxy_pass/)
 * [CentOS 7 server](https://serveradmin.ru/centos-7-nastroyka-servera/)
+* [Learn CD blog](https://learning-continuous-deployment.github.io)
+* [Jenkins pipeline](https://digitalocean.com/community/tutorials/how-to-set-up-continuous-pipelines-in-jenkins-on-ubuntu-16-04)
+* [LXC memory limit](https://www.mattficsher.com/blog/archives/399)
 
