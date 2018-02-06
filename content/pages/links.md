@@ -1,4 +1,4 @@
-Title: Links to read
+Title: Links
 
 # Useful links
 
