@@ -20,4 +20,5 @@ Title: Links to read
 * [Learn CD blog](https://learning-continuous-deployment.github.io)
 * [Jenkins pipeline](https://digitalocean.com/community/tutorials/how-to-set-up-continuous-pipelines-in-jenkins-on-ubuntu-16-04)
 * [LXC memory limit](https://www.mattficsher.com/blog/archives/399)
+* [Jenkins in docker](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
 
