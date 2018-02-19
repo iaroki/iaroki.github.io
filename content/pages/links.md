@@ -22,3 +22,8 @@ Title: Links
 * [LXC memory limit](https://www.mattficsher.com/blog/archives/399)
 * [Jenkins in docker](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
 
+# Non-Tech 
+
+* [Hiragana mnemonics](https://www.tofugu.com/japanese/learn-hiragana/)
+* [Kana Quiz](https://kana.pro/)
+
