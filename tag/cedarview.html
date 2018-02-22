@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>iaroki blog - Authors</title>
+        <title>iaroki blog - cedarview</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -24,13 +24,60 @@
                 </ul></nav>
         </header><!-- /#banner -->
 
-<section id="content" class="body">
-    <h1>Authors on iaroki blog</h1>
-    <ul>
-        <li><a href="/author/iaroki.html">iaroki</a> (36)</li>
-    </ul>
-</section>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/cedarview-on-ubuntu-1204.html">Cedarview on Ubuntu 12.04</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-02-22T14:34:00+02:00">
+                Published: Thu 22 February 2018
+        </abbr>
 
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/cedarview.html">cedarview</a> </p>
+</footer><!-- /.post-info --><p>First install Ubuntu 12.04 desktop and then fully upgrade system:</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get upgrade
+</pre></div>
+
+
+<p>Install <code>generic</code> kernels:</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get install linux-image-generic linux-headers-generic
+</pre></div>
+
+
+<p>Remove <code>-pae</code> kernels:</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get purge linux-image-generic-pae linux-headers-generic-pae
+</pre></div>
+
+
+<p>Optional grub update:</p>
+<div class="highlight"><pre><span></span>$ sudo update-grub2
+</pre></div>
+
+
+<p>Optional install gdm</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get install gdm
+</pre></div>
+
+
+<p>Reboot and install <strong>cedarview</strong> video driver:</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get install cedarview-graphics-drivers cedarview-drm
+</pre></div>
+
+
+<p>Optional add kernel parameter:
+Open <code>/etc/default/grub</code> and find <code>GRUB_CMDLINE_LINUX=""</code> and add <code>video=LVDS-1:d</code></p>
+<p>Update grub and reboot</p>
+<div class="highlight"><pre><span></span>$ sudo update-grub2
+$ reboot
+</pre></div>
+
+
+<hr>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
