@@ -22,6 +22,10 @@ Title: Links
 * [LXC memory limit](https://www.mattficsher.com/blog/archives/399)
 * [Jenkins in docker](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
 
+# Learning
+* [Software Testing (guru99)](https://www.guru99.com/software-testing.html)
+* [Code Fights](https://codefights.com/)
+
 # Non-Tech 
 
 * [Hiragana mnemonics](https://www.tofugu.com/japanese/learn-hiragana/)
