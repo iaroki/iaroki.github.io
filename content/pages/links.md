@@ -25,6 +25,7 @@ Title: Links
 # Learning
 * [Software Testing (guru99)](https://www.guru99.com/software-testing.html)
 * [Code Fights](https://codefights.com/)
+* [Python/Selenium ++++](http://www.techbeamers.com/)
 
 # Non-Tech 
 
