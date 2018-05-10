@@ -480,7 +480,7 @@ My hardware portable player doesn't support it so I converted files like this:</
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/ssh.html">ssh</a> </p>
 </footer><!-- /.post-info -->                <p>To generate public/private pair of keys enter:</p>
-<div class="highlight"><pre><span></span>ssh-keygen -b <span class="m">2048</span> -t rsa
+<div class="highlight"><pre><span></span>ssh-keygen -b <span class="m">4096</span> -t rsa -C <span class="s2">&quot;username@email&quot;</span>
 </pre></div>
 
 
@@ -492,11 +492,7 @@ My hardware portable player doesn't support it so I converted files like this:</
 <p>On remote server is adviceable to edit <code>/etc/ssh/sshd_config</code>:</p>
 <div class="highlight"><pre><span></span><span class="na">PasswordAuthentication no</span>
 <span class="na">PubkeyAuthentication yes</span>
-<span class="na">PermitRootLogin no</span>
-</pre></div>
-
-
-<p>Restart the …</p>
+<span class="na">PermitRootLogin …</span></pre></div>
                 <a class="readmore" href="/passwordless-ssh-key-based-authentication.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
