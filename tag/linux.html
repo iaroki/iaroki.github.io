@@ -26,7 +26,45 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/cedarview-on-ubuntu-1204.html">Cedarview on Ubuntu 12.04</a></h1>
+                    <h1 class="entry-title"><a href="/centos-7-kickstart-installation.html">CentOS 7 kickstart installation</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-07-06T14:34:00+03:00">
+                Published: Fri 06 July 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/linux.html">Linux</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/centos.html">centos</a> <a href="/tag/redhat.html">redhat</a> <a href="/tag/rhel.html">rhel</a> <a href="/tag/kickstart.html">kickstart</a> </p>
+</footer><!-- /.post-info --><p>I have generated kickstart file located on my pc and to make it available over local network I just start python server:</p>
+<div class="highlight"><pre><span></span>[iaroki@workstation ~]$ python -m http.server
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+</pre></div>
+
+
+<p>Now my kickstart config located at <code>http://10.69.0.202:8000/ks.cfg</code>.</p>
+<p>On another pc or vm I load installation media and in main menu hit <code>Esc</code>.
+To tell installer where ks.cfg is I must declare it and as it available on network I must assign IP address too:</p>
+<div class="highlight"><pre><span></span><span class="n">boot</span><span class="o">:</span> <span class="n">linux</span> <span class="n">inst</span><span class="o">.</span><span class="na">ip</span><span class="o">=</span><span class="mf">10.69</span><span class="o">.</span><span class="mf">0.210</span> <span class="n">inst</span><span class="o">.</span><span class="na">ks</span><span class="o">=</span><span class="n">http</span><span class="o">://</span><span class="mf">10.69</span><span class="o">.</span><span class="mf">0.202</span><span class="o">:</span><span class="mi">8000</span><span class="o">/</span><span class="n">ks</span><span class="o">.</span><span class="na">cfg</span>
+</pre></div>
+
+
+<p>After this Anaconda installer will fetch and install system following this kickstart config.</p>
+<hr>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/cedarview-on-ubuntu-1204.html" rel="bookmark"
+                           title="Permalink to Cedarview on Ubuntu 12.04">Cedarview on Ubuntu 12.04</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-02-22T14:34:00+02:00">
                 Published: Thu 22 February 2018
@@ -37,7 +75,7 @@
         </address>
 <p>In <a href="/category/linux.html">Linux</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/cedarview.html">cedarview</a> </p>
-</footer><!-- /.post-info --><p>First install Ubuntu 12.04 desktop and then fully upgrade system:</p>
+</footer><!-- /.post-info -->                <p>First install Ubuntu 12.04 desktop and then fully upgrade system:</p>
 <div class="highlight"><pre><span></span>$ sudo apt-get update
 $ sudo apt-get upgrade
 </pre></div>
@@ -63,25 +101,10 @@ $ sudo apt-get upgrade
 </pre></div>
 
 
-<p>Reboot and install <strong>cedarview</strong> video driver:</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install cedarview-graphics-drivers cedarview-drm
-</pre></div>
-
-
-<p>Optional add kernel parameter:
-Open <code>/etc/default/grub</code> and find <code>GRUB_CMDLINE_LINUX=""</code> and add <code>video=LVDS-1:d</code></p>
-<p>Update grub and reboot</p>
-<div class="highlight"><pre><span></span>$ sudo update-grub2
-$ reboot
-</pre></div>
-
-
-<hr>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Reboot and install <strong>cedarview</strong> video …</p>
+                <a class="readmore" href="/cedarview-on-ubuntu-1204.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
