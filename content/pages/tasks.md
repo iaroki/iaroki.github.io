@@ -5,6 +5,7 @@ Title: Tasks
 - [ ] blue/green deployment
 - [ ] canary builds
 - [ ] edx kubernetes
+- [ ] [Udacity kubernetes](https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
 - [ ] kubernetes 101
 - [ ] docker 101
 
@@ -23,4 +24,4 @@ Title: Tasks
 
 # Events
 
-- [ ] Fedora classroom 19-06-2018
+- [ ] Fedora classroom 05-07-2018
