@@ -8,6 +8,11 @@ Title: Tasks
 - [ ] kubernetes 101
 - [ ] docker 101
 
+# LXD docs
+
+- [LXD storage docs](https://lxd.readthedocs.io/en/latest/storage/)
+- [LXD storage blog post](https://blog.ubuntu.com/2017/07/12/storage-management-in-lxd-2-15)
+
 # Blog posts
 
 - [Kubernetes, LXD, Rancher](https://medium.com/@ernstae/kubenetes-on-lxd-with-rancher-2-0-part-one-33d527aab932)
