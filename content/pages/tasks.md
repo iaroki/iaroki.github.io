@@ -8,6 +8,9 @@ Title: Tasks
 - [ ] [Udacity kubernetes](https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
 - [ ] kubernetes 101
 - [ ] docker 101
+- [ ] http protocol
+- [ ] REST API
+- [ ] Flask?
 
 # LXD docs
 
