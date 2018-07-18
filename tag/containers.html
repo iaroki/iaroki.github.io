@@ -27,7 +27,130 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/dockerfile-description.html">Dockerfile description</a></h1>
+                    <h1 class="entry-title"><a href="/docker-local-registry.html">Docker local registry</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-09-07T16:57:00+03:00">
+                Published: Fri 07 September 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/iaroki.html">iaroki</a>
+        </address>
+<p>In <a href="/category/docker.html">Docker</a>.</p>
+<p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> </p>
+</footer><!-- /.post-info --><h1>Run a local registry</h1>
+<p>Use a command like the following to start the registry container:</p>
+<div class="highlight"><pre><span></span>$ docker run -d -p <span class="m">5000</span>:5000 --restart<span class="o">=</span>always --name registry registry:2
+</pre></div>
+
+
+<p>The registry is now ready to use.</p>
+<h1>Copy an image from Docker Hub to your registry</h1>
+<p>You can pull an image from Docker Hub and push it to your registry. The following example pulls the ubuntu:16.04 image from Docker Hub and re-tags it as my-ubuntu, then pushes it to the local registry. Finally, the ubuntu:16.04 and my-ubuntu images are deleted locally and the my-ubuntu image is pulled from the local registry.</p>
+<ol>
+<li>Pull the ubuntu:16.04 image from Docker Hub.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ docker pull ubuntu:16.04
+</pre></div>
+
+
+<ol>
+<li>Tag the image as localhost:5000/my-ubuntu. This creates an additional tag for the existing image. When the first part of the tag is a hostname and port, Docker interprets this as the location of a registry, when pushing.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ docker tag ubuntu:16.04 localhost:5000/my-ubuntu
+</pre></div>
+
+
+<ol>
+<li>Push the image to the local registry running at localhost:5000:</li>
+</ol>
+<div class="highlight"><pre><span></span>$ docker push localhost:5000/my-ubuntu
+</pre></div>
+
+
+<ol>
+<li>Remove the locally-cached ubuntu:16.04 and localhost:5000/my-ubuntu images, so that you can test pulling the image from your registry. This does not remove the localhost:5000/my-ubuntu image from your registry.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ docker image remove ubuntu:16.04
+$ docker image remove localhost:5000/my-ubuntu
+</pre></div>
+
+
+<ol>
+<li>Pull the localhost:5000/my-ubuntu image from your local registry.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ docker pull localhost:5000/my-ubuntu
+</pre></div>
+
+
+<h1>Stop a local registry</h1>
+<p>To stop the registry, use the same docker container stop command as with any other container.</p>
+<div class="highlight"><pre><span></span>$ docker container stop registry
+</pre></div>
+
+
+<p>To remove the container, use docker container rm.</p>
+<div class="highlight"><pre><span></span>$ docker container stop registry <span class="o">&amp;&amp;</span> docker container rm -v registry
+</pre></div>
+
+
+<h1>Basic configuration</h1>
+<p>To configure the container, you can pass additional or modified options to the docker run command.</p>
+<p>The following sections provide basic guidelines for configuring your registry. For more details, see the registry configuration reference.</p>
+<h2>Start the registry automatically</h2>
+<p>If you want to use the registry as part of your permanent infrastructure, you should set it to restart automatically when Docker restarts or if it exits. This example uses the --restart always flag to set a restart policy for the registry.</p>
+<div class="highlight"><pre><span></span>$ docker run -d <span class="se">\</span>
+  -p <span class="m">5000</span>:5000 <span class="se">\</span>
+  --restart<span class="o">=</span>always <span class="se">\</span>
+  --name registry <span class="se">\</span>
+  registry:2
+</pre></div>
+
+
+<h2>Customize the published port</h2>
+<p>If you are already using port 5000, or you want to run multiple local registries to separate areas of concern, you can customize the registry’s port settings. This example runs the registry on port 5001 and also names it registry-test. Remember, the first part of the -p value is the host port and the second part is the port within the container. Within the container, the registry listens on port 5000 by default.</p>
+<div class="highlight"><pre><span></span>$ docker run -d <span class="se">\</span>
+  -p <span class="m">5001</span>:5000 <span class="se">\</span>
+  --name registry-test <span class="se">\</span>
+  registry:2
+</pre></div>
+
+
+<p>If you want to change the port the registry listens on within the container, you can use the environment variable REGISTRY_HTTP_ADDR to change it. This command causes the registry to listen on port 5001 within the container:</p>
+<div class="highlight"><pre><span></span>$ docker run -d <span class="se">\</span>
+  -e <span class="nv">REGISTRY_HTTP_ADDR</span><span class="o">=</span><span class="m">0</span>.0.0.0:5001 <span class="se">\</span>
+  -p <span class="m">5001</span>:5001 <span class="se">\</span>
+  --name registry-test <span class="se">\</span>
+  registry:2
+</pre></div>
+
+
+<h1>Storage customization</h1>
+<h2>Customize the storage location</h2>
+<p>By default, your registry data is persisted as a docker volume on the host filesystem. If you want to store your registry contents at a specific location on your host filesystem, such as if you have an SSD or SAN mounted into a particular directory, you might decide to use a bind mount instead. A bind mount is more dependent on the filesystem layout of the Docker host, but more performant in many situations. The following example bind-mounts the host directory /mnt/registry into the registry container at /var/lib/registry/.</p>
+<div class="highlight"><pre><span></span>$ docker run -d <span class="se">\</span>
+  -p <span class="m">5000</span>:5000 <span class="se">\</span>
+  --restart<span class="o">=</span>always <span class="se">\</span>
+  --name registry <span class="se">\</span>
+  -v /mnt/registry:/var/lib/registry <span class="se">\</span>
+  registry:2
+</pre></div>
+
+
+<hr>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/dockerfile-description.html" rel="bookmark"
+                           title="Permalink to Dockerfile description">Dockerfile description</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-11-04T13:17:00+02:00">
                 Published: Sat 04 November 2017
@@ -38,7 +161,7 @@
         </address>
 <p>In <a href="/category/docker.html">Docker</a>.</p>
 <p>tags: <a href="/tag/linux.html">linux</a> <a href="/tag/docker.html">docker</a> <a href="/tag/containers.html">containers</a> <a href="/tag/dockerfile.html">dockerfile</a> </p>
-</footer><!-- /.post-info --><h3>Creating image from file</h3>
+</footer><!-- /.post-info -->                <h3>Creating image from file</h3>
 <p>Go to the directory with Dockerfile and run:</p>
 <div class="highlight"><pre><span></span>docker build -t imagename .
 </pre></div>
@@ -46,109 +169,10 @@
 
 <h3>Dockerfile instructions</h3>
 <p><strong>FROM</strong></p>
-<p><code>FROM</code> - This instruction is used to set the base image for subsequent instructions. It is mandatory to set this in the first line of a Dockerfile. You can use it any number of times though.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>FROM debian:jessie
-</pre></div>
-
-
-<p><strong>MAINTAINER</strong></p>
-<p><code>MAINTAINER</code> - This is a non-executable instruction used to indicate the author of the Dockerfile.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>MAINTAINER iaroki
-</pre></div>
-
-
-<p><strong>RUN</strong></p>
-<p><code>RUN</code> - This instruction lets you execute a command on top of an existing layer and create a new layer with the results of command execution.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>FROM debian:jessie
-RUN apt-get update &amp;&amp; apt-get install python3 -y
-</pre></div>
-
-
-<p><strong>CMD</strong></p>
-<p><code>CMD</code> - The major difference between <code>CMD</code> and <code>RUN</code> is that <code>CMD</code> doesn’t execute anything during the build time. It just specifies the intended command for the image. Whereas <code>RUN</code> actually executes the command during build time.</p>
-<p>Note: there can be only one <code>CMD</code> instruction in a Dockerfile, if you add more, only the last one takes effect.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>CMD [&quot;echo&quot;, &quot;say hello&quot;]
-</pre></div>
-
-
-<p><strong>EXPOSE</strong></p>
-<p><code>EXPOSE</code> - While running your service in the container you may want your container to listen on specified ports. The <code>EXPOSE</code> instruction helps you do this.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>EXPOSE 9000
-</pre></div>
-
-
-<p><strong>ENV</strong></p>
-<p><code>ENV</code> - This instruction can be used to set the environment variables in the container.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>ENV HOME=/home/user
-</pre></div>
-
-
-<p><strong>USER</strong></p>
-<p><code>USER</code> - This is used to set the UID (or username) to use when running the image.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>USER iaroki
-</pre></div>
-
-
-<p><strong>WORKDIR</strong></p>
-<p><code>WORKDIR</code> - This is used to set the currently active directory for other instructions such as <code>RUN</code>, <code>CMD</code>, <code>ENTRYPOINT</code>, <code>COPY</code> and <code>ADD</code>.</p>
-<p>Note that if relative path is provided, the next <code>WORKDIR</code> instruction will take it as relative to the path of previous <code>WORKDIR</code> instruction.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>WORKDIR /user
-WORKDIR home
-RUN pwd
-</pre></div>
-
-
-<p>This will output the path as <code>/user/home</code>.</p>
-<p><strong>COPY</strong></p>
-<p><code>COPY</code> - This instruction is used to copy files and directories from a specified source to a destination (in the file system of the container).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>COPY preconditions.txt /usr/temp
-</pre></div>
-
-
-<p><strong>ADD</strong></p>
-<p><code>ADD</code> - This instruction is similar to the <code>COPY</code> instruction with few added features like remote URL support in the source field and local-only tar extraction. But if you don’t need a extra features, it is suggested to use <code>COPY</code> as it is more readable.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>ADD http://www.site.com/downloads/sample.tar.xz /usr/src
-</pre></div>
-
-
-<p><strong>ENTRYPOINT</strong></p>
-<p><code>ENTRYPOINT</code> - You can use this instruction to set the primary command for the image.</p>
-<p>For example, if you have installed only one application in your image and want it to run whenever the image is executed, <code>ENTRYPOINT</code> is the instruction for you.</p>
-<p>Note: arguments are optional, and you can pass them during the runtime with something like <code>docker run &lt;image-name&gt;</code>.</p>
-<p>Also, all the elements specified using <code>CMD</code> will be overridden, except the arguments. They will be passed to the command specified in <code>ENTRYPOINT</code>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>CMD &quot;Hello World!&quot;
-ENTRYPOINT echo
-</pre></div>
-
-
-<p><strong>VOLUME</strong></p>
-<p><code>VOLUME</code> - You can use the <code>VOLUME</code> instruction to enable access to a location on the host system from a container. Just pass the path of the location to be accessed.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>VOLUME /data
-</pre></div>
-
-
-<p><strong>ONBUILD</strong></p>
-<p><code>ONBUILD</code> - This instruction adds a trigger instruction to be executed when the image is used as the base for some other image. It behaves as if a <code>RUN</code> instruction is inserted immediately after the <code>FROM</code> instruction of the downstream Dockerfile. This is typically helpful in cases where you need a static base image with a dynamic config value that changes whenever a new image has to be built (on top of the base image).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>ONBUILD RUN rm -rf /usr/temp
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p><code>FROM</code> - This instruction is used to set the base image for subsequent instructions. It is mandatory to set this in the first line of a Dockerfile. You can use it any …</p>
+                <a class="readmore" href="/dockerfile-description.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
