@@ -21,6 +21,7 @@ Title: Links
 * [Jenkins pipeline](https://digitalocean.com/community/tutorials/how-to-set-up-continuous-pipelines-in-jenkins-on-ubuntu-16-04)
 * [LXC memory limit](https://www.mattficsher.com/blog/archives/399)
 * [Jenkins in docker](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
+* [Cloud blog](http://blog.pridybailo.com)
 
 # Learning
 * [Software Testing (guru99)](https://www.guru99.com/software-testing.html)
