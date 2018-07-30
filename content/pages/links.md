@@ -22,6 +22,7 @@ Title: Links
 * [LXC memory limit](https://www.mattficsher.com/blog/archives/399)
 * [Jenkins in docker](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
 * [Cloud blog](http://blog.pridybailo.com)
+* [awesome kubernetes](https://ramitsurana.github.io/awesome-kubernetes/)
 
 # Learning
 * [Software Testing (guru99)](https://www.guru99.com/software-testing.html)
