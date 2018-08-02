@@ -24,6 +24,7 @@ Title: Tasks
 - [Ingress on Minikube](https://medium.com/@Oskarr3/setting-up-ingress-on-minikube-6ae825e98f82)
 - [Kubernetes on LXD part1](https://itnext.io/tutorial-part-1-kubernetes-up-and-running-on-lxc-lxd-b760c79cd53f)
 - [Kubernetes on LXD part2](https://itnext.io/tutorial-part-2-kubernetes-up-and-running-on-lxc-lxd-6d60e98f22df)
+- [Kubernetes devops blog](https://akomljen.com/)
 
 # Events
 
