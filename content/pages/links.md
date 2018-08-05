@@ -23,6 +23,7 @@ Title: Links
 * [Jenkins in docker](https://engineering.riotgames.com/news/putting-jenkins-docker-container)
 * [Cloud blog](http://blog.pridybailo.com)
 * [awesome kubernetes](https://ramitsurana.github.io/awesome-kubernetes/)
+* [devops in 6 month](https://medium.com/@devfire/how-to-become-a-devops-engineer-in-six-months-or-less-366097df7737)
 
 # Learning
 * [Software Testing (guru99)](https://www.guru99.com/software-testing.html)
