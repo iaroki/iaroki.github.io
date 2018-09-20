@@ -16,7 +16,7 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
 <meta property="og:description" content="Load balancing is a very useful technique to distribute the incoming network traffic across a number servers. With this technique you can reduce the resource usage, lower the response time and avoid server overload.
 Nginx Load Balancing is one of the most efficient options available to achieve full application redundancy, and it is relatively easy and quick to setup. We will configure Nginx load balancing using the Round robin mechanism." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/nginx-load-balancing/" /><meta property="article:published_time" content="2017-11-04T12:46:36&#43;03:00"/>
+<meta property="og:url" content="https://iaroki.github.io/blog/nginx-load-balancing/" /><meta property="article:published_time" content="2017-11-04T12:46:36&#43;03:00"/>
 <meta property="article:modified_time" content="2017-11-04T12:46:36&#43;03:00"/>
 
 <title>
@@ -25,7 +25,7 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
      Nginx load balancing 
 
 </title>
-<link rel="canonical" href="/blog/nginx-load-balancing/">
+<link rel="canonical" href="https://iaroki.github.io/blog/nginx-load-balancing/">
 
 
 
@@ -43,11 +43,11 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
 
 
     
-    <link rel="stylesheet" href="/css/reset.css?t=2018-09-20%2007%3a40%3a55.135170949%20%2b0000%20UTC%20m%3d%2b0.719621072">
-    <link rel="stylesheet" href="/css/pygments.css?t=2018-09-20%2007%3a40%3a55.135170949%20%2b0000%20UTC%20m%3d%2b0.719621072">
-    <link rel="stylesheet" href="/css/main.css?t=2018-09-20%2007%3a40%3a55.135170949%20%2b0000%20UTC%20m%3d%2b0.719621072">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-09-20%2007%3a46%3a49.597783868%20%2b0000%20UTC%20m%3d%2b0.879200574">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-09-20%2007%3a46%3a49.597783868%20%2b0000%20UTC%20m%3d%2b0.879200574">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-09-20%2007%3a46%3a49.597783868%20%2b0000%20UTC%20m%3d%2b0.879200574">
     
-        <link rel="stylesheet" href="/css/override.css?t=2018-09-20%2007%3a40%3a55.135170949%20%2b0000%20UTC%20m%3d%2b0.719621072">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-09-20%2007%3a46%3a49.597783868%20%2b0000%20UTC%20m%3d%2b0.879200574">
     
 
 
@@ -55,7 +55,7 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
 
 <link rel="shortcut icon"
 
-    href="/img/zen.ico"
+    href="https://iaroki.github.io/img/zen.ico"
 
 >
 
@@ -85,20 +85,20 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
                     
                 
                 
-                <a href="/"><img class="avatar" src="/img/zen.png" srcset="/img/zen.png 1x"></a>
+                <a href="https://iaroki.github.io/"><img class="avatar" src="https://iaroki.github.io/img/zen.png" srcset="https://iaroki.github.io/img/zen.png 1x"></a>
             
-            <a href="/"><div class="name">iaroki</div></a>
+            <a href="https://iaroki.github.io/"><div class="name">iaroki</div></a>
             
             <nav>
                 <ul>
                     
-                        <li class="nav-blog"><a href="/blog/"><span>Blog</span></a></li>
+                        <li class="nav-blog"><a href="https://iaroki.github.io/blog/"><span>Blog</span></a></li>
                     
-                        <li class="nav-about"><a href="/about/"><span>About</span></a></li>
+                        <li class="nav-about"><a href="https://iaroki.github.io/about/"><span>About</span></a></li>
                     
-                        <li class="nav-code"><a href="/code/"><span>Code</span></a></li>
+                        <li class="nav-code"><a href="https://iaroki.github.io/code/"><span>Code</span></a></li>
                     
-                        <li class="nav-links"><a href="/links/"><span>Links</span></a></li>
+                        <li class="nav-links"><a href="https://iaroki.github.io/links/"><span>Links</span></a></li>
                     
                 </ul>
             </nav>
@@ -110,15 +110,15 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
     <div class="container">
         <div class="content">
         
-            <a href="//github.com/iaroki" target="_blank" rel="noopener"><img class="icon" src="/img/github.svg" alt="github" /></a>
+            <a href="//github.com/iaroki" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/github.svg" alt="github" /></a>
         
 
         
-            <a href="//gitlab.com/iaroki" target="_blank" rel="noopener"><img class="icon" src="/img/gitlab.svg" alt="gitlab" /></a>
+            <a href="//gitlab.com/iaroki" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/gitlab.svg" alt="gitlab" /></a>
         
 
         
-            <a href="//twitter.com/_iaroki" target="_blank" rel="noopener"><img class="icon" src="/img/twitter.svg" alt="twitter" /></a>
+            <a href="//twitter.com/_iaroki" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/twitter.svg" alt="twitter" /></a>
         
 
 	
@@ -126,27 +126,27 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
         
 
         
-            <a href="//mastodon.social/@iaroki" target="_blank" rel="noopener"><img class="icon" src="/img/mastodon.svg" alt="mastodon" /></a>
+            <a href="//mastodon.social/@iaroki" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/mastodon.svg" alt="mastodon" /></a>
         
 
         
-            <a href="//linkedin.com/in/iaroki" target="_blank" rel="noopener"><img class="icon" src="/img/linkedin.svg" alt="linkedin" /></a>
-        
-
-        
-
-        
-            <a href="//instagram.com/homelessstreetcat" target="_blank" rel="noopener"><img class="icon" src="/img/instagram.svg" alt="instagram" /></a>
-        
-
-        
-            <a href="//500px.com/iaroki" target="_blank" rel="noopener"><img class="icon" src="/img/500px.svg" alt="500px" /></a>
+            <a href="//linkedin.com/in/iaroki" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/linkedin.svg" alt="linkedin" /></a>
         
 
         
 
         
-            <a href="mailto:iaroki@protonmail.com"><img class="icon" src="/img/email.svg" alt="email" /></a>
+            <a href="//instagram.com/homelessstreetcat" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+            <a href="//500px.com/iaroki" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/500px.svg" alt="500px" /></a>
+        
+
+        
+
+        
+            <a href="mailto:iaroki@protonmail.com"><img class="icon" src="https://iaroki.github.io/img/email.svg" alt="email" /></a>
         
 
         
@@ -168,7 +168,7 @@ Nginx Load Balancing is one of the most efficient options available to achieve f
 
 </div>
 
-                    <div class="initials"><a href="/"></a></div>
+                    <div class="initials"><a href="https://iaroki.github.io"></a></div>
                 </div>
                 <div class="meta">
                     
@@ -293,14 +293,14 @@ server vps3.yourdomain.com down;
                   <div class="tags">
                     <strong>Tags:</strong>
                   
-                    <a href="/tags/linux">linux</a>
+                    <a href="https://iaroki.github.io/tags/linux">linux</a>
                   
-                    <a href="/tags/nginx">nginx</a>
+                    <a href="https://iaroki.github.io/tags/nginx">nginx</a>
                   
                   </div>
                   <br />
                 
-                <p class="back-to-posts"><a href="/blog">Back to posts</a></p>
+                <p class="back-to-posts"><a href="https://iaroki.github.io/blog">Back to posts</a></p>
             </div>
             <br>
             <div class="disqus">

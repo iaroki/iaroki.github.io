@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Containers on iaroki&#39;s blog</title>
-    <link>/tags/containers/</link>
+    <link>https://iaroki.github.io/tags/containers/</link>
     <description>Recent content in Containers on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 20 Sep 2017 12:28:27 +0300</lastBuildDate>
     
-	<atom:link href="/tags/containers/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://iaroki.github.io/tags/containers/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running GUI applications in LXD on Fedora 26</title>
-      <link>/blog/running-gui-applications-in-lxd-on-fedora-26/</link>
+      <link>https://iaroki.github.io/blog/running-gui-applications-in-lxd-on-fedora-26/</link>
       <pubDate>Wed, 20 Sep 2017 12:28:27 +0300</pubDate>
       
-      <guid>/blog/running-gui-applications-in-lxd-on-fedora-26/</guid>
+      <guid>https://iaroki.github.io/blog/running-gui-applications-in-lxd-on-fedora-26/</guid>
       <description>Create container:
 [iaroki@fedora ~]$ lxc launch images:debian/stretch chrome  Install needed tools:
 [iaroki@fedora ~]$ lxc exec chrome bash root@chrome:~# adduser iaroki root@chrome:~# apt update root@chrome:~# apt install x11-apps mesa-utils alsa-utils  Map UID and GID ramges:
