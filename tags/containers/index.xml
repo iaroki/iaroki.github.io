@@ -6,10 +6,23 @@
     <description>Recent content in Containers on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 20 Sep 2017 12:28:27 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 20 Sep 2018 07:58:56 +0000</lastBuildDate>
     
 	<atom:link href="https://iaroki.github.io/tags/containers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LXD container with second network interface</title>
+      <link>https://iaroki.github.io/blog/lxd-container-with-second-network-interface/</link>
+      <pubDate>Thu, 20 Sep 2018 07:58:56 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/blog/lxd-container-with-second-network-interface/</guid>
+      <description> Adding secondary NIC to LXD container Create container in stopped state:
+lxc init images:alpine/edge server  Then add NIC:
+lxc config device add server eth1 nic nictype=bridged parent=docker0  Start container and login inside:
+lxc start server lxc exec server sh  You will see that yo have now two network interfaces. Set an IP address to it:
+ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1  </description>
+    </item>
     
     <item>
       <title>Running GUI applications in LXD on Fedora 26</title>
