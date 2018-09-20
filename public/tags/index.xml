@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on iaroki&#39;s blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on iaroki&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 25 Oct 2017 12:35:22 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Asterisk</title>
+      <link>/tags/asterisk/</link>
+      <pubDate>Wed, 25 Oct 2017 12:35:22 +0300</pubDate>
+      
+      <guid>/tags/asterisk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Centos</title>
+      <link>/tags/centos/</link>
+      <pubDate>Thu, 07 Jun 2018 12:55:02 +0300</pubDate>
+      
+      <guid>/tags/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Containers</title>
+      <link>/tags/containers/</link>
+      <pubDate>Wed, 20 Sep 2017 12:28:27 +0300</pubDate>
+      
+      <guid>/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Curl</title>
+      <link>/tags/curl/</link>
+      <pubDate>Sun, 01 Feb 2015 12:18:07 +0300</pubDate>
+      
+      <guid>/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dns</title>
+      <link>/tags/dns/</link>
+      <pubDate>Wed, 01 Nov 2017 10:49:22 +0300</pubDate>
+      
+      <guid>/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fedora</title>
+      <link>/tags/fedora/</link>
+      <pubDate>Thu, 07 Jun 2018 12:55:02 +0300</pubDate>
+      
+      <guid>/tags/fedora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg</title>
+      <link>/tags/ffmpeg/</link>
+      <pubDate>Tue, 05 Dec 2017 12:49:08 +0300</pubDate>
+      
+      <guid>/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firewalld</title>
+      <link>/tags/firewalld/</link>
+      <pubDate>Wed, 01 Nov 2017 12:41:20 +0300</pubDate>
+      
+      <guid>/tags/firewalld/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/tags/git/</link>
+      <pubDate>Mon, 30 Oct 2017 12:39:27 +0300</pubDate>
+      
+      <guid>/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iptables</title>
+      <link>/tags/iptables/</link>
+      <pubDate>Thu, 02 Nov 2017 12:42:51 +0300</pubDate>
+      
+      <guid>/tags/iptables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jenkins</title>
+      <link>/tags/jenkins/</link>
+      <pubDate>Fri, 03 Nov 2017 12:44:34 +0300</pubDate>
+      
+      <guid>/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kickstart</title>
+      <link>/tags/kickstart/</link>
+      <pubDate>Thu, 07 Jun 2018 12:55:02 +0300</pubDate>
+      
+      <guid>/tags/kickstart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Thu, 07 Jun 2018 12:55:02 +0300</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Luks</title>
+      <link>/tags/luks/</link>
+      <pubDate>Thu, 16 Mar 2017 12:20:55 +0300</pubDate>
+      
+      <guid>/tags/luks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lvm</title>
+      <link>/tags/lvm/</link>
+      <pubDate>Thu, 16 Mar 2017 12:20:55 +0300</pubDate>
+      
+      <guid>/tags/lvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lxd</title>
+      <link>/tags/lxd/</link>
+      <pubDate>Wed, 20 Sep 2017 12:28:27 +0300</pubDate>
+      
+      <guid>/tags/lxd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>M4a</title>
+      <link>/tags/m4a/</link>
+      <pubDate>Tue, 05 Dec 2017 12:49:08 +0300</pubDate>
+      
+      <guid>/tags/m4a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>/tags/nginx/</link>
+      <pubDate>Sat, 04 Nov 2017 12:46:36 +0300</pubDate>
+      
+      <guid>/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ogg</title>
+      <link>/tags/ogg/</link>
+      <pubDate>Tue, 05 Dec 2017 12:49:08 +0300</pubDate>
+      
+      <guid>/tags/ogg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Thu, 08 Jun 2017 12:57:22 +0300</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rhel</title>
+      <link>/tags/rhel/</link>
+      <pubDate>Thu, 07 Jun 2018 12:55:02 +0300</pubDate>
+      
+      <guid>/tags/rhel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh</title>
+      <link>/tags/ssh/</link>
+      <pubDate>Mon, 20 Mar 2017 12:22:43 +0300</pubDate>
+      
+      <guid>/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Systemd</title>
+      <link>/tags/systemd/</link>
+      <pubDate>Mon, 22 Jan 2018 12:53:25 +0300</pubDate>
+      
+      <guid>/tags/systemd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tmux</title>
+      <link>/tags/tmux/</link>
+      <pubDate>Fri, 19 Jan 2018 12:51:02 +0300</pubDate>
+      
+      <guid>/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tor</title>
+      <link>/tags/tor/</link>
+      <pubDate>Fri, 16 Jun 2017 11:46:07 +0300</pubDate>
+      
+      <guid>/tags/tor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>/tags/ubuntu/</link>
+      <pubDate>Wed, 25 Oct 2017 12:35:22 +0300</pubDate>
+      
+      <guid>/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant</title>
+      <link>/tags/vagrant/</link>
+      <pubDate>Mon, 30 Oct 2017 12:37:21 +0300</pubDate>
+      
+      <guid>/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
