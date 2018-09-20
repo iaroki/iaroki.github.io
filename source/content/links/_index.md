@@ -35,6 +35,7 @@ hidden: false
 * [Code Fights](https://codefights.com/)
 * [Python/Selenium ++++](http://www.techbeamers.com/)
 * [Git stuff](https://zwischenzugs.com/2018/05/14/beyond-punk-rock-git-in-eleven-steps/)
+* [CISCO Certification](https://ccnav6.com/)
 
 # To look into
 
