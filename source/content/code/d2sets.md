@@ -1,3 +1,9 @@
+---
+date: 2018-09-21T20:29:37-07:00
+draft: false
+title: Diablo 2 Set Items
+---
+
 # Isenhart's Armory
 + **Isenhart's Horns (Full Helm)**
 + **Isenhart's Case (Breast Plate)**
