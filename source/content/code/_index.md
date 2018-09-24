@@ -4,8 +4,6 @@ draft: false
 title: Code
 ---
 
-* [Diablo 2 Set Items](https://iaroki.github.io/code/d2sets/index.html)
-* [Diablo 2 Unique Items](https://iaroki.github.io/code/d2uniq/index.html)
-* [Playstation 4 Games](https://iaroki.github.io/code/ps4games/index..html)
+# Some info
 
 ---
