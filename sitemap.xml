@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://iaroki.github.io/code/d2sets/</loc>
+    <lastmod>2018-09-21T20:29:37-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://iaroki.github.io/code/d2uniq/</loc>
+    <lastmod>2018-09-20T20:29:37-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://iaroki.github.io/blog/lxd-container-with-second-network-interface/</loc>
     <lastmod>2018-09-20T07:58:56+00:00</lastmod>
   </url>
@@ -135,14 +145,6 @@
   <url>
     <loc>https://iaroki.github.io/blog/curl-ip-address/</loc>
     <lastmod>2015-02-01T12:18:07+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iaroki.github.io/code/d2sets/</loc>
-  </url>
-  
-  <url>
-    <loc>https://iaroki.github.io/code/d2uniq/</loc>
   </url>
   
   <url>
@@ -326,7 +328,7 @@
   
   <url>
     <loc>https://iaroki.github.io/</loc>
-    <lastmod>2018-09-20T07:58:56+00:00</lastmod>
+    <lastmod>2018-09-21T20:29:37-07:00</lastmod>
     <priority>0</priority>
   </url>
   
