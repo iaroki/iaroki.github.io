@@ -33,7 +33,7 @@ title: Diablo 2 Set Items
 # Berserker's Arsenal
 - Berserker's Hatchet
 + **Berserker's Hauberk (Splint Mail)**
-- Berserker's Headgear
++ **Berserker's Headgear (Helm)**
 
 # Sander's Folly
 + **Sander's Taboo (Heavy Gloves)**
@@ -138,7 +138,7 @@ title: Diablo 2 Set Items
 - **Hwanin's Justice (Bill)**
 - Hwanin's Blessing
 + **Hwanin's Refuge (Tigulated Mail)**
-- Hwanin's Splendor
++ **Hwanin's Splendor (Grand Crown)**
 
 # Immortal King
 - Immortal King's Stone Crusher

@@ -78,3 +78,7 @@ Visceratuant
 Silkweave
 Skin of the Vipermagi
 Swordguard
+Hellclap
+Hellcast
+Coldkill
+Pelta Lunata (Ethereal)
