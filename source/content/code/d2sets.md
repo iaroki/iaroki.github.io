@@ -15,7 +15,7 @@ title: Diablo 2 Set Items
 + **Sigon's Wrap (Plated Belt)**
 + **Sigon's Sabot (Greaves)**
 + **Sigon's Shelter (Gothic Plate)**
-- Sigon's Visor
++ **Sigon's Visor (Great Helm)**
 + **Sigon's Gage (Gauntlets)**
 
 # Cleglaw's Brace
@@ -31,19 +31,19 @@ title: Diablo 2 Set Items
 - Cathan's Rule
 
 # Berserker's Arsenal
-- Berserker's Hatchet
++ **Berserker's Hatchet (Double Axe)**
 + **Berserker's Hauberk (Splint Mail)**
 + **Berserker's Headgear (Helm)**
 
 # Sander's Folly
 + **Sander's Taboo (Heavy Gloves)**
 + **Sander's Superstition (Bone Wand)**
-- Sander's Riprap
++ **Sander's Riprap (Heavy Boots)**
 - Sander's Paragon
 
 # Civerb's Vestments
 - Civerb's Cudgel
-- Civerb's Icon
++ **Civerb's Icon (Amulet)**
 + **Civerb's Ward (Large Shield)**
 
 # Milabrega's Regalia
@@ -56,13 +56,13 @@ title: Diablo 2 Set Items
 - Vidala's Snare
 - Vidala's Ambush
 + **Vidala's Fetlock (Light Plated Boots)**
-- Vidala's Barb
++ **Vidala's Barb (Long Battle Bow)**
 
 # Angelic Raiment
 + **Angelic Wings (Amulet)**
 + **Angelic Halo (Ring)**
 + **Angelic Mantle (Ring Mail)**
-- Angelic Sickle
++ **Angelic Sickle (Sabre)**
 
 # Nai's Ancient Vestige
 + **Nai's Circlet (Circlet)**
@@ -71,7 +71,7 @@ title: Diablo 2 Set Items
 
 # Arctic Gear
 + **Arctic Mitts (Light Gauntlets)**
-- Arctic Binding
++ **Arctic Binding (Light Belt)**
 - Arctic Furs
 + **Arctic Horn (Short War Bow)**
 
@@ -147,3 +147,9 @@ title: Diablo 2 Set Items
 - Immortal King's
 - Immortal King's
 - Immortal King's
+
+# Natalya's Odium
++ **Natalya's Soul (Mesh Boots)**
+- Natalya's Shadow
+- Natalya's Mark
+- Natalya's Totem

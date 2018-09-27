@@ -82,3 +82,16 @@ Hellclap
 Hellcast
 Coldkill
 Pelta Lunata (Ethereal)
+Ichorsting
+The Mahim-Oak Curio
+Maelstrom (Ethereal)
+Wolfhowl
+Manald Heal
+Steelclash
+The Gavel of Pain
+Blastbark
+Witherstring
+Rusthandle
+Iceblink
+Bonesnap
+Coif of Glory
