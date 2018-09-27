@@ -83,7 +83,7 @@ title: Diablo 2 Set Items
 + **Tancred's Crowbill (Military Pick)**
 
 # Iratha's Finery
-- Iratha's Cord
++ **Iratha's Cord (Heavy Belt)**
 + **Iratha's Coil (Crown)**
 + **Iratha's Cuff (Light Gauntlets)**
 - Iratha's Collar
@@ -116,7 +116,7 @@ title: Diablo 2 Set Items
 - Telling of Beads
 
 # Aldur's Watchtower
-- Aldur's Advance
++ **Aldur's Advance (Battle Boots)**
 + **Aldur's Rhythm (Jagged Star)**
 - Aldur's Deception
 - Aldur's Stony Gaze

@@ -95,3 +95,6 @@ Rusthandle
 Iceblink
 Bonesnap
 Coif of Glory
+Lightsabre
+Hawkmail
+Lidless Wall
