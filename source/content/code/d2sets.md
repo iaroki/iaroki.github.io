@@ -26,7 +26,7 @@ title: Diablo 2 Set Items
 # Cathan's Traps
 + **Cathan's Seal (Ring)**
 - Cathan's Sigil
-- Cathan's Visage
++ **Cathan's Visage (Mask)**
 + **Cathan's Mesh (Chain Mail)**
 - Cathan's Rule
 
@@ -54,7 +54,7 @@ title: Diablo 2 Set Items
 
 # Vidala's Rig
 - Vidala's Snare
-- Vidala's Ambush
++ **Vidala's Ambush (Leather Armor)**
 + **Vidala's Fetlock (Light Plated Boots)**
 + **Vidala's Barb (Long Battle Bow)**
 
@@ -152,4 +152,24 @@ title: Diablo 2 Set Items
 + **Natalya's Soul (Mesh Boots)**
 - Natalya's Shadow
 - Natalya's Mark
-- Natalya's Totem
++ **Natalya's Totem (Grim Helm)**
+
+# Griswold's Legacy
+- Griswold's Honor
+- Griswold's Redemption
++ **Griswold's Heart (Ornate Plate)**
+- Griswold's Valor
+
+# M'avina's Battle Hymn
+- M'avina's Caster
++ **M'avina's Tenet (Sharkskin Belt)**
+- M'avina's Icy Clutch
+- M'avina's Embrace
+- M'avina's True Sight
+
+# Tal Rasha's Wrappings
++ **Tal Rasha's Horadric Crest (Death Mask)**
+- Tal Rasha's Guardianship
+- Tal Rasha's Lidless Eye
+- Tal Rasha's Adjudication
+- Tal Rasha's Fine-Spun Cloth

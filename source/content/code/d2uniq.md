@@ -98,3 +98,8 @@ Coif of Glory
 Lightsabre
 Hawkmail
 Lidless Wall
+Raven Claw
+Doomslinger
+Bloodfist
+The Scalper
+The Minotaur
