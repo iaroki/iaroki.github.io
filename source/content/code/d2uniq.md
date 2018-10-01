@@ -103,3 +103,7 @@ Doomslinger
 Bloodfist
 The Scalper
 The Minotaur
+Kuko Shakaku
+Spire of Honor
+Skystrike
+Sureshrill Frost
