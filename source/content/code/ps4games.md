@@ -20,8 +20,6 @@ title: Playstation 4 Games
 + **Diablo III Eternal Collection (29GB)**
 + **Nioh Game of the Year Edition (49GB)**
 + **The Witcher 3 Game of the Year Edition (41GB)**
-+ **Beyond Two Souls (36GB)**
-+ **Heavy Rain (33GB)**
 + **Rayman Legends (8GB)**
 - [Final Fantasy XV (68GB)](https://rutracker.org/forum/viewtopic.php?t=5591225)
 - [God of War (36GB)](https://rutracker.org/forum/viewtopic.php?t=5568038)
