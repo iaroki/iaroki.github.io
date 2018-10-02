@@ -107,3 +107,4 @@ Kuko Shakaku
 Spire of Honor
 Skystrike
 Sureshrill Frost
+Boneslayer Blade

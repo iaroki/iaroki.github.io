@@ -99,7 +99,7 @@ title: Diablo 2 Set Items
 - Death's Hand
 
 # Hsarus' Defense
-- Hsarus' Iron Stay
++ **Hsarus' Iron Stay (Belt)**
 - Hsarus' Iron Fist
 + **Hsarus' Iron Heel (Chain Boots)**
 
@@ -129,7 +129,7 @@ title: Diablo 2 Set Items
 
 # Trang-Oul's Avatar
 - Trang-Oul's Girth
-- Trang-Oul's Claws
++ **Trang-Oul's Claws (Heavy Bracers)**
 - Trang-Oul's Wing
 - **Trang-Oul's Scales (Chaos Armor)**
 - Trang-Oul's Guise
@@ -142,11 +142,10 @@ title: Diablo 2 Set Items
 
 # Immortal King
 - Immortal King's Stone Crusher
-- Immortal King's Pillar
+- **Immortal King's Pillar (War Belt)**
 - **Immortal King's Forge (War Gauntlets)**
-- Immortal King's
-- Immortal King's
-- Immortal King's
+- Immortal King's Soul Cage
+- Immortal King's Will
 
 # Natalya's Odium
 + **Natalya's Soul (Mesh Boots)**
