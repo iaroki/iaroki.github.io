@@ -108,3 +108,14 @@ Spire of Honor
 Skystrike
 Sureshrill Frost
 Boneslayer Blade
+Snowclash
+The Patriarch
+Buriza-Do Kyanon
+Dark Clan Crusher
+Deathspade
+Langer Briser
+Ondal's Wisdom
+Demon Limb (Ethereal)
+Spineripper
+Nord's Tenderizer
+Ume's Lament

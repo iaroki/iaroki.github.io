@@ -67,7 +67,7 @@ title: Diablo 2 Set Items
 # Nai's Ancient Vestige
 + **Nai's Circlet (Circlet)**
 - Nai's Light Plate
-- Nai's Puzzler
++ **Nai's Puzzler (Elder Staff)**
 
 # Arctic Gear
 + **Arctic Mitts (Light Gauntlets)**
@@ -141,9 +141,9 @@ title: Diablo 2 Set Items
 + **Hwanin's Splendor (Grand Crown)**
 
 # Immortal King
-- Immortal King's Stone Crusher
-- **Immortal King's Pillar (War Belt)**
-- **Immortal King's Forge (War Gauntlets)**
++ **Immortal King's Stone Crusher (Ogre Maul)**
++ **Immortal King's Pillar (War Belt)**
++ **Immortal King's Forge (War Gauntlets)**
 - Immortal King's Soul Cage
 - Immortal King's Will
 
