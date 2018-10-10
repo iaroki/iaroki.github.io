@@ -29,6 +29,7 @@ hidden: false
 * [awesome kubernetes](https://ramitsurana.github.io/awesome-kubernetes/)
 * [devops in 6 month](https://medium.com/@devfire/how-to-become-a-devops-engineer-in-six-months-or-less-366097df7737)
 * [kube, cont blog](https://blog.scottlowe.org/2017/12/06/using-vagrant-with-libvirt-on-fedora/)
+* [DevOps Roadmap](https://hackernoon.com/the-2018-devops-roadmap-31588d8670cb)
 
 # Learning
 * [Software Testing (guru99)](https://www.guru99.com/software-testing.html)
