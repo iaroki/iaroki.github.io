@@ -1,7 +1,7 @@
 ---
 title: "Voidlinux LXD image"
-date: 2018-10-11T12:16:56Z
-tags: ["linux", "containers", "lxd", "void", "voidlinux"]
+date: 2018-10-11T09:34:49Z
+tags: ["linux", "containers", "lxd"]
 ---
 
 # Create image
