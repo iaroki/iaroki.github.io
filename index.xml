@@ -6,10 +6,19 @@
     <description>Recent content on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 11 Oct 2018 09:34:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Oct 2018 13:41:46 +0000</lastBuildDate>
     
 	<atom:link href="https://iaroki.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fedora Atomic testdrive</title>
+      <link>https://iaroki.github.io/blog/fedora-atomic-testdrive/</link>
+      <pubDate>Wed, 17 Oct 2018 13:41:46 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/blog/fedora-atomic-testdrive/</guid>
+      <description> Fedora minimal setup Console utils  tmux (preinstalled) vim git wget tree htop  Xorg utils  xorg-x11-server-Xorg xorg-x11-server-utils xorg-x11-drv-ati xorg-x11-drv-vesa xorg-x11-drv-libinput xorg-x11-utils xorg-x11-xinit liberation-fonts-common liberation-mono-fonts network-manager-applet dmenu feh  </description>
+    </item>
     
     <item>
       <title>Voidlinux LXD image</title>
@@ -38,7 +47,7 @@ architecture: x86_64 creation_date: 1532507327 properties: description: Void Lin
       <pubDate>Thu, 20 Sep 2018 20:29:37 -0700</pubDate>
       
       <guid>https://iaroki.github.io/code/d2uniq/</guid>
-      <description>Unique Items Griswold&amp;rsquo;s Edge Bverrit Keep Skull Splitter Venom Ward Tearhaunch Snakecord Dimoak&amp;rsquo;s Hew Kinemil&amp;rsquo;s Awl Soulflay Steelgoad The Tannr Gorerod Rattlecage Sparking Mail Butcher&amp;rsquo;s Pupil Crushflange The Gnasher The Chieftain Ripsaw Goblin Toe Stormstrike Blood Crescent Dwarf Star Hone Sundan Lance of Yaggai The Salamander The Vile Husk Soul Harvest Spirit Forge Treads of Cthon Ghoulhide Bing Sz Wang Razortine Bloodletter Kelpie Snare The Meat Scraper Darkglow Spectral Shard (Ethereal) The Jade Tan Do The General&amp;rsquo;s Tan Do Li Ga Athena&amp;rsquo;s Wrath Razorwitch Humongous Felloak Fleshrender Rogue&amp;rsquo;s Bow Rockfleece Undead Crown Heart Carver Blackhand Key Bane Ash Hexfire Duskdeep Wall of the Eyeless Lacerator The Centurion Gore Rider Bloodrise Gerke&amp;rsquo;s Sanctuary Ribcracker Warlord&amp;rsquo;s Trust Soulfeast Tine Hellslayer String of Ears Hellplague Husodal Evo Wizendraw The Fetid Sprinkler Brainhew Ethereal Edge Visceratuant Silkweave Skin of the Vipermagi Swordguard Hellclap Hellcast Coldkill Pelta Lunata (Ethereal) Ichorsting The Mahim-Oak Curio Maelstrom (Ethereal) Wolfhowl Manald Heal Steelclash The Gavel of Pain Blastbark Witherstring Rusthandle Iceblink Bonesnap Coif of Glory Lightsabre Hawkmail Lidless Wall Raven Claw Doomslinger Bloodfist The Scalper The Minotaur Kuko Shakaku Spire of Honor Skystrike Sureshrill Frost Boneslayer Blade Snowclash The Patriarch Buriza-Do Kyanon Dark Clan Crusher Deathspade Langer Briser Ondal&amp;rsquo;s Wisdom Demon Limb (Ethereal) Spineripper Nord&amp;rsquo;s Tenderizer Ume&amp;rsquo;s Lament</description>
+      <description>Unique Items Griswold&amp;rsquo;s Edge Bverrit Keep Skull Splitter Venom Ward Tearhaunch Snakecord Dimoak&amp;rsquo;s Hew Kinemil&amp;rsquo;s Awl Soulflay Steelgoad The Tannr Gorerod Rattlecage Sparking Mail Butcher&amp;rsquo;s Pupil Crushflange The Gnasher The Chieftain Ripsaw Goblin Toe Stormstrike Blood Crescent Dwarf Star Hone Sundan Lance of Yaggai The Salamander The Vile Husk Soul Harvest Spirit Forge Treads of Cthon Ghoulhide Bing Sz Wang Razortine Bloodletter Kelpie Snare The Meat Scraper Darkglow Spectral Shard (Ethereal) The Jade Tan Do The General&amp;rsquo;s Tan Do Li Ga Athena&amp;rsquo;s Wrath Razorwitch Humongous Felloak Fleshrender Rogue&amp;rsquo;s Bow Rockfleece Undead Crown Heart Carver Blackhand Key Bane Ash Hexfire Duskdeep Wall of the Eyeless Lacerator The Centurion Gore Rider Bloodrise Gerke&amp;rsquo;s Sanctuary Ribcracker Warlord&amp;rsquo;s Trust Soulfeast Tine Hellslayer String of Ears Hellplague Husodal Evo Wizendraw The Fetid Sprinkler Brainhew Ethereal Edge Visceratuant Silkweave Skin of the Vipermagi Swordguard Hellclap Hellcast Coldkill Pelta Lunata (Ethereal) Ichorsting The Mahim-Oak Curio Maelstrom (Ethereal) Wolfhowl Manald Heal Steelclash The Gavel of Pain Blastbark Witherstring Rusthandle Iceblink Bonesnap Coif of Glory Lightsabre Hawkmail Lidless Wall Raven Claw Doomslinger Bloodfist The Scalper The Minotaur Kuko Shakaku Spire of Honor Skystrike Sureshrill Frost Boneslayer Blade Snowclash The Patriarch Buriza-Do Kyanon Dark Clan Crusher Deathspade Langer Briser Ondal&amp;rsquo;s Wisdom Demon Limb (Ethereal) Spineripper Nord&amp;rsquo;s Tenderizer Ume&amp;rsquo;s Lament Bonehew Ormus&amp;rsquo; Robes Gheed&amp;rsquo;s Fortune</description>
     </item>
     
     <item>

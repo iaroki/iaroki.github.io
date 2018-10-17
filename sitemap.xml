@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://iaroki.github.io/blog/fedora-atomic-testdrive/</loc>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://iaroki.github.io/blog/voidlinux-lxd-image/</loc>
     <lastmod>2018-10-11T09:34:49+00:00</lastmod>
   </url>
@@ -159,8 +164,14 @@
   </url>
   
   <url>
+    <loc>https://iaroki.github.io/tags/atomic/</loc>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://iaroki.github.io/blog/</loc>
-    <lastmod>2018-10-11T09:34:49+00:00</lastmod>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -177,7 +188,7 @@
   
   <url>
     <loc>https://iaroki.github.io/tags/containers/</loc>
-    <lastmod>2018-10-11T09:34:49+00:00</lastmod>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -195,7 +206,7 @@
   
   <url>
     <loc>https://iaroki.github.io/tags/fedora/</loc>
-    <lastmod>2018-06-07T12:55:02+03:00</lastmod>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -237,7 +248,7 @@
   
   <url>
     <loc>https://iaroki.github.io/tags/linux/</loc>
-    <lastmod>2018-10-11T09:34:49+00:00</lastmod>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -278,6 +289,18 @@
   </url>
   
   <url>
+    <loc>https://iaroki.github.io/tags/ostree/</loc>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://iaroki.github.io/tags/podman/</loc>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://iaroki.github.io/tags/python/</loc>
     <lastmod>2017-06-08T12:57:22+03:00</lastmod>
     <priority>0</priority>
@@ -286,6 +309,12 @@
   <url>
     <loc>https://iaroki.github.io/tags/rhel/</loc>
     <lastmod>2018-06-07T12:55:02+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://iaroki.github.io/tags/rpm-ostree/</loc>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -333,7 +362,7 @@
   
   <url>
     <loc>https://iaroki.github.io/</loc>
-    <lastmod>2018-10-11T09:34:49+00:00</lastmod>
+    <lastmod>2018-10-17T13:41:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
