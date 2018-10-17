@@ -119,3 +119,6 @@ Demon Limb (Ethereal)
 Spineripper
 Nord's Tenderizer
 Ume's Lament
+Bonehew
+Ormus' Robes
+Gheed's Fortune
