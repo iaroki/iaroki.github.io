@@ -6,10 +6,25 @@
     <description>Recent content in Fedora on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 17 Oct 2018 13:41:46 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Oct 2018 13:41:46 +0000</lastBuildDate>
     
 	<atom:link href="https://iaroki.github.io/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>systemd-nspawn containers</title>
+      <link>https://iaroki.github.io/blog/systemd-nspawn-containers/</link>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/blog/systemd-nspawn-containers/</guid>
+      <description>Setup bridge Download netns tool:
+wget https://github.com/genuinetools/netns/releases/download/v0.5.2/netns-linux-amd64  Create bridge:
+sudo netns create --iplink eth0 --bridge br0 --ip 10.10.10.1/24  Enable IP Forwarding:
+sudo sysctl -w net.ipv4.ip_forward=1  To delete bridge:
+sudo netns rm --bridge br0  Create container rootfs For Fedora:
+sudo dnf -y --releasever=28 --installroot=/home/iaroki/workstation --disablerepo=&#39;*&#39; --enablerepo=fedora --enablerepo=updates install systemd passwd dnf fedora-release vim git tmux iproute iputils  Set root password:
+sudo chroot workstation passwd exit  Be sure to disable selinux:</description>
+    </item>
     
     <item>
       <title>Fedora Atomic testdrive</title>

@@ -41,7 +41,7 @@
     <item>
       <title>Containers</title>
       <link>https://iaroki.github.io/tags/containers/</link>
-      <pubDate>Wed, 17 Oct 2018 13:41:46 +0000</pubDate>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
       
       <guid>https://iaroki.github.io/tags/containers/</guid>
       <description></description>
@@ -68,7 +68,7 @@
     <item>
       <title>Fedora</title>
       <link>https://iaroki.github.io/tags/fedora/</link>
-      <pubDate>Wed, 17 Oct 2018 13:41:46 +0000</pubDate>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
       
       <guid>https://iaroki.github.io/tags/fedora/</guid>
       <description></description>
@@ -131,7 +131,7 @@
     <item>
       <title>Linux</title>
       <link>https://iaroki.github.io/tags/linux/</link>
-      <pubDate>Wed, 17 Oct 2018 13:41:46 +0000</pubDate>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
       
       <guid>https://iaroki.github.io/tags/linux/</guid>
       <description></description>
@@ -174,11 +174,29 @@
     </item>
     
     <item>
+      <title>Netns</title>
+      <link>https://iaroki.github.io/tags/netns/</link>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/tags/netns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Nginx</title>
       <link>https://iaroki.github.io/tags/nginx/</link>
       <pubDate>Sat, 04 Nov 2017 12:46:36 +0300</pubDate>
       
       <guid>https://iaroki.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nspawn</title>
+      <link>https://iaroki.github.io/tags/nspawn/</link>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/tags/nspawn/</guid>
       <description></description>
     </item>
     
@@ -248,7 +266,7 @@
     <item>
       <title>Systemd</title>
       <link>https://iaroki.github.io/tags/systemd/</link>
-      <pubDate>Mon, 22 Jan 2018 12:53:25 +0300</pubDate>
+      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
       
       <guid>https://iaroki.github.io/tags/systemd/</guid>
       <description></description>

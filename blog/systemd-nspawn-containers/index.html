@@ -9,21 +9,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="iaroki">
-<meta name="description" content=" Python 2 python2 -m SimpleHTTPServer  Python 3 python3 -m http.server  ">
+<meta name="description" content="Setup bridge Download netns tool:
+wget https://github.com/genuinetools/netns/releases/download/v0.5.2/netns-linux-amd64  Create bridge:
+sudo netns create --iplink eth0 --bridge br0 --ip 10.10.10.1/24  Enable IP Forwarding:
+sudo sysctl -w net.ipv4.ip_forward=1  To delete bridge:
+sudo netns rm --bridge br0  Create container rootfs For Fedora:
+sudo dnf -y --releasever=28 --installroot=/home/iaroki/workstation --disablerepo=&#39;*&#39; --enablerepo=fedora --enablerepo=updates install systemd passwd dnf fedora-release vim git tmux iproute iputils  Set root password:
+sudo chroot workstation passwd exit  Be sure to disable selinux:">
 
-<meta property="og:title" content="Simple way to quickly setup HTTP server" />
-<meta property="og:description" content=" Python 2 python2 -m SimpleHTTPServer  Python 3 python3 -m http.server  " />
+<meta property="og:title" content="systemd-nspawn containers" />
+<meta property="og:description" content="Setup bridge Download netns tool:
+wget https://github.com/genuinetools/netns/releases/download/v0.5.2/netns-linux-amd64  Create bridge:
+sudo netns create --iplink eth0 --bridge br0 --ip 10.10.10.1/24  Enable IP Forwarding:
+sudo sysctl -w net.ipv4.ip_forward=1  To delete bridge:
+sudo netns rm --bridge br0  Create container rootfs For Fedora:
+sudo dnf -y --releasever=28 --installroot=/home/iaroki/workstation --disablerepo=&#39;*&#39; --enablerepo=fedora --enablerepo=updates install systemd passwd dnf fedora-release vim git tmux iproute iputils  Set root password:
+sudo chroot workstation passwd exit  Be sure to disable selinux:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/simple-way-to-quickly-setup-http-server/" /><meta property="article:published_time" content="2017-06-08T12:57:22&#43;03:00"/>
-<meta property="article:modified_time" content="2017-06-08T12:57:22&#43;03:00"/>
+<meta property="og:url" content="https://iaroki.github.io/blog/systemd-nspawn-containers/" /><meta property="article:published_time" content="2018-10-22T13:41:46&#43;00:00"/>
+<meta property="article:modified_time" content="2018-10-22T13:41:46&#43;00:00"/>
 
 <title>
 
 
-     Simple way to quickly setup HTTP server 
+     systemd-nspawn containers 
 
 </title>
-<link rel="canonical" href="https://iaroki.github.io/blog/simple-way-to-quickly-setup-http-server/">
+<link rel="canonical" href="https://iaroki.github.io/blog/systemd-nspawn-containers/">
 
 
 
@@ -41,11 +53,11 @@
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-10-22%2013%3a50%3a24.090651252%20%2b0000%20UTC%20m%3d%2b3.450203679">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-10-22%2013%3a50%3a24.090651252%20%2b0000%20UTC%20m%3d%2b3.450203679">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-10-22%2013%3a50%3a24.090651252%20%2b0000%20UTC%20m%3d%2b3.450203679">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-10-22%2013%3a50%3a24.021276482%20%2b0000%20UTC%20m%3d%2b3.380828946">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-10-22%2013%3a50%3a24.021276482%20%2b0000%20UTC%20m%3d%2b3.380828946">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-10-22%2013%3a50%3a24.021276482%20%2b0000%20UTC%20m%3d%2b3.380828946">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-10-22%2013%3a50%3a24.090651252%20%2b0000%20UTC%20m%3d%2b3.450203679">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-10-22%2013%3a50%3a24.021276482%20%2b0000%20UTC%20m%3d%2b3.380828946">
     
 
 
@@ -162,7 +174,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    Simple way to quickly setup HTTP server
+    systemd-nspawn containers
 
 </div>
 
@@ -170,7 +182,7 @@
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Thu Jun 8 2017 12:57:22 &#43;0300'>Jun 8, 2017</div>
+                    <div class="date" title='Mon Oct 22 2018 13:41:46 UTC'>Oct 22, 2018</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>One minute read</div>
@@ -180,24 +192,92 @@
             <div class="markdown">
                 
 
-<h2 id="python-2">Python 2</h2>
+<h1 id="setup-bridge">Setup bridge</h1>
 
-<pre><code class="language-bash">python2 -m SimpleHTTPServer
+<p>Download <code>netns</code> tool:</p>
+
+<pre><code class="language-bash">wget https://github.com/genuinetools/netns/releases/download/v0.5.2/netns-linux-amd64
 </code></pre>
 
-<h2 id="python-3">Python 3</h2>
+<p>Create bridge:</p>
 
-<pre><code class="language-bash">python3 -m http.server
+<pre><code class="language-bash">sudo netns create --iplink eth0 --bridge br0 --ip 10.10.10.1/24
 </code></pre>
 
-<hr />
+<p>Enable IP Forwarding:</p>
+
+<pre><code class="language-bash">sudo sysctl -w net.ipv4.ip_forward=1
+</code></pre>
+
+<p><em>To delete bridge</em>:</p>
+
+<pre><code class="language-bash">sudo netns rm --bridge br0
+</code></pre>
+
+<h1 id="create-container-rootfs">Create container rootfs</h1>
+
+<p>For Fedora:</p>
+
+<pre><code class="language-bash">sudo dnf -y --releasever=28 --installroot=/home/iaroki/workstation --disablerepo='*' --enablerepo=fedora --enablerepo=updates install systemd passwd dnf fedora-release vim git tmux iproute iputils
+</code></pre>
+
+<p>Set root password:</p>
+
+<pre><code class="language-bash">sudo chroot workstation
+passwd
+exit
+</code></pre>
+
+<p>Be sure to disable selinux:</p>
+
+<pre><code class="language-bash">sudo setenforce 0
+</code></pre>
+
+<p>Start container:</p>
+
+<pre><code class="language-bash">sudo systemd-nspawn -D /home/iaroki/workstation -b --network-bridge br0
+</code></pre>
+
+<h1 id="setup-network">Setup network</h1>
+
+<p>Login with root and configure network interface:</p>
+
+<pre><code class="language-bash">[root@workstation ~]# ip addr add 10.10.10.100/24 dev host0
+[root@workstation ~]# ip link set host0 up
+[root@workstation ~]# ip route add default via 10.10.10.1
+[root@workstation ~]# echo nameserver 1.1.1.1 &gt; /etc/resolv.conf
+</code></pre>
+
+<p>Or write systemd network file:
+<code>/etc/systemd/network/20-wired.network</code></p>
+
+<pre><code class="language-ini">[Match]
+Name=host0
+
+[Network]
+Address=10.10.10.100/24
+Gateway=10.10.10.1
+DNS=1.1.1.1
+</code></pre>
+
+<p>That&rsquo;s it!</p>
 
                 <br>
                 
                   <div class="tags">
                     <strong>Tags:</strong>
                   
-                    <a href="https://iaroki.github.io/tags/python">python</a>
+                    <a href="https://iaroki.github.io/tags/linux">linux</a>
+                  
+                    <a href="https://iaroki.github.io/tags/fedora">fedora</a>
+                  
+                    <a href="https://iaroki.github.io/tags/containers">containers</a>
+                  
+                    <a href="https://iaroki.github.io/tags/systemd">systemd</a>
+                  
+                    <a href="https://iaroki.github.io/tags/nspawn">nspawn</a>
+                  
+                    <a href="https://iaroki.github.io/tags/netns">netns</a>
                   
                   </div>
                   <br />
