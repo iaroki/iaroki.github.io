@@ -1,6 +1,6 @@
 ---
 title: "systemd-nspawn containers"
-date: 2018-10-22T13:41:46Z
+date: 2018-10-22T13:54:57Z
 tags: ["linux", "fedora", "containers", "systemd", "nspawn", "netns"]
 ---
 

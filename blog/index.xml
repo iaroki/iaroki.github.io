@@ -6,7 +6,7 @@
     <description>Recent content in Blog on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 22 Oct 2018 13:41:46 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Oct 2018 13:54:57 +0000</lastBuildDate>
     
 	<atom:link href="https://iaroki.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>systemd-nspawn containers</title>
       <link>https://iaroki.github.io/blog/systemd-nspawn-containers/</link>
-      <pubDate>Mon, 22 Oct 2018 13:41:46 +0000</pubDate>
+      <pubDate>Mon, 22 Oct 2018 13:54:57 +0000</pubDate>
       
       <guid>https://iaroki.github.io/blog/systemd-nspawn-containers/</guid>
       <description>Setup bridge Download netns tool:
