@@ -17,7 +17,7 @@ sudo netns rm --bridge br0  Create container rootfs For Fedora:
 sudo dnf -y --releasever=28 --installroot=/home/iaroki/workstation --disablerepo=&#39;*&#39; --enablerepo=fedora --enablerepo=updates install systemd passwd dnf fedora-release vim git tmux iproute iputils  Set root password:
 sudo chroot workstation passwd exit  Be sure to disable selinux:">
 
-<meta property="og:title" content="systemd-nspawn containers" />
+<meta property="og:title" content="Systemd-Nspawn" />
 <meta property="og:description" content="Setup bridge Download netns tool:
 wget https://github.com/genuinetools/netns/releases/download/v0.5.2/netns-linux-amd64  Create bridge:
 sudo netns create --iplink eth0 --bridge br0 --ip 10.10.10.1/24  Enable IP Forwarding:
@@ -26,16 +26,16 @@ sudo netns rm --bridge br0  Create container rootfs For Fedora:
 sudo dnf -y --releasever=28 --installroot=/home/iaroki/workstation --disablerepo=&#39;*&#39; --enablerepo=fedora --enablerepo=updates install systemd passwd dnf fedora-release vim git tmux iproute iputils  Set root password:
 sudo chroot workstation passwd exit  Be sure to disable selinux:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/systemd-nspawn-containers/" /><meta property="article:published_time" content="2018-10-22T13:54:57&#43;00:00"/>
-<meta property="article:modified_time" content="2018-10-22T13:54:57&#43;00:00"/>
+<meta property="og:url" content="https://iaroki.github.io/blog/systemd-nspawn/" /><meta property="article:published_time" content="2018-10-22T14:13:30&#43;00:00"/>
+<meta property="article:modified_time" content="2018-10-22T14:13:30&#43;00:00"/>
 
 <title>
 
 
-     systemd-nspawn containers 
+     Systemd-Nspawn 
 
 </title>
-<link rel="canonical" href="https://iaroki.github.io/blog/systemd-nspawn-containers/">
+<link rel="canonical" href="https://iaroki.github.io/blog/systemd-nspawn/">
 
 
 
@@ -53,11 +53,11 @@ sudo chroot workstation passwd exit  Be sure to disable selinux:" />
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-10-22%2014%3a03%3a08.671258472%20%2b0000%20UTC%20m%3d%2b0.719889504">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-10-22%2014%3a03%3a08.671258472%20%2b0000%20UTC%20m%3d%2b0.719889504">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-10-22%2014%3a03%3a08.671258472%20%2b0000%20UTC%20m%3d%2b0.719889504">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-10-22%2014%3a15%3a49.403403036%20%2b0000%20UTC%20m%3d%2b0.092309032">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-10-22%2014%3a15%3a49.403403036%20%2b0000%20UTC%20m%3d%2b0.092309032">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-10-22%2014%3a15%3a49.403403036%20%2b0000%20UTC%20m%3d%2b0.092309032">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-10-22%2014%3a03%3a08.671258472%20%2b0000%20UTC%20m%3d%2b0.719889504">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-10-22%2014%3a15%3a49.403403036%20%2b0000%20UTC%20m%3d%2b0.092309032">
     
 
 
@@ -174,7 +174,7 @@ sudo chroot workstation passwd exit  Be sure to disable selinux:" />
                 <div class="title-container">
                     <div class="page-heading">
 
-    systemd-nspawn containers
+    Systemd-Nspawn
 
 </div>
 
@@ -182,7 +182,7 @@ sudo chroot workstation passwd exit  Be sure to disable selinux:" />
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Mon Oct 22 2018 13:54:57 UTC'>Oct 22, 2018</div>
+                    <div class="date" title='Mon Oct 22 2018 14:13:30 UTC'>Oct 22, 2018</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>One minute read</div>
@@ -272,12 +272,6 @@ DNS=1.1.1.1
                     <a href="https://iaroki.github.io/tags/fedora">fedora</a>
                   
                     <a href="https://iaroki.github.io/tags/containers">containers</a>
-                  
-                    <a href="https://iaroki.github.io/tags/systemd">systemd</a>
-                  
-                    <a href="https://iaroki.github.io/tags/nspawn">nspawn</a>
-                  
-                    <a href="https://iaroki.github.io/tags/netns">netns</a>
                   
                   </div>
                   <br />

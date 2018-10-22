@@ -1,8 +1,9 @@
----
-title: "systemd-nspawn containers"
-date: 2018-10-22T13:54:57Z
-tags: ["linux", "fedora", "containers", "systemd", "nspawn", "netns"]
----
++++
+title = "Systemd-Nspawn"
+date = "2018-10-22T14:13:30Z"
+tags = ["linux", "fedora", "containers"]
+draft = false
++++
 
 # Setup bridge
 
@@ -82,3 +83,4 @@ DNS=1.1.1.1
 ```
 
 That's it!
+
