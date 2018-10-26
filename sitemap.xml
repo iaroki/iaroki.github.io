@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://iaroki.github.io/blog/using-traefik-with-docker/</loc>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://iaroki.github.io/blog/systemd-nspawn/</loc>
     <lastmod>2018-10-22T14:13:30+00:00</lastmod>
   </url>
@@ -176,7 +181,7 @@
   
   <url>
     <loc>https://iaroki.github.io/blog/</loc>
-    <lastmod>2018-10-22T14:13:30+00:00</lastmod>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -193,7 +198,7 @@
   
   <url>
     <loc>https://iaroki.github.io/tags/containers/</loc>
-    <lastmod>2018-10-22T14:13:30+00:00</lastmod>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -206,6 +211,12 @@
   <url>
     <loc>https://iaroki.github.io/tags/dns/</loc>
     <lastmod>2017-11-01T10:49:22+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://iaroki.github.io/tags/docker/</loc>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -253,7 +264,7 @@
   
   <url>
     <loc>https://iaroki.github.io/tags/linux/</loc>
-    <lastmod>2018-10-22T14:13:30+00:00</lastmod>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -354,6 +365,12 @@
   </url>
   
   <url>
+    <loc>https://iaroki.github.io/tags/traefik/</loc>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://iaroki.github.io/tags/ubuntu/</loc>
     <lastmod>2017-10-25T12:35:22+03:00</lastmod>
     <priority>0</priority>
@@ -367,7 +384,7 @@
   
   <url>
     <loc>https://iaroki.github.io/</loc>
-    <lastmod>2018-10-22T14:13:30+00:00</lastmod>
+    <lastmod>2018-10-26T13:20:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
