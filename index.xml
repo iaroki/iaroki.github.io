@@ -6,10 +6,19 @@
     <description>Recent content on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 30 Oct 2018 12:01:52 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Nov 2018 14:35:26 +0000</lastBuildDate>
     
 	<atom:link href="https://iaroki.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GPG2 Keys cheatsheet</title>
+      <link>https://iaroki.github.io/blog/gpg2-keys-cheatsheet/</link>
+      <pubDate>Tue, 20 Nov 2018 14:35:26 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/blog/gpg2-keys-cheatsheet/</guid>
+      <description> Creating GPG Key gpg2 --full-gen-key  Export private key gpg2 --export-secret-keys --armor jqdoe@example.com &amp;gt; jqdoe-privkey.asc  Export public key gpg2 --export --armor jqdoe@example.com &amp;gt; jqdoe-pubkey.asc  Export trustdb gpg2 --export-ownertrust &amp;gt; otrust.txt  Import trustdb gpg2 --import-ownertrust &amp;lt; otrust.txt  Update trustdb gpg2 --update-trustdb  Import GPG keys gpg2 --import &amp;lt; keys.asc  </description>
+    </item>
     
     <item>
       <title>Centos 7 home router</title>
