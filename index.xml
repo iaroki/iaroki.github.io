@@ -6,10 +6,20 @@
     <description>Recent content on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 21 Nov 2018 14:24:45 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Nov 2018 14:57:10 +0000</lastBuildDate>
     
 	<atom:link href="https://iaroki.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running Docker containers with systemd</title>
+      <link>https://iaroki.github.io/blog/running-docker-containers-with-systemd/</link>
+      <pubDate>Wed, 21 Nov 2018 14:57:10 +0000</pubDate>
+      
+      <guid>https://iaroki.github.io/blog/running-docker-containers-with-systemd/</guid>
+      <description>To run Docker container on system start-up with systemd we need to create unit file. For example /etc/systemd/system/docker-nginx.service:
+[Unit] Description=nginx (Docker) # start this unit only after docker has started After=docker.service Requires=docker.service [Service] TimeoutStartSec=0 Restart=always # The following lines start with &#39;-&#39; because they are allowed to fail without # causing startup to fail. # # Kill the old instance, if it&#39;s still running for some reason ExecStartPre=-/usr/bin/docker kill nginx # Remove the old instance, if it stuck around ExecStartPre=-/usr/bin/docker rm nginx # Pull the latest version of the container; NOTE you should be careful to # pull a tagged version, that way you won&#39;t accidentially pull a major-version # upgrade and break your service!</description>
+    </item>
     
     <item>
       <title>Vagrant with libvirt provider</title>
