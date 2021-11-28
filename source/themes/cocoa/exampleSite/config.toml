@@ -35,6 +35,7 @@ identifier             = "code"
 url                    = "/code/"
 
 [params]
+paginate               = 10
 include_rss            = true                          # include RSS <link> tag in <head> and show RSS icon
 latestpostscount       = 5                             # how many posts to display on the home page
 i18n_flags             = false                         # whether to display small country flags for available translations
@@ -55,10 +56,13 @@ noshowreadtime         = false                         # if true, don't show "<x
 selfintro              = ""                            # appears in the site header when set to a non-empty string
 twitter                = "//twitter.com/you"
 mastodon               = "//example.com/@you"
+telegram               = "//t.me/you"
 
 highlightjs            = true
 # highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
 # highlightjsStyle     = "darcula"
+# highlightjs_url        = "/js/highlight.min.js"        # relative path to your self hosted highlight.js file 
+# highlightjs_css_url    = "css/default.min.css"         # relative path to your self hosted css config for highlight.js
 
 piwik                  = false                         # If true, Piwik integration is enabled
 # piwik_url            = "//www.example.com/piwik/"    # URL to your Piwik installation. Must End with a slash
