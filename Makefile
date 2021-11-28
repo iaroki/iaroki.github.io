@@ -3,7 +3,7 @@ HUGO_VERSION=0.89.4
 default: all
 
 clean:
-	rm -rfv *.html *.xml about* blog categories code css img links tags source/public/*
+	rm -rfv *.html *.xml about* blog categories code css img links tags page source/public/*
 
 generate:
 	docker run -it --rm --name=hugo-build \
