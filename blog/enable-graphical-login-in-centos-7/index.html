@@ -10,30 +10,19 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="iaroki">
 <meta name="description" content="To start graphic login you need to enable two systemd services:
-$ sudo systemctl enable gdm.service $ sudo systemctl set-default graphical.target  Then reboot and you will see GDM login manager. If you want disable it, then run:
-$ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.target  Now reboot.">
+$ sudo systemctl enable gdm.service $ sudo systemctl set-default graphical.target Then reboot and you will see GDM login manager. If you want disable it, then run:
+$ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.target Now reboot.
+ ">
 
 <meta property="og:title" content="Enable graphical login in CentOS 7" />
 <meta property="og:description" content="To start graphic login you need to enable two systemd services:
-$ sudo systemctl enable gdm.service $ sudo systemctl set-default graphical.target  Then reboot and you will see GDM login manager. If you want disable it, then run:
-$ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.target  Now reboot." />
+$ sudo systemctl enable gdm.service $ sudo systemctl set-default graphical.target Then reboot and you will see GDM login manager. If you want disable it, then run:
+$ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.target Now reboot.
+ " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/enable-graphical-login-in-centos-7/" />
-
-
-
-<meta property="article:published_time" content="2018-01-22T12:53:25&#43;03:00"/>
-
-<meta property="article:modified_time" content="2018-01-22T12:53:25&#43;03:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="https://iaroki.github.io/blog/enable-graphical-login-in-centos-7/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2018-01-22T12:53:25+03:00" />
+<meta property="article:modified_time" content="2018-01-22T12:53:25+03:00" />
 
 
 
@@ -51,7 +40,9 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
 
 
 
@@ -61,11 +52,11 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-11-21%2015%3a01%3a50.598034381%20%2b0000%20UTC%20m%3d%2b0.435377764">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-11-21%2015%3a01%3a50.598034381%20%2b0000%20UTC%20m%3d%2b0.435377764">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-11-21%2015%3a01%3a50.598034381%20%2b0000%20UTC%20m%3d%2b0.435377764">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2021-11-28%2012%3a08%3a22.267163495%20%2b0000%20UTC%20m%3d%2b0.070043844">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2021-11-28%2012%3a08%3a22.267163495%20%2b0000%20UTC%20m%3d%2b0.070043844">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2021-11-28%2012%3a08%3a22.267163495%20%2b0000%20UTC%20m%3d%2b0.070043844">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-11-21%2015%3a01%3a50.598034381%20%2b0000%20UTC%20m%3d%2b0.435377764">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2021-11-28%2012%3a08%3a22.267163495%20%2b0000%20UTC%20m%3d%2b0.070043844">
     
 
 
@@ -76,6 +67,8 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
     href="https://iaroki.github.io/img/zen.ico"
 
 >
+
+
 
 
 
@@ -110,12 +103,16 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
             <nav>
                 <ul>
                     
+                        
                         <li class="nav-blog"><a href="https://iaroki.github.io/blog/"><span>Blog</span></a></li>
                     
+                        
                         <li class="nav-about"><a href="https://iaroki.github.io/about/"><span>About</span></a></li>
                     
+                        
                         <li class="nav-code"><a href="https://iaroki.github.io/code/"><span>Code</span></a></li>
                     
+                        
                         <li class="nav-links"><a href="https://iaroki.github.io/links/"><span>Links</span></a></li>
                     
                 </ul>
@@ -154,6 +151,8 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
         
 
         
+
+        
             <a href="//instagram.com/homelessstreetcat" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -167,6 +166,8 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
             <a href="mailto:iaroki@protonmail.com"><img class="icon" src="https://iaroki.github.io/img/email.svg" alt="email" /></a>
         
 
+        
+        
         
 
         
@@ -199,21 +200,14 @@ $ sudo systemctl disable gdm.service $ sudo systemctl set-default multi-user.tar
             </div>
             <div class="markdown">
                 <p>To start graphic login you need to enable two <code>systemd</code> services:</p>
-
-<pre><code>$ sudo systemctl enable gdm.service
+<pre tabindex="0"><code>$ sudo systemctl enable gdm.service
 $ sudo systemctl set-default graphical.target
-</code></pre>
-
-<p>Then reboot and you will see GDM login manager.
+</code></pre><p>Then reboot and you will see GDM login manager.
 If you want disable it, then run:</p>
-
-<pre><code>$ sudo systemctl disable gdm.service
+<pre tabindex="0"><code>$ sudo systemctl disable gdm.service
 $ sudo systemctl set-default multi-user.target
-</code></pre>
-
-<p>Now reboot.</p>
-
-<hr />
+</code></pre><p>Now reboot.</p>
+<hr>
 
                 <br>
                 
@@ -244,9 +238,10 @@ $ sudo systemctl set-default multi-user.target
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
   
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    
+  
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
   </script>

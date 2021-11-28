@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nginx on iaroki&#39;s blog</title>
+    <title>nginx on iaroki&#39;s blog</title>
     <link>https://iaroki.github.io/tags/nginx/</link>
-    <description>Recent content in Nginx on iaroki&#39;s blog</description>
+    <description>Recent content in nginx on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 04 Nov 2017 12:46:36 +0300</lastBuildDate>
-    
-	<atom:link href="https://iaroki.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 04 Nov 2017 12:46:36 +0300</lastBuildDate><atom:link href="https://iaroki.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nginx load balancing</title>
       <link>https://iaroki.github.io/blog/nginx-load-balancing/</link>
@@ -18,7 +14,7 @@
       
       <guid>https://iaroki.github.io/blog/nginx-load-balancing/</guid>
       <description>Load balancing is a very useful technique to distribute the incoming network traffic across a number servers. With this technique you can reduce the resource usage, lower the response time and avoid server overload.
-Nginx Load Balancing is one of the most efficient options available to achieve full application redundancy, and it is relatively easy and quick to setup. We will configure Nginx load balancing using the Round robin mechanism.</description>
+Nginx Load Balancing is one of the most efficient options available to achieve full application redundancy, and it is relatively easy and quick to setup. We will configure Nginx load balancing using the Round robin mechanism. This way it will forward all requests to the corresponding server included in the Nginx configuration.</description>
     </item>
     
     <item>

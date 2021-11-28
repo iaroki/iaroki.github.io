@@ -10,30 +10,17 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="iaroki">
 <meta name="description" content="Recently i downloaded some lectures from youtube in m4a format. My hardware portable player doesn&rsquo;t support it so I converted files like this:
-ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  Complete script is:
-#!/bin/bash # Author: Simon Legner &lt;Simon.Legner@gmail.com&gt; convert () { in=&quot;$1&quot; out=&quot;${in%.m4a}.ogg&quot; ffmpeg -i &quot;$in&quot; \ -acodec libvorbis -aq 4 -vn -ac 2 \ -map_metadata 0 \ &quot;$out&quot; } if [[ $# == 0 ]]; then echo Converts m4a files to Ogg Vorbis using ffmpeg.">
+ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg Complete script is:
+#!/bin/bash # Author: Simon Legner &lt;Simon.Legner@gmail.com&gt; convert () { in=&#34;$1&#34; out=&#34;${in%.m4a}.ogg&#34; ffmpeg -i &#34;$in&#34; \  -acodec libvorbis -aq 4 -vn -ac 2 \  -map_metadata 0 \  &#34;$out&#34; } if [[ $# == 0 ]]; then echo Converts m4a files to Ogg Vorbis using ffmpeg.">
 
 <meta property="og:title" content="Convert m4a to ogg with ffmpeg" />
 <meta property="og:description" content="Recently i downloaded some lectures from youtube in m4a format. My hardware portable player doesn&rsquo;t support it so I converted files like this:
-ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  Complete script is:
-#!/bin/bash # Author: Simon Legner &lt;Simon.Legner@gmail.com&gt; convert () { in=&quot;$1&quot; out=&quot;${in%.m4a}.ogg&quot; ffmpeg -i &quot;$in&quot; \ -acodec libvorbis -aq 4 -vn -ac 2 \ -map_metadata 0 \ &quot;$out&quot; } if [[ $# == 0 ]]; then echo Converts m4a files to Ogg Vorbis using ffmpeg." />
+ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg Complete script is:
+#!/bin/bash # Author: Simon Legner &lt;Simon.Legner@gmail.com&gt; convert () { in=&#34;$1&#34; out=&#34;${in%.m4a}.ogg&#34; ffmpeg -i &#34;$in&#34; \  -acodec libvorbis -aq 4 -vn -ac 2 \  -map_metadata 0 \  &#34;$out&#34; } if [[ $# == 0 ]]; then echo Converts m4a files to Ogg Vorbis using ffmpeg." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/convert-m4a-to-ogg-with-ffmpeg/" />
-
-
-
-<meta property="article:published_time" content="2017-12-05T12:49:08&#43;03:00"/>
-
-<meta property="article:modified_time" content="2017-12-05T12:49:08&#43;03:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="https://iaroki.github.io/blog/convert-m4a-to-ogg-with-ffmpeg/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-12-05T12:49:08+03:00" />
+<meta property="article:modified_time" content="2017-12-05T12:49:08+03:00" />
 
 
 
@@ -51,7 +38,9 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
 
 
 
@@ -61,11 +50,11 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-11-21%2015%3a01%3a50.591128555%20%2b0000%20UTC%20m%3d%2b0.428471907">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-11-21%2015%3a01%3a50.591128555%20%2b0000%20UTC%20m%3d%2b0.428471907">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-11-21%2015%3a01%3a50.591128555%20%2b0000%20UTC%20m%3d%2b0.428471907">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2021-11-28%2012%3a08%3a22.274776345%20%2b0000%20UTC%20m%3d%2b0.077656679">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2021-11-28%2012%3a08%3a22.274776345%20%2b0000%20UTC%20m%3d%2b0.077656679">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2021-11-28%2012%3a08%3a22.274776345%20%2b0000%20UTC%20m%3d%2b0.077656679">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-11-21%2015%3a01%3a50.591128555%20%2b0000%20UTC%20m%3d%2b0.428471907">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2021-11-28%2012%3a08%3a22.274776345%20%2b0000%20UTC%20m%3d%2b0.077656679">
     
 
 
@@ -76,6 +65,8 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
     href="https://iaroki.github.io/img/zen.ico"
 
 >
+
+
 
 
 
@@ -110,12 +101,16 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
             <nav>
                 <ul>
                     
+                        
                         <li class="nav-blog"><a href="https://iaroki.github.io/blog/"><span>Blog</span></a></li>
                     
+                        
                         <li class="nav-about"><a href="https://iaroki.github.io/about/"><span>About</span></a></li>
                     
+                        
                         <li class="nav-code"><a href="https://iaroki.github.io/code/"><span>Code</span></a></li>
                     
+                        
                         <li class="nav-links"><a href="https://iaroki.github.io/links/"><span>Links</span></a></li>
                     
                 </ul>
@@ -154,6 +149,8 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
         
 
         
+
+        
             <a href="//instagram.com/homelessstreetcat" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -167,6 +164,8 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
             <a href="mailto:iaroki@protonmail.com"><img class="icon" src="https://iaroki.github.io/img/email.svg" alt="email" /></a>
         
 
+        
+        
         
 
         
@@ -200,36 +199,30 @@ ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg  C
             <div class="markdown">
                 <p>Recently i downloaded some lectures from youtube in <code>m4a</code> format.
 My hardware portable player doesn&rsquo;t support it so I converted files like this:</p>
+<pre tabindex="0"><code>ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg
+</code></pre><p>Complete script is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1"># Author: Simon Legner &lt;Simon.Legner@gmail.com&gt;</span>
 
-<pre><code>ffmpeg -i file.m4a -acodec libvorbis -aq 4 -vn -ac 2 -map_metadata 0 file.ogg
-</code></pre>
+convert <span class="o">()</span> <span class="o">{</span>
+  <span class="nv">in</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+  <span class="nv">out</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">in</span><span class="p">%.m4a</span><span class="si">}</span><span class="s2">.ogg&#34;</span>
+  ffmpeg -i <span class="s2">&#34;</span><span class="nv">$in</span><span class="s2">&#34;</span> <span class="se">\
+</span><span class="se"></span>    -acodec libvorbis -aq <span class="m">4</span> -vn -ac <span class="m">2</span> <span class="se">\
+</span><span class="se"></span>    -map_metadata <span class="m">0</span> <span class="se">\
+</span><span class="se"></span>    <span class="s2">&#34;</span><span class="nv">$out</span><span class="s2">&#34;</span>
+<span class="o">}</span>
 
-<p>Complete script is:</p>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> Converts m4a files to Ogg Vorbis using ffmpeg.
+  <span class="nb">echo</span> Usage: <span class="nv">$0</span> file1.m4a file2.m4a ... fileN.m4a
+  <span class="nb">echo</span> ... produces file1.ogg file2.ogg ... fileN.ogg
+<span class="k">fi</span>
 
-<pre><code class="language-bash">#!/bin/bash
-# Author: Simon Legner &lt;Simon.Legner@gmail.com&gt;
-
-convert () {
-  in=&quot;$1&quot;
-  out=&quot;${in%.m4a}.ogg&quot;
-  ffmpeg -i &quot;$in&quot; \
-    -acodec libvorbis -aq 4 -vn -ac 2 \
-    -map_metadata 0 \
-    &quot;$out&quot;
-}
-
-if [[ $# == 0 ]]; then
-  echo Converts m4a files to Ogg Vorbis using ffmpeg.
-  echo Usage: $0 file1.m4a file2.m4a ... fileN.m4a
-  echo ... produces file1.ogg file2.ogg ... fileN.ogg
-fi
-
-for i in &quot;$@&quot;; do
-  convert &quot;$i&quot;
-done
-</code></pre>
-
-<hr />
+<span class="k">for</span> i in <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">do</span>
+  convert <span class="s2">&#34;</span><span class="nv">$i</span><span class="s2">&#34;</span>
+<span class="k">done</span>
+</code></pre></div><hr>
 
                 <br>
                 
@@ -262,9 +255,10 @@ done
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
   
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    
+  
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
   </script>

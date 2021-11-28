@@ -9,35 +9,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="iaroki">
-<meta name="description" content=" Adding secondary NIC to LXD container Create container in stopped state:
-lxc init images:alpine/edge server  Then add NIC:
-lxc config device add server eth1 nic nictype=bridged parent=docker0  Start container and login inside:
-lxc start server lxc exec server sh  You will see that yo have now two network interfaces. Set an IP address to it:
+<meta name="description" content="Adding secondary NIC to LXD container Create container in stopped state:
+lxc init images:alpine/edge server Then add NIC:
+lxc config device add server eth1 nic nictype=bridged parent=docker0 Start container and login inside:
+lxc start server lxc exec server sh You will see that yo have now two network interfaces. Set an IP address to it:
 ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1  ">
 
 <meta property="og:title" content="LXD container with second network interface" />
-<meta property="og:description" content=" Adding secondary NIC to LXD container Create container in stopped state:
-lxc init images:alpine/edge server  Then add NIC:
-lxc config device add server eth1 nic nictype=bridged parent=docker0  Start container and login inside:
-lxc start server lxc exec server sh  You will see that yo have now two network interfaces. Set an IP address to it:
+<meta property="og:description" content="Adding secondary NIC to LXD container Create container in stopped state:
+lxc init images:alpine/edge server Then add NIC:
+lxc config device add server eth1 nic nictype=bridged parent=docker0 Start container and login inside:
+lxc start server lxc exec server sh You will see that yo have now two network interfaces. Set an IP address to it:
 ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/lxd-container-with-second-network-interface/" />
-
-
-
-<meta property="article:published_time" content="2018-09-20T07:58:56&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-09-20T07:58:56&#43;00:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="https://iaroki.github.io/blog/lxd-container-with-second-network-interface/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2018-09-20T07:58:56+00:00" />
+<meta property="article:modified_time" content="2018-09-20T07:58:56+00:00" />
 
 
 
@@ -55,7 +42,9 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
 
 
 
@@ -65,11 +54,11 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-11-21%2015%3a01%3a50.582727171%20%2b0000%20UTC%20m%3d%2b0.420070514">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-11-21%2015%3a01%3a50.582727171%20%2b0000%20UTC%20m%3d%2b0.420070514">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-11-21%2015%3a01%3a50.582727171%20%2b0000%20UTC%20m%3d%2b0.420070514">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2021-11-28%2012%3a08%3a22.290718826%20%2b0000%20UTC%20m%3d%2b0.093599156">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2021-11-28%2012%3a08%3a22.290718826%20%2b0000%20UTC%20m%3d%2b0.093599156">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2021-11-28%2012%3a08%3a22.290718826%20%2b0000%20UTC%20m%3d%2b0.093599156">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-11-21%2015%3a01%3a50.582727171%20%2b0000%20UTC%20m%3d%2b0.420070514">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2021-11-28%2012%3a08%3a22.290718826%20%2b0000%20UTC%20m%3d%2b0.093599156">
     
 
 
@@ -80,6 +69,8 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
     href="https://iaroki.github.io/img/zen.ico"
 
 >
+
+
 
 
 
@@ -114,12 +105,16 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
             <nav>
                 <ul>
                     
+                        
                         <li class="nav-blog"><a href="https://iaroki.github.io/blog/"><span>Blog</span></a></li>
                     
+                        
                         <li class="nav-about"><a href="https://iaroki.github.io/about/"><span>About</span></a></li>
                     
+                        
                         <li class="nav-code"><a href="https://iaroki.github.io/code/"><span>Code</span></a></li>
                     
+                        
                         <li class="nav-links"><a href="https://iaroki.github.io/links/"><span>Links</span></a></li>
                     
                 </ul>
@@ -158,6 +153,8 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
         
 
         
+
+        
             <a href="//instagram.com/homelessstreetcat" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -171,6 +168,8 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
             <a href="mailto:iaroki@protonmail.com"><img class="icon" src="https://iaroki.github.io/img/email.svg" alt="email" /></a>
         
 
+        
+        
         
 
         
@@ -202,34 +201,19 @@ ip link set eth1 up ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1 
                 </div>
             </div>
             <div class="markdown">
-                
-
-<h1 id="adding-secondary-nic-to-lxd-container">Adding secondary NIC to LXD container</h1>
-
+                <h1 id="adding-secondary-nic-to-lxd-container">Adding secondary NIC to LXD container</h1>
 <p>Create container in stopped state:</p>
-
-<pre><code class="language-bash">lxc init images:alpine/edge server
-</code></pre>
-
-<p>Then add NIC:</p>
-
-<pre><code class="language-bash">lxc config device add server eth1 nic nictype=bridged parent=docker0
-</code></pre>
-
-<p>Start container and login inside:</p>
-
-<pre><code class="language-bash">lxc start server
-lxc exec server sh
-</code></pre>
-
-<p>You will see that yo have now two network interfaces.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">lxc init images:alpine/edge server
+</code></pre></div><p>Then add NIC:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">lxc config device add server eth1 nic <span class="nv">nictype</span><span class="o">=</span>bridged <span class="nv">parent</span><span class="o">=</span>docker0
+</code></pre></div><p>Start container and login inside:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">lxc start server
+lxc <span class="nb">exec</span> server sh
+</code></pre></div><p>You will see that yo have now two network interfaces.
 Set an IP address to it:</p>
-
-<pre><code class="language-bash">ip link set eth1 up
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ip link <span class="nb">set</span> eth1 up
 ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1
-</code></pre>
-
-<hr />
+</code></pre></div><hr>
 
                 <br>
                 
@@ -260,9 +244,10 @@ ip addr add 172.17.0.200/24 broadcast 172.17.0.255 dev eth1
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
   
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    
+  
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
   </script>

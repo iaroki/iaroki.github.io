@@ -10,30 +10,17 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="iaroki">
 <meta name="description" content="After live cd is loaded you need to setup network connection. For ethernet follow the next steps:
-ip link set eth0 up #set interface up ip addr add 10.69.0.100/24 broadcast 10.69.0.255 dev eth0 #set ip address ip route add default via 10.69.0.1 #set gateway  Setting gateway in the example above may fail. If so, you can try next commands:
+ip link set eth0 up #set interface up ip addr add 10.69.0.100/24 broadcast 10.69.0.255 dev eth0 #set ip address ip route add default via 10.69.0.1 #set gateway Setting gateway in the example above may fail. If so, you can try next commands:
 ip route add 10.69.0.1 dev eth0 ip route add default via 10.">
 
 <meta property="og:title" content="Archlinux on LUKS" />
 <meta property="og:description" content="After live cd is loaded you need to setup network connection. For ethernet follow the next steps:
-ip link set eth0 up #set interface up ip addr add 10.69.0.100/24 broadcast 10.69.0.255 dev eth0 #set ip address ip route add default via 10.69.0.1 #set gateway  Setting gateway in the example above may fail. If so, you can try next commands:
+ip link set eth0 up #set interface up ip addr add 10.69.0.100/24 broadcast 10.69.0.255 dev eth0 #set ip address ip route add default via 10.69.0.1 #set gateway Setting gateway in the example above may fail. If so, you can try next commands:
 ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/archlinux-on-luks/" />
-
-
-
-<meta property="article:published_time" content="2017-03-16T12:20:55&#43;03:00"/>
-
-<meta property="article:modified_time" content="2017-03-16T12:20:55&#43;03:00"/>
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="https://iaroki.github.io/blog/archlinux-on-luks/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-03-16T12:20:55+03:00" />
+<meta property="article:modified_time" content="2017-03-16T12:20:55+03:00" />
 
 
 
@@ -51,7 +38,9 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  
 
 
 
@@ -61,11 +50,11 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2018-11-21%2015%3a01%3a50.635089506%20%2b0000%20UTC%20m%3d%2b0.472432890">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2018-11-21%2015%3a01%3a50.635089506%20%2b0000%20UTC%20m%3d%2b0.472432890">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2018-11-21%2015%3a01%3a50.635089506%20%2b0000%20UTC%20m%3d%2b0.472432890">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2021-11-28%2012%3a08%3a22.270245532%20%2b0000%20UTC%20m%3d%2b0.073125881">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2021-11-28%2012%3a08%3a22.270245532%20%2b0000%20UTC%20m%3d%2b0.073125881">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2021-11-28%2012%3a08%3a22.270245532%20%2b0000%20UTC%20m%3d%2b0.073125881">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2018-11-21%2015%3a01%3a50.635089506%20%2b0000%20UTC%20m%3d%2b0.472432890">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2021-11-28%2012%3a08%3a22.270245532%20%2b0000%20UTC%20m%3d%2b0.073125881">
     
 
 
@@ -76,6 +65,8 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
     href="https://iaroki.github.io/img/zen.ico"
 
 >
+
+
 
 
 
@@ -110,12 +101,16 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
             <nav>
                 <ul>
                     
+                        
                         <li class="nav-blog"><a href="https://iaroki.github.io/blog/"><span>Blog</span></a></li>
                     
+                        
                         <li class="nav-about"><a href="https://iaroki.github.io/about/"><span>About</span></a></li>
                     
+                        
                         <li class="nav-code"><a href="https://iaroki.github.io/code/"><span>Code</span></a></li>
                     
+                        
                         <li class="nav-links"><a href="https://iaroki.github.io/links/"><span>Links</span></a></li>
                     
                 </ul>
@@ -154,6 +149,8 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
         
 
         
+
+        
             <a href="//instagram.com/homelessstreetcat" target="_blank" rel="noopener"><img class="icon" src="https://iaroki.github.io/img/instagram.svg" alt="instagram" /></a>
         
 
@@ -167,6 +164,8 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
             <a href="mailto:iaroki@protonmail.com"><img class="icon" src="https://iaroki.github.io/img/email.svg" alt="email" /></a>
         
 
+        
+        
         
 
         
@@ -200,160 +199,95 @@ ip route add 10.69.0.1 dev eth0 ip route add default via 10." />
             <div class="markdown">
                 <p>After live cd is loaded you need to setup network connection.
 For ethernet follow the next steps:</p>
-
-<pre><code class="language-bash">ip link set eth0 up #set interface up
-ip addr add 10.69.0.100/24 broadcast 10.69.0.255 dev eth0 #set ip address
-ip route add default via 10.69.0.1 #set gateway
-</code></pre>
-
-<p>Setting gateway in the example above may fail. If so, you can try next commands:</p>
-
-<pre><code class="language-bash">ip route add 10.69.0.1 dev eth0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ip link <span class="nb">set</span> eth0 up <span class="c1">#set interface up</span>
+ip addr add 10.69.0.100/24 broadcast 10.69.0.255 dev eth0 <span class="c1">#set ip address</span>
+ip route add default via 10.69.0.1 <span class="c1">#set gateway</span>
+</code></pre></div><p>Setting gateway in the example above may fail. If so, you can try next commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ip route add 10.69.0.1 dev eth0
 ip route add default via 10.69.0.1 dev eth0
-</code></pre>
-
-<p>It is good to set right time now:</p>
-
-<pre><code class="language-bash">timedatectl set-ntp true
-</code></pre>
-
-<p>Next step is to prepare our filesystems. We will be using LVM on LUKS.
+</code></pre></div><p>It is good to set right time now:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">timedatectl set-ntp <span class="nb">true</span>
+</code></pre></div><p>Next step is to prepare our filesystems. We will be using LVM on LUKS.
 For <code>/boot</code> i am using partition on my USB flash drive <code>/dev/sdb1</code> formatted to <code>ext2</code>.
 Encrypted partition with LUKS is <code>/dev/sda1</code>, you may choose whatever you want.</p>
-
 <p>So lets create LUKS encrypted partition:</p>
-
-<pre><code class="language-bash">cryptsetup -v --cipher aes-xts-plain64 --key-size 512 --hash sha512 luksFormat /dev/sda1
-</code></pre>
-
-<p>You need to enter secure password in prompt, so choose wisely. Now open our partition:</p>
-
-<pre><code class="language-bash">cryptsetup luksOpen /dev/sda1 lvm
-</code></pre>
-
-<p>We opened encrypted partition <code>/dev/sda1</code> as <code>lvm</code> name and it is now available at <code>/dev/mapper/lvm</code>.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cryptsetup -v --cipher aes-xts-plain64 --key-size <span class="m">512</span> --hash sha512 luksFormat /dev/sda1
+</code></pre></div><p>You need to enter secure password in prompt, so choose wisely. Now open our partition:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cryptsetup luksOpen /dev/sda1 lvm
+</code></pre></div><p>We opened encrypted partition <code>/dev/sda1</code> as <code>lvm</code> name and it is now available at <code>/dev/mapper/lvm</code>.
 To create LVM follow the next steps:</p>
-
-<pre><code class="language-bash">pvcreate /dev/mapper/lvm #create physical volume
-vgcreate ArchVol /dev/mapper/lvm #create volume group named ArchVol
-lvcreate -L 4G ArchVol -n swap #in ArchVol create 4GB partition named swap
-lvcreate -l 100%FREE ArchVol -n root #in ArchVol create partition named root filled all remaining space
-</code></pre>
-
-<p>After this time to format our new logical partitions:
-* <em>root</em> available at <code>/dev/mapper/ArchVol-root</code>
-* <em>swap</em> available at <code>/dev/mapper/ArchVol-swap</code>
-* <em>boot</em> is my USB flash drive at <code>/dev/sdb1</code></p>
-
-<pre><code class="language-bash">mkfs.ext4 /dev/mapper/ArchVol-root
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pvcreate /dev/mapper/lvm <span class="c1">#create physical volume</span>
+vgcreate ArchVol /dev/mapper/lvm <span class="c1">#create volume group named ArchVol</span>
+lvcreate -L 4G ArchVol -n swap <span class="c1">#in ArchVol create 4GB partition named swap</span>
+lvcreate -l 100%FREE ArchVol -n root <span class="c1">#in ArchVol create partition named root filled all remaining space</span>
+</code></pre></div><p>After this time to format our new logical partitions:</p>
+<ul>
+<li><em>root</em> available at <code>/dev/mapper/ArchVol-root</code></li>
+<li><em>swap</em> available at <code>/dev/mapper/ArchVol-swap</code></li>
+<li><em>boot</em> is my USB flash drive at <code>/dev/sdb1</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkfs.ext4 /dev/mapper/ArchVol-root
 mkswap /dev/mapper/ArchVol-swap
 mkfs.ext2 /dev/sdb1
-</code></pre>
-
-<p>Mount aour filesystems and activate swap:</p>
-
-<pre><code class="language-bash">mount /dev/mapper/ArchVol-root /mnt
+</code></pre></div><p>Mount aour filesystems and activate swap:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mount /dev/mapper/ArchVol-root /mnt
 mkdir /mnt/boot
 mount /dev/sdb1 /mnt/boot
 swapon /dev/mapper/ArchVol-swap
-</code></pre>
-
-<p>Okay,  now <strong>exact</strong> Arch installation:</p>
-
-<pre><code class="language-bash">pacstrap /mnt base
-</code></pre>
-
-<p>This bootstraps base system. To generate our <code>/etc/fstab</code> accordingly to mountpoints:</p>
-
-<pre><code class="language-bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
-</code></pre>
-
-<p>Now lets chroot to our system:</p>
-
-<pre><code class="language-bash">arch-chroot /mnt
-</code></pre>
-
-<p>Inside we need to set proper timezone and time:</p>
-
-<pre><code class="language-bash">ln -s /usr/share/zoneinfo/Europe/London /etc/localtime
+</code></pre></div><p>Okay,  now <strong>exact</strong> Arch installation:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pacstrap /mnt base
+</code></pre></div><p>This bootstraps base system. To generate our <code>/etc/fstab</code> accordingly to mountpoints:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></div><p>Now lets chroot to our system:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">arch-chroot /mnt
+</code></pre></div><p>Inside we need to set proper timezone and time:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ln -s /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc
-</code></pre>
-
-<p>To setup locales just select and generate them:</p>
-
-<pre><code class="language-bash">nano /etc/locale.gen
+</code></pre></div><p>To setup locales just select and generate them:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nano /etc/locale.gen
 locale-gen
-/etc/locale.conf LANG=en_US.UTF-8
-</code></pre>
-
-<p>Fill the hostname:</p>
-
-<pre><code class="language-bash">nano /etc/hostname
+/etc/locale.conf <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+</code></pre></div><p>Fill the hostname:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nano /etc/hostname
 nano /etc/hosts
-</code></pre>
-
-<p>Arch Linux has many available ways to configure network. So i am using <code>systemd-networkd</code>.
+</code></pre></div><p>Arch Linux has many available ways to configure network. So i am using <code>systemd-networkd</code>.
 For wired ethernet connection create the next config <code>/etc/systemd/network/wired.network</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[Match]</span>
+<span class="na">Name</span> <span class="o">=</span> <span class="s">eth0</span>
 
-<pre><code class="language-ini">[Match]
-Name = eth0
-
-[Network]
-Address = 10.69.0.100/24
-Gateway = 10.69.0.1
-DNS = 8.8.8.8
-</code></pre>
-
-<p>We are almost done. The few things which are left is generating <code>initramfs image</code> and installing bootloader.
+<span class="k">[Network]</span>
+<span class="na">Address</span> <span class="o">=</span> <span class="s">10.69.0.100/24</span>
+<span class="na">Gateway</span> <span class="o">=</span> <span class="s">10.69.0.1</span>
+<span class="na">DNS</span> <span class="o">=</span> <span class="s">8.8.8.8</span>
+</code></pre></div><p>We are almost done. The few things which are left is generating <code>initramfs image</code> and installing bootloader.
 Our <code>initramfs image</code> must be configured with extra features such as <code>lvm</code> and <code>encrypt</code>.
 Edit configuration file <code>/etc/mkinitcpio.conf</code>:</p>
-
-<pre><code class="language-ini">HOOKS=&quot;...  encrypt  lvm2  ...  filesystems  ...&quot;
-MODULES=&quot;i915&quot;  #if you use intel graphics
-</code></pre>
-
-<p>Generate <code>initramfs</code>:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="na">HOOKS</span><span class="o">=</span><span class="s">&#34;...  encrypt  lvm2  ...  filesystems  ...&#34;</span>
+<span class="na">MODULES</span><span class="o">=</span><span class="s">&#34;i915&#34;  #if you use intel graphics</span>
+</code></pre></div><p>Generate <code>initramfs</code>:
 <code>mkinitcpio -p linux</code></p>
-
 <p>Set <code>root</code> password:
 <code>passwd root</code></p>
-
 <p>Install and configure bootloader:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pacman -S grub
+</code></pre></div><p>Next you need to add your encrypted partition UUID to <code>grub</code> config. You can get it by running next command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">blkid /dev/sda1
 
-<pre><code class="language-bash">pacman -S grub
-</code></pre>
-
-<p>Next you need to add your encrypted partition UUID to <code>grub</code> config. You can get it by running next command:</p>
-
-<pre><code class="language-bash">blkid /dev/sda1
-
-# example output
-/dev/sda1: UUID=&quot;cddd0a60-8281-4a09-8cce-1c5cb8849f62&quot; TYPE=&quot;crypto_LUKS&quot; PARTUUID=&quot;61979b00-998a-409d-aeb1-08e50f45023c&quot;
-</code></pre>
-
-<p>Note the <strong>UUID</strong> part. Add it to <code>/etc/default/grub</code>:</p>
-
-<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;cryptdevice=UUID=cddd0a60-8281-4a09-8cce-1c5cb8849f62:lvm&quot;
-</code></pre>
-
-<p>Install bootloader to MBR of our USB flash drive and generate config:</p>
-
-<pre><code class="language-bash">grub-install --target=i386-pc /dev/sdb1
+<span class="c1"># example output</span>
+/dev/sda1: <span class="nv">UUID</span><span class="o">=</span><span class="s2">&#34;cddd0a60-8281-4a09-8cce-1c5cb8849f62&#34;</span> <span class="nv">TYPE</span><span class="o">=</span><span class="s2">&#34;crypto_LUKS&#34;</span> <span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&#34;61979b00-998a-409d-aeb1-08e50f45023c&#34;</span>
+</code></pre></div><p>Note the <strong>UUID</strong> part. Add it to <code>/etc/default/grub</code>:</p>
+<pre tabindex="0"><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;cryptdevice=UUID=cddd0a60-8281-4a09-8cce-1c5cb8849f62:lvm&quot;
+</code></pre><p>Install bootloader to MBR of our USB flash drive and generate config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">grub-install --target<span class="o">=</span>i386-pc /dev/sdb1
 grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre>
-
-<p>At this point we have everything done. Time to unmount our partitions and reboot.</p>
-
-<pre><code class="language-bash">exit
+</code></pre></div><p>At this point we have everything done. Time to unmount our partitions and reboot.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">exit</span>
 umount /mnt/boot
 umount /mnt
 swapoff /dev/mapper/ArchVol-swap
 reboot
-</code></pre>
-
-<p>Congratulations! Enjoy your fresh Arch Linux system on encrypted partition and boot USB flash drive as a key!</p>
-
-<hr />
+</code></pre></div><p>Congratulations! Enjoy your fresh Arch Linux system on encrypted partition and boot USB flash drive as a key!</p>
+<hr>
 
                 <br>
                 
@@ -384,9 +318,10 @@ reboot
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
   
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    
+  
   <script type="text/javascript">
     hljs.initHighlightingOnLoad();
   </script>
