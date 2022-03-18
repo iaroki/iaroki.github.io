@@ -9,32 +9,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="iaroki">
-<meta name="description" content="Create container:
-[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome Install needed tools:
-[iaroki@fedora ~]$ lxc exec chrome bash root@chrome:~# adduser iaroki root@chrome:~# apt update root@chrome:~# apt install x11-apps mesa-utils alsa-utils Map UID and GID ramges:
-[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid /etc/subgid Set UID/GUID ranges for container:
-[iaroki@fedora ~]$ lxc config set chrome raw.idmap &quot;both $UID 1000&quot; [iaroki@fedora ~]$ lxc restart chrome Mount X11 socket and .Xauthority file:">
+<meta name="description" content="I have been using MacOS for some time now and tried different approaches for local development applications management. First solution that comes to mind is the Brew. Second solution was using nix with home-manager.
+Each application management approach has it&rsquo;s pros and cons but about this in another article.
+For now I want to note solution for specific Brew usecase.
+Currently I work with very limited internet connection and trying to implement some sort of remote development machine.">
 
-<meta property="og:title" content="Running GUI applications in LXD on Fedora 26" />
-<meta property="og:description" content="Create container:
-[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome Install needed tools:
-[iaroki@fedora ~]$ lxc exec chrome bash root@chrome:~# adduser iaroki root@chrome:~# apt update root@chrome:~# apt install x11-apps mesa-utils alsa-utils Map UID and GID ramges:
-[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid /etc/subgid Set UID/GUID ranges for container:
-[iaroki@fedora ~]$ lxc config set chrome raw.idmap &quot;both $UID 1000&quot; [iaroki@fedora ~]$ lxc restart chrome Mount X11 socket and .Xauthority file:" />
+<meta property="og:title" content="Brew install app without updating" />
+<meta property="og:description" content="I have been using MacOS for some time now and tried different approaches for local development applications management. First solution that comes to mind is the Brew. Second solution was using nix with home-manager.
+Each application management approach has it&rsquo;s pros and cons but about this in another article.
+For now I want to note solution for specific Brew usecase.
+Currently I work with very limited internet connection and trying to implement some sort of remote development machine." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://iaroki.github.io/blog/running-gui-applications-in-lxd-on-fedora-26/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2017-09-20T12:28:27+03:00" />
-<meta property="article:modified_time" content="2017-09-20T12:28:27+03:00" />
+<meta property="og:url" content="https://iaroki.github.io/blog/brew-install-app-without-updating/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-03-18T14:15:29+03:00" />
+<meta property="article:modified_time" content="2022-03-18T14:15:29+03:00" />
 
 
 
 <title>
 
 
-     Running GUI applications in LXD on Fedora 26 
+     Brew install app without updating 
 
 </title>
-<link rel="canonical" href="https://iaroki.github.io/blog/running-gui-applications-in-lxd-on-fedora-26/">
+<link rel="canonical" href="https://iaroki.github.io/blog/brew-install-app-without-updating/">
 
 
 
@@ -54,11 +52,11 @@
 
 
     
-    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2022-03-18%2012%3a41%3a48.024765297%20%2b0000%20UTC%20m%3d%2b0.167546717">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2022-03-18%2012%3a41%3a48.024765297%20%2b0000%20UTC%20m%3d%2b0.167546717">
-    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2022-03-18%2012%3a41%3a48.024765297%20%2b0000%20UTC%20m%3d%2b0.167546717">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/reset.css?t=2022-03-18%2012%3a41%3a48.007778416%20%2b0000%20UTC%20m%3d%2b0.150559876">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/pygments.css?t=2022-03-18%2012%3a41%3a48.007778416%20%2b0000%20UTC%20m%3d%2b0.150559876">
+    <link rel="stylesheet" href="https://iaroki.github.io/css/main.css?t=2022-03-18%2012%3a41%3a48.007778416%20%2b0000%20UTC%20m%3d%2b0.150559876">
     
-        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2022-03-18%2012%3a41%3a48.024765297%20%2b0000%20UTC%20m%3d%2b0.167546717">
+        <link rel="stylesheet" href="https://iaroki.github.io/css/override.css?t=2022-03-18%2012%3a41%3a48.007778416%20%2b0000%20UTC%20m%3d%2b0.150559876">
     
 
 
@@ -185,7 +183,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    Running GUI applications in LXD on Fedora 26
+    Brew install app without updating
 
 </div>
 
@@ -193,56 +191,47 @@
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Wed Sep 20 2017 12:28:27 &#43;0300'>Sep 20, 2017</div>
+                    <div class="date" title='Fri Mar 18 2022 14:15:29 &#43;0300'>Mar 18, 2022</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
                     
                 </div>
             </div>
             <div class="markdown">
-                <p>Create container:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc launch images:debian/stretch chrome
-</code></pre><p>Install needed tools:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc exec chrome bash
-root@chrome:~# adduser iaroki
-root@chrome:~# apt update
-root@chrome:~# apt install x11-apps mesa-utils alsa-utils
-</code></pre><p>Map UID and GID ramges:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ echo &quot;root:1000:1&quot; | sudo tee -a /etc/subuid /etc/subgid
-</code></pre><p>Set UID/GUID ranges for container:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc config set chrome raw.idmap &quot;both $UID 1000&quot;
-[iaroki@fedora ~]$ lxc restart chrome
-</code></pre><p>Mount X11 socket and .Xauthority file:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc config device add chrome X0 disk path=/tmp/.X11-unix/X0 source=/tmp/.X11-unix/X0
-[iaroki@fedora ~]$ lxc config device add chrome Xauthority disk path=/home/iaroki/.Xauthority source=${XAUTHORITY}
-</code></pre><p>Passthrough GPU device:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc config device add chrome GPU gpu
-[iaroki@fedora ~]$ lxc config device set GPU uid 1000
-[iaroki@fedora ~]$ lxc config device set GPU gid 1000
-</code></pre><p>Check results with:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc exec chrome -- sudo --login --user iaroki
-iaroki@chrome:~$ export DISPLAY=:0
-iaroki@chrome:~$ echo &quot;export DISPLAY=:0&quot; &gt;&gt; ~/.profile
-iaroki@chrome:~$ glxgears
-</code></pre><p>Now we can install and run chromium browser inside:</p>
-<pre tabindex="0"><code>[iaroki@fedora ~]$ lxc exec chrome -- sudo --login --user iaroki
-iaroki@chrome:~$ sudo apt install chromium
-iaroki@chrome:~$ chromium
-</code></pre><hr>
+                <p>I have been using MacOS for some time now and tried different approaches for local development applications management.
+First solution that comes to mind is the Brew.
+Second solution was using nix with home-manager.</p>
+<p>Each application management approach has it&rsquo;s pros and cons but about this in another article.</p>
+<p>For now I want to note solution for specific Brew usecase.</p>
+<p>Currently I work with very limited internet connection and trying to implement some sort of remote development machine.
+This should work pretty well but I still need to install locally some apps or dependencies which currently managed by Brew.</p>
+<p>One of the things about Brew that drives me crazy is whenever I want to install some packadge I expirience few minutes of Brew updating.
+And this becomes even worse with very clow internet connection in my case.</p>
+<p>All I want is to install some app, not update everything that managed by Brew. And there is such option not explicitly mentioned anywhere.</p>
+<p>You cat setup environmental variable <code>HOMEBREW_NO_AUTO_UPDATE=1</code> to disable Brew updating before installing something.</p>
+<p>I found this option extremely useful in situations like mine with very limited internet connection.</p>
+<p>There is global setting for your shell <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<pre tabindex="0"><code>### Bash ###
+$ vim ~/.bashrc
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+### Zsh ###
+$ vim ~/.zshrc
+export HOMEBREW_NO_AUTO_UPDATE=1
+</code></pre><p>Or one time execution command:</p>
+<pre tabindex="0"><code>HOMEBREW_NO_AUTO_UPDATE=1 brew install &lt;app&gt;
+</code></pre><p>Now you can install any Brew formulas without updating everything</p>
+<hr>
 
                 <br>
                 
                   <div class="tags">
                     <strong>Tags:</strong>
                   
-                    <a href="https://iaroki.github.io/tags/linux">linux</a>
+                    <a href="https://iaroki.github.io/tags/macos">macos</a>
                   
-                    <a href="https://iaroki.github.io/tags/fedora">fedora</a>
-                  
-                    <a href="https://iaroki.github.io/tags/lxd">lxd</a>
-                  
-                    <a href="https://iaroki.github.io/tags/containers">containers</a>
+                    <a href="https://iaroki.github.io/tags/brew">brew</a>
                   
                   </div>
                   <br />

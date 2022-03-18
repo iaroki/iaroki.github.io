@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://iaroki.github.io/blog/</loc>
-    <lastmod>2018-11-21T14:57:10+00:00</lastmod>
+    <lastmod>2022-03-18T14:15:29+03:00</lastmod>
+  </url><url>
+    <loc>https://iaroki.github.io/tags/brew/</loc>
+    <lastmod>2022-03-18T14:15:29+03:00</lastmod>
+  </url><url>
+    <loc>https://iaroki.github.io/blog/brew-install-app-without-updating/</loc>
+    <lastmod>2022-03-18T14:15:29+03:00</lastmod>
   </url><url>
     <loc>https://iaroki.github.io/</loc>
-    <lastmod>2018-11-21T14:57:10+00:00</lastmod>
+    <lastmod>2022-03-18T14:15:29+03:00</lastmod>
+  </url><url>
+    <loc>https://iaroki.github.io/tags/macos/</loc>
+    <lastmod>2022-03-18T14:15:29+03:00</lastmod>
+  </url><url>
+    <loc>https://iaroki.github.io/tags/</loc>
+    <lastmod>2022-03-18T14:15:29+03:00</lastmod>
   </url><url>
     <loc>https://iaroki.github.io/blog/running-docker-containers-with-systemd/</loc>
     <lastmod>2018-11-21T14:57:10+00:00</lastmod>
@@ -24,9 +36,6 @@
     <lastmod>2018-10-30T12:01:52+00:00</lastmod>
   </url><url>
     <loc>https://iaroki.github.io/tags/linux/</loc>
-    <lastmod>2018-10-30T12:01:52+00:00</lastmod>
-  </url><url>
-    <loc>https://iaroki.github.io/tags/</loc>
     <lastmod>2018-10-30T12:01:52+00:00</lastmod>
   </url><url>
     <loc>https://iaroki.github.io/tags/containers/</loc>

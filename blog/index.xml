@@ -6,7 +6,19 @@
     <description>Recent content in Blog on iaroki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 21 Nov 2018 14:57:10 +0000</lastBuildDate><atom:link href="https://iaroki.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 14:15:29 +0300</lastBuildDate><atom:link href="https://iaroki.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brew install app without updating</title>
+      <link>https://iaroki.github.io/blog/brew-install-app-without-updating/</link>
+      <pubDate>Fri, 18 Mar 2022 14:15:29 +0300</pubDate>
+      
+      <guid>https://iaroki.github.io/blog/brew-install-app-without-updating/</guid>
+      <description>I have been using MacOS for some time now and tried different approaches for local development applications management. First solution that comes to mind is the Brew. Second solution was using nix with home-manager.
+Each application management approach has it&amp;rsquo;s pros and cons but about this in another article.
+For now I want to note solution for specific Brew usecase.
+Currently I work with very limited internet connection and trying to implement some sort of remote development machine.</description>
+    </item>
+    
     <item>
       <title>Running Docker containers with systemd</title>
       <link>https://iaroki.github.io/blog/running-docker-containers-with-systemd/</link>
