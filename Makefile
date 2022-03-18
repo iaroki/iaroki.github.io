@@ -1,4 +1,5 @@
-HUGO_VERSION=0.89.4
+HUGO_VERSION = "0.89.4"
+TIMESTAMP = $(shell date)
 
 default: all
 
@@ -22,7 +23,7 @@ update:
 
 publish:
 	git add .
-	git commit -m "rebuild `date`"
+	git commit -m "rebuild $(TIMESTAMP)"
 	git push
 
 all: clean generate update publish
