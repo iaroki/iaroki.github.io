@@ -20,4 +20,9 @@ serve:
 update:
 	mv -v source/public/* .
 
-all: clean generate update
+publish:
+	git add .
+	git commit -m "rebuild `date`"
+	git push
+
+all: clean generate update publish
